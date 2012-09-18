@@ -1,0 +1,2 @@
+Main-Class: lemontree.modulenetwork.RunCli
+Class-Path: lib/colt.jar lib/cytoscape.jar lib/BiNGO.jar lib/cytoscape-task.jar lib/giny.jar lib/freehep-graphicsio.jar lib/BiNGO.jar lib/commons-cli-1.1.jar lib/epsgraphics-1.0.0.jar  lib/xom-1.0a5.jar

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/BiNGO.jar"/>
+	<classpathentry kind="lib" path="lib/colt.jar"/>
+	<classpathentry kind="lib" path="lib/commons-cli-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/cytoscape-task.jar"/>
+	<classpathentry kind="lib" path="lib/cytoscape.jar"/>
+	<classpathentry kind="lib" path="lib/epsgraphics-1.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/freehep-graphicsio.jar"/>
+	<classpathentry kind="lib" path="lib/giny.jar"/>
+	<classpathentry kind="lib" path="lib/xercesImpl.jar"/>
+	<classpathentry kind="lib" path="lib/xom-1.0a5.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
