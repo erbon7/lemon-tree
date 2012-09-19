@@ -13,7 +13,7 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.util.*;
 
-import de.unifreiburg.frias.omics.pfclustering.*;
+import lemontree.pfclustering.*;
 
 public class CentroidClustering {
 
