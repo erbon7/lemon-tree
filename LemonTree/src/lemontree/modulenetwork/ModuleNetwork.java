@@ -553,7 +553,7 @@ public class ModuleNetwork {
 	 */
 	public void readClusters(String clusterFile) {
 		
-		System.out.print("Reading cluster file "+clusterFile);
+		System.out.println("Reading cluster file "+clusterFile);
 		// read all lines in a list
 		ArrayList<String> allLines = new ArrayList<String>();
 		try {
@@ -574,14 +574,15 @@ public class ModuleNetwork {
 		}
 		
 		// determine the number of clusters from the IDs
-		HashSet<String> clusterIDs = new HashSet<String>();
+		int ctr, numCluster=0;
 		for (String l : allLines) {
 			// split on either tab or spaces
 			String[] tk = l.split("\\s+|\\t");
-			clusterIDs.add(tk[1]);
+			ctr = Integer.parseInt(tk[1])+1;
+			if (ctr>numCluster)
+				numCluster = ctr;
 		}
-		int numCluster = clusterIDs.size();
-		
+
 		// create moduleSet objects and assign genes to modules
 		int assigned=0;
 		int notassigned=0;
@@ -593,7 +594,7 @@ public class ModuleNetwork {
 			this.moduleMap.put(i, mo);
 		}
 		moduleSets.add(moduleSet);
-
+		
 		// create hashmap to find genes in geneSet by their name
 		geneMap = new HashMap<String, Gene>();
 		for (Gene gene : this.geneSet)
