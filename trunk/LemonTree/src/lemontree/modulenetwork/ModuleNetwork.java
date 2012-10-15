@@ -496,6 +496,8 @@ public class ModuleNetwork {
 						for (int j = 1; j < val.length; j++) {
 							try {
 								this.data[i][j - 1] = new Double(val[j].trim()).doubleValue();
+								if (Double.isNaN(data[i][j-1]))
+									numMissing++;
 							} catch (NumberFormatException e) {
 								data[i][j - 1] = Double.NaN;
 								numMissing++;
@@ -508,6 +510,8 @@ public class ModuleNetwork {
 					for (int j = 1; j < val.length; j++) {
 						try {
 							this.data[i][j - 1] = new Double(val[j].trim()).doubleValue();
+							if (Double.isNaN(data[i][j-1]))
+								numMissing++;
 						} catch (NumberFormatException e) {
 							data[i][j - 1] = Double.NaN;
 							numMissing++;
