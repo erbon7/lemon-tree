@@ -75,12 +75,12 @@ Parameters:
   * output_file: output file name.
 
 Optional parameters:
-  *init_num_clust: initial number of clusters (deafult is half the number of genes).
-  *lambda: lambda parameter (default 0.1).
-  *mu: mu parameter (default 0.0).
-  *alpha: alpha parameter (default 0.1).
-  *beta: beta parameter (default 0.1).
-  *burn_in: burn in steps for the gibbs sampler (default 50).
-  *num_steps: Total number of steps for the Gibbs sampler (default 100).
-  *sample_steps: steps for sampling (default 100).
-  *score_gain: cutoff score for hierarchical trees (default 0.0).
+  * init_num_clust: initial number of clusters (deafult is half the number of genes).
+  * lambda: lambda parameter (default 0.1).
+  * mu: mu parameter (default 0.0).
+  * alpha: alpha parameter (default 0.1).
+  * beta: beta parameter (default 0.1).
+  * burn_in: burn in steps for the gibbs sampler (default 50).
+  * num_steps: Total number of steps for the Gibbs sampler (default 100).
+  * sample_steps: steps for sampling (default 100).
+  * score_gain: cutoff score for hierarchical trees (default 0.0).
