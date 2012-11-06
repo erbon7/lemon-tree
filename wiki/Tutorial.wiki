@@ -36,14 +36,8 @@ Let's take an example. Say the archive was unpacked in /home/jdoe/progs/. You ca
 java -jar /home/jdoe/progs/lemone.jar
 }}}
 
-You can pass memory size parameters to the java virtual machine, it might help if you have a large dataset:
+You can pass memory size parameters to the java virtual machine, it might help if you have a large dataset. For example, this command is allocating 10 Gigabytes of memory (max.) for the program:
 
-\begin{verbatim}
-java -Xmx1000m -jar /home/jdoe/progs/lemone.jar 
-\end{verbatim}
-
- or (very large dataset)
-
-\begin{verbatim}
+{{{
 java -Xmx10g -jar /home/jdoe/progs/lemone.jar 
-\end{verbatim}
+}}}
