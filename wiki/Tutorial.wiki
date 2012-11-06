@@ -17,4 +17,10 @@ The software is using the following Java libraries, provided with the package:
   * Apache CLI library to parse command line arguments ([http://commons.apache.org/cli/ web]).
   * Some Java code from the BiNGO software to calculate GO enrichment ([http://www.psb.ugent.be/cbd/papers/BiNGO/ web]).
 
+Coding crew:
+  * Tom Michoel
+  * Eric Bonnet
+  * Anagha Joshi
+  * Steven Maere
+
 = Installation =
