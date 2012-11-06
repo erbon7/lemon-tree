@@ -1,4 +1,4 @@
-#Detailed tutorial for the LemonTree software.
+#summary Detailed tutorial for the LemonTree software.
 
 = Copyright and License =
 
