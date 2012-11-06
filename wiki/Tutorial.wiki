@@ -70,9 +70,9 @@ java -jar lemontree_v3.0.jar -task ganesh -data_file data/expr_matrix.txt -outpu
 }}}
 
 Parameters:
-  *data_dir: data directory where the input files are stored.
-  *data_file: expression data matrix. 
-  *output_file: output file name.
+  * data_dir: data directory where the input files are stored.
+  * data_file: expression data matrix. 
+  * output_file: output file name.
 
 Optional parameters:
   *init_num_clust: initial number of clusters (deafult is half the number of genes).
@@ -82,5 +82,5 @@ Optional parameters:
   *beta: beta parameter (default 0.1).
   *burn_in: burn in steps for the gibbs sampler (default 50).
   *num_steps: Total number of steps for the Gibbs sampler (default 100).
-  *sample\_steps: steps for sampling (default 100).
-  *score\_gain: cutoff score for hierarchical trees (default 0.0).
+  *sample_steps: steps for sampling (default 100).
+  *score_gain: cutoff score for hierarchical trees (default 0.0).
