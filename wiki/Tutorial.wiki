@@ -1,4 +1,4 @@
-#Practical use of LemonTree, with detailed examples.
+#Detailed tutorial for the LemonTree software.
 
 = Copyright and License =
 
