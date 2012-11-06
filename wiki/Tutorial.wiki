@@ -1,13 +1,13 @@
-#summary One-sentence summary of this page.
+#Practical use of LemonTree, with detailed examples..
 
-= Introduction =
-
-Add your content here.
+= Copyright and License =
 
 Copyright (c) 2012 Eric Bonnet, Tom Michoel. 
 
 LemonTree is free software, released under the terms of the GNU general
-Public License (GPL) v2 ([http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt link]).
+Public License (GPL) v2 ([http://www.gnu.org/licenses/old-licenses/gpl-2.0.html link]).
+
+
 
 = Details =
 
