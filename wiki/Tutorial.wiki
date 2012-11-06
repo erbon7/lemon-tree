@@ -10,10 +10,4 @@ Public License (GPL) v2 ([http://www.gnu.org/licenses/old-licenses/gpl-2.0.html 
 LemonTree is free of charge for the academic world and non-profit organizations.  For any commercial usage of this software, please contact us.
 
 
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+= Installation =
