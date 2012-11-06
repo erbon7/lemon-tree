@@ -15,7 +15,7 @@ The software is using the following Java libraries, provided with the package:
   * XOM library for xml parsing ([http://xom.nu web]).
   * Epsgraphics library to create figures ([http://sourceforge.net/projects/epsgraphics/ web]).
   * Apache CLI library to parse command line arguments ([http://commons.apache.org/cli/ web]).
-  * Some Java code from the BiNGO software to calculate GO enrichment ([http://www.psb.ugent.be/cbd/papers/BiNGO/ web]).
+  * The BiNGO Java library to calculate GO enrichment ([http://www.psb.ugent.be/cbd/papers/BiNGO/ web]).
 
 Coding crew:
   * Tom Michoel
@@ -24,3 +24,26 @@ Coding crew:
   * Steven Maere
 
 = Installation =
+
+
+You will need the java version 1.6 installed on your system. The current
+version of LeMoNe is a command-line program. There's no graphical user
+interface. All you have to do is to unzip the package in a given directory, and you're basically done.
+
+Let's take an example. Say the archive was unpacked in /home/jdoe/progs/. You can call the program by the command:
+
+{{{
+java -jar /home/jdoe/progs/lemone.jar
+}}}
+
+You can pass memory size parameters to the java virtual machine, it might help if you have a large dataset:
+
+\begin{verbatim}
+java -Xmx1000m -jar /home/jdoe/progs/lemone.jar 
+\end{verbatim}
+
+ or (very large dataset)
+
+\begin{verbatim}
+java -Xmx10g -jar /home/jdoe/progs/lemone.jar 
+\end{verbatim}
