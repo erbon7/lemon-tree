@@ -1,0 +1,17 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+Add your content here.
+
+Copyright (c) 2012 Tom Michoel, Eric Bonnet 
+
+LemonTree is free software, released under the terms of the GNU general
+Public License (GPL) v2 ([link http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt]).
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
