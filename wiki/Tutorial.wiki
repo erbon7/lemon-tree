@@ -11,7 +11,10 @@ LemonTree is free of charge for the academic world and non-profit organizations.
 
 The software is using the following Java libraries, provided with the package:
 
-  * Colt library for high performance computing [http://acs.lbl.gov/~hoschek/colt/license.html web].
-  * XOM library for xml parsing [http://xom.nu web].
+  * Colt library for high performance computing ([http://acs.lbl.gov/~hoschek/colt/license.html web]).
+  * XOM library for xml parsing ([http://xom.nu web]).
+  * Epsgraphics library to create figures ([http://sourceforge.net/projects/epsgraphics/ web]).
+  * Apache CLI library to parse command line arguments ([http://commons.apache.org/cli/ web]).
+  * Some Java code from the BiNGO software to calculate GO enrichment ([http://www.psb.ugent.be/cbd/papers/BiNGO/ web]).
 
 = Installation =
