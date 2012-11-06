@@ -88,3 +88,5 @@ java -jar lemontree_v3.0.jar -task tight_clusters -data_file data/expr_matrix.tx
 }}}
 
 The "cluster_file" is a simple text file, listing the location of all the individual cluster files generated at the "ganesh" step.
+
+By default, this option is keeping only clusters that have a minimum of 10 genes. This number can be easily changed by overriding the parameter "min_clust_size" with another value on the command line for this task.
