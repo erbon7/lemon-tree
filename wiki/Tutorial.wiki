@@ -59,12 +59,28 @@ designated as "tasks". There are three fundamental tasks:
 
 = Tutorial =
 
-In this guided example, we will infer a module network from cancer related data. The data was taken from the TCGA project ([http://cancergenome.nih.gov/ The Cancer Genome Atlas]). More specifically, we will use expression data for mRNA and microRNA from Glioblastoma samples. 
-
+In this guided example, we will infer a module network from cancer related data. The data was taken from the TCGA project ([http://cancergenome.nih.gov/ The Cancer Genome Atlas]). More specifically, we will use expression data for mRNA and microRNA from Glioblastoma samples. Please note that we have created very small datasets to keep the computational time short. Thus, the results do not aim to be representative. Note also that if you repeat the procedure, you might get slightly different results due to the small size of the examples and to stochastic fluctuations.
 
 
 == Ganesh task ==
+Functions: cluster genes from a matrix (rows) using a Gibbs sampling procedure.
 
 {{{
 java -jar lemontree_v3.0.jar -task ganesh -data_file data/expr_matrix.txt -output_file cluster1.txt
 }}}
+
+Parameters:
+  *data_dir: data directory where the input files are stored.
+  *data_file: expression data matrix. 
+  *output_file: output file name.
+
+Optional parameters:
+  *init_num_clust: initial number of clusters (deafult is half the number of genes).
+  *lambda: lambda parameter (default 0.1).
+  *mu: mu parameter (default 0.0).
+  *alpha: alpha parameter (default 0.1).
+  *beta: beta parameter (default 0.1).
+  *burn_in: burn in steps for the gibbs sampler (default 50).
+  *num_steps: Total number of steps for the Gibbs sampler (default 100).
+  *sample\_steps: steps for sampling (default 100).
+  *score\_gain: cutoff score for hierarchical trees (default 0.0).
