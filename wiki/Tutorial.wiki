@@ -9,5 +9,8 @@ Public License (GPL) v2 ([http://www.gnu.org/licenses/old-licenses/gpl-2.0.html 
 
 LemonTree is free of charge for the academic world and non-profit organizations.  For any commercial usage of this software, please contact us.
 
+The software is using the following Java libraries, provided with the package:
+* Colt library [http://acs.lbl.gov/~hoschek/colt/license.html web].
+* 
 
 = Installation =
