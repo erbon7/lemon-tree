@@ -11,7 +11,7 @@ LemonTree is free of charge for the academic world and non-profit organizations.
 
 The software is using the following Java libraries, provided with the package:
 
-  * Colt library [http://acs.lbl.gov/~hoschek/colt/license.html web].
-  * 
+  * Colt library for high performance computing [http://acs.lbl.gov/~hoschek/colt/license.html web].
+  * XOM library for xml parsing [http://xom.nu web].
 
 = Installation =
