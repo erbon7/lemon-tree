@@ -23,12 +23,12 @@ Coding crew:
   * Anagha Joshi
   * Steven Maere
 
+Requirements:
+  * Java version 1.6 or higher installed.
+
 = Installation =
 
-
-You will need the java version 1.6 installed on your system. The current
-version of LeMoNe is a command-line program. There's no graphical user
-interface. All you have to do is to unzip the package in a given directory, and you're basically done.
+The LemonTree software is a command line program, there is no graphical user interface (at this stage). The package is a zipped archive that you have to unzip in the directory of your choice.
 
 Let's take an example. Say the archive was unpacked in /home/jdoe/progs/. You can call the program by the command:
 
@@ -40,4 +40,10 @@ You can pass memory size parameters to the java virtual machine, it might help i
 
 {{{
 java -Xmx10g -jar /home/jdoe/progs/lemone.jar 
+}}}
+
+An alternative to launch the program is to set the CLASSPATH environmental variable to include the path to the LemonTree jar file and also to all the Java libraries (located in the "lib/" directory of the package). Then you can launch the program with the command:
+
+{{{
+java lemontree.modulenetwork.RunCli
 }}}
