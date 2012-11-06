@@ -71,24 +71,17 @@ Functions: cluster genes from a matrix (rows) using a Gibbs sampling procedure.
 
 The first step (clustering) is done on the mRNA expression data only.
 We did a selection of genes having non-flat profiles, keeping genes having a standard deviation above a certain value (determined by looking at the histogram). We usually use 0.5 as the cutoff
-score, but this might depend on the dataset. In this example, we have an input matrix of 100 genes and 50 samples. The data is centered and scaled (by row) to have a mean of 0 and a standard deviation of 1. we can generate a cluster solution with the command:
+score, but this might depend on the dataset. In this example, we have an input matrix of 500 genes and 50 samples. The data is centered and scaled (by row) to have a mean of 0 and a standard deviation of 1. we can generate a cluster solution with the command:
 
 {{{
-java -jar lemontree_v3.0.jar -task ganesh -data_file data/expr_matrix.txt -output_file cluster1.txt
+java -jar lemontree_v3.0.jar -task ganesh -data_file data/expr_matrix.txt -output_file cluster1
 }}}
 
-Parameters:
-  * data_dir: data directory where the input files are stored.
-  * data_file: expression data matrix. 
-  * output_file: output file name.
+This step will be repeated multiple times, using the same command, only
+changing the name of the output file. Here we have generated 5 runs, prefixed  cluster1, 2, 3, 4, 5. The files are in the "results" directory.
 
-Optional parameters:
-  * init_num_clust: initial number of clusters (deafult is half the number of genes).
-  * lambda: lambda parameter (default 0.1).
-  * mu: mu parameter (default 0.0).
-  * alpha: alpha parameter (default 0.1).
-  * beta: beta parameter (default 0.1).
-  * burn_in: burn in steps for the gibbs sampler (default 50).
-  * num_steps: Total number of steps for the Gibbs sampler (default 100).
-  * sample_steps: steps for sampling (default 100).
-  * score_gain: cutoff score for hierarchical trees (default 0.0).
+== tight clusters task ==
+
+{{{
+java -jar lemontree_v3.0.jar -task tight_clusters -data_file data/expr_matrix.txt -cluster_file cluster_file_list -output_file tight_clusters.txt
+}}}
