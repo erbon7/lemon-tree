@@ -59,11 +59,19 @@ designated as "tasks". There are three fundamental tasks:
 
 = Tutorial =
 
-In this guided example, we will infer a module network from cancer related data. The data was taken from the TCGA project ([http://cancergenome.nih.gov/ The Cancer Genome Atlas]). More specifically, we will use expression data for mRNA and microRNA from Glioblastoma samples. Please note that we have created very small datasets to keep the computational time short. Thus, the results do not aim to be representative. Note also that if you repeat the procedure, you might get slightly different results due to the small size of the examples and to stochastic fluctuations.
+In this guided example, we will infer a module network from cancer related data. The data was taken from the TCGA project ([http://cancergenome.nih.gov/ The Cancer Genome Atlas]). More specifically, we will use expression data for mRNA and microRNA from Glioblastoma samples. 
+
+Please note that we have created very small datasets to keep the computational time short. Thus, the results do not aim to be representative. Note also that if you repeat the procedure, you might get slightly different results due to the small size of the examples and to stochastic fluctuations.
 
 
 == Ganesh task ==
+
+
 Functions: cluster genes from a matrix (rows) using a Gibbs sampling procedure.
+
+The first step (clustering) is done on the mRNA expression data only.
+We did a selection of genes having non-flat profiles, keeping genes having a standard deviation above a certain value (determined by looking at the histogram). We usually use 0.5 as the cutoff
+score, but this might depend on the dataset. In this example, we have an input matrix of 100 genes and 50 samples. The data is centered and scaled (by row) to have a mean of 0 and a standard deviation of 1. we can generate a cluster solution with the command:
 
 {{{
 java -jar lemontree_v3.0.jar -task ganesh -data_file data/expr_matrix.txt -output_file cluster1.txt
