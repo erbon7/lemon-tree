@@ -4,10 +4,10 @@
 
 Add your content here.
 
-Copyright (c) 2012 Tom Michoel, Eric Bonnet 
+Copyright (c) 2012 Eric Bonnet, Tom Michoel. 
 
 LemonTree is free software, released under the terms of the GNU general
-Public License (GPL) v2 ([link http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt]).
+Public License (GPL) v2 ([http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt link]).
 
 = Details =
 
