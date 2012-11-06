@@ -51,4 +51,8 @@ java lemontree.modulenetwork.RunCli
 = Synopsis =
 
 The purpose of the LemonTree software package is to create a module network from expression data. The end result is a set of gene clusters (co-expressed genes), and their associated "regulators".  To achieve this goal, you'll have to follow the LemonTree recipe, which consists of different steps that have to be performed. For each step, you'll have to use one or more specific part of the software, which are
-designated as "tasks". 
+designated as "tasks". There are three fundamental tasks:
+
+  * Generate several cluster solutions ("ganesh" task).
+  * Merge the different cluster solutions using the fuzzy clustering.
+  * Assign regulators to each cluster, producing the module network ("regulators" task).
