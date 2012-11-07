@@ -97,4 +97,10 @@ In this task, we are going to assign sets of "regulators" to each of the modules
 
 The candidate regulators are divided in two different types, depending on the nature of their profiles: continuous or discrete. The first type can be for example transcription factors selected from the expression matrix, or microRNA for which we have expression profiles. The latter can be for example clinical parameters (such as the grade of a disease, represented by some discrete values). In all cases, we must have profiles that match the samples of the tight clusters defined previously (missing values are allowed).
 
+For this tutorial, we have selected a set of 85 candidate regulators from the mRNA expression matrix, based on their GO annotation (corresponding to either transcription factors, signal transducers or kinase activity). We have also selected a set of 100 microRNAs, for which we have expression profiles measured by dedicated microarrays. Both datasets correspond to continuous types of data. We will assign regulators separately for the two types.
+
+{{{
+java -jar lemontree_v3.0.jar -task regulators -data_file data/expr_matrix.txt -reg_file data/reg_list.txt -cluster_file tight_clusters.txt -output_file reg_tf
+
+}}}
  
