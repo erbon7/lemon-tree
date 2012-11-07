@@ -80,7 +80,7 @@ java -jar lemontree_v3.0.jar -task ganesh -data_file data/expr_matrix.txt -outpu
 This step will be repeated multiple times, using the same command, only
 changing the name of the output file. Here we have generated 5 runs, prefixed  cluster1, 2, 3, 4, 5. The files are in the "results" directory.
 
-== tight clusters task ==
+== Tight clusters task ==
 Here, we are going to generate a single, robust clustering solution from all the individual solutions generated at the previous step.
 
 {{{
@@ -101,6 +101,13 @@ For this tutorial, we have selected a set of 85 candidate regulators from the mR
 
 {{{
 java -jar lemontree_v3.0.jar -task regulators -data_file data/expr_matrix.txt -reg_file data/reg_list.txt -cluster_file tight_clusters.txt -output_file reg_tf
-
 }}}
- 
+
+The "reg_file" option is a simple text list of candidate regulators that are present in the expression matrix. If the regulators are discrete, it is mandatory to add a second column in the text file, describing the type of the regulator ("c" for continuous or "d" for discrete).
+
+Note that this command will create four different output files, using the "output_file" parameter as the prefix for all the files.
+
+  * reg_tf.topreg.txt: Top 1% regulators assigned to the modules.
+  * reg_tf.allreg.txt:  All the regulators assigned.
+  * reg_tf.randomreg.txt: Regulators assigned randomly to the modules.
+  * reg_tf.xml.gz: xml file containing all the regulatory trees used for assigning the regulators.
