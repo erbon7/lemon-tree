@@ -111,3 +111,12 @@ Note that this command will create four different output files, using the "outpu
   * reg_tf.allreg.txt:  All the regulators assigned.
   * reg_tf.randomreg.txt: Regulators assigned randomly to the modules.
   * reg_tf.xml.gz: xml file containing all the regulatory trees used for assigning the regulators.
+
+Now, let's assign the microRNAs as regulators of the modules.
+
+{{{
+java -jar lemontree_v3.0.jar -task regulators -data_file data/all.txt -reg_file data/mir_reg_list.txt -cluster_file tight_clusters.txt -output_file results/reg_mir
+}}}
+
+Note that the data file "all.txt" contains both the expression profiles for mRNAs and microRNAs.
+
