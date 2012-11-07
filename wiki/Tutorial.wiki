@@ -90,3 +90,11 @@ java -jar lemontree_v3.0.jar -task tight_clusters -data_file data/expr_matrix.tx
 The "cluster_file" is a simple text file, listing the location of all the individual cluster files generated at the "ganesh" step.
 
 By default, this option is keeping only clusters that have a minimum of 10 genes. This number can be easily changed by overriding the parameter "min_clust_size" with another value on the command line for this task.
+
+== Regulators task == 
+
+In this task, we are going to assign sets of "regulators" to each of the modules using a probabilistic scoring, taking into account the profile of the candidate regulator. 
+
+The candidate regulators are divided in two different types, depending on the nature of their profiles: continuous or discrete. The first type can be for example transcription factors selected from the expression matrix, or microRNA for which we have expression profiles. The latter can be for example clinical parameters (such as the grade of a disease, represented by some discrete values). In all cases, we must have profiles that match the samples of the tight clusters defined previously (missing values are allowed).
+
+ 
