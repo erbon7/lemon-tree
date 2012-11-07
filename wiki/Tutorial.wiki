@@ -124,6 +124,7 @@ Note that the data file "all.txt" contains both the expression profiles for mRNA
 
 == Figures task ==
 
+This task is creating one figure per module. The figure represent the expression values color-coded with a gradient ranging from dark blue (low expression values) to bright yellow (high expression values). All the module genes are in the lower panel while the top regulators for the different classes or types of regulators (if any) are displayed in the upper panel. A regulation trees is represented on top of the figure, with the different split points highlighted on the figure as vertical red lines. The name of each gene is displayed on the left of the figure.
 
 {{{
 java -jar lemontree_v3.0.jar -task figures -top_regulators reg_file.txt -data_file data/all.txt -reg_file data/all_reg_list.txt -cluster_file tight_clusters.txt -tree_file results/reg_tf.xml.gz
