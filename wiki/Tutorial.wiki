@@ -100,7 +100,7 @@ The candidate regulators are divided in two different types, depending on the na
 For this tutorial, we have selected a set of 85 candidate regulators from the mRNA expression matrix, based on their GO annotation (corresponding to either transcription factors, signal transducers or kinase activity). We have also selected a set of 100 microRNAs, for which we have expression profiles measured by dedicated microarrays. Both datasets correspond to continuous types of data. We will assign regulators separately for the two types.
 
 {{{
-java -jar lemontree_v3.0.jar -task regulators -data_file data/expr_matrix.txt -reg_file data/reg_list.txt -cluster_file tight_clusters.txt -output_file reg_tf
+java -jar lemontree_v3.0.jar -task regulators -data_file data/expr_matrix.txt -reg_file data/reg_list.txt -cluster_file tight_clusters.txt -output_file results/reg_tf
 }}}
 
 The "reg_file" option is a simple text list of candidate regulators that are present in the expression matrix. If the regulators are discrete, it is mandatory to add a second column in the text file, describing the type of the regulator ("c" for continuous or "d" for discrete).
@@ -112,6 +112,8 @@ Note that this command will create four different output files, using the "outpu
   * reg_tf.randomreg.txt: Regulators assigned randomly to the modules.
   * reg_tf.xml.gz: xml file containing all the regulatory trees used for assigning the regulators.
 
+The regulators text files all have the same format: three columns representing respectively the regulator name, the module number and the score value.
+
 Now, let's assign the microRNAs as regulators of the modules.
 
 {{{
@@ -119,4 +121,3 @@ java -jar lemontree_v3.0.jar -task regulators -data_file data/all.txt -reg_file 
 }}}
 
 Note that the data file "all.txt" contains both the expression profiles for mRNAs and microRNAs.
-
