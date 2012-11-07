@@ -136,3 +136,7 @@ Note that the "top_regulators" parameter is a simple text file listing the diffe
 results/reg_tf.topreg.txt
 results/reg_mir.topreg.txt
 }}}
+
+All figures are generated to the eps (encapsulated postcript) format.
+
+== GO annotation task ==
