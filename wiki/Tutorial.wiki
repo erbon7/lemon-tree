@@ -140,3 +140,9 @@ results/reg_mir.topreg.txt
 All figures are generated to the eps (encapsulated postcript) format.
 
 == GO annotation task ==
+
+The goal of this task is to calculate the GO category enrichment for each module. We use the BiNGO library to calculate the statistics. We have to specify two GO annotation files that are describing the , in this case we have human genes, so we choose the default file H sapiens default, provided with the BiNGO library. We also specify the set of genes that should be used as the reference for the calculation of the statistics, in this case the list of all the genes that are present on the microarray chip (file go ref.txt). The results are stored in the output file go.txt.
+
+{{{
+java -jar lemontree_v3.0.jar -task go_annotation -cluster_file tight_clusters.txt -go_annot_file gene_association.goa_human -go_ontology_file gene_ontology_ext.obo -go_ref_file all_gene_list -output_file go.txt
+}}}
