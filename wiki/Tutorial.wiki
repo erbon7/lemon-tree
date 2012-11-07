@@ -121,3 +121,10 @@ java -jar lemontree_v3.0.jar -task regulators -data_file data/all.txt -reg_file 
 }}}
 
 Note that the data file "all.txt" contains both the expression profiles for mRNAs and microRNAs.
+
+== Figures task ==
+
+
+{{{
+java -jar lemontree_v3.0.jar -task figures -top_regulators reg_file.txt -data_file data/all.txt -reg_file data/all_reg_list.txt -cluster_file tight_clusters.txt -tree_file results/reg_tf.xml.gz
+}}}
