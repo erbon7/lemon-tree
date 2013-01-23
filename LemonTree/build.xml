@@ -38,7 +38,7 @@
 	<target name="dist" depends="jar">
 		<tar tarfile="${build}/${dist}.tar"
      basedir="."
-     includes="${lib}/*.jar ${jar} doc/manual.pdf"/> 
+     includes="${lib}/*.jar ${jar} LICENSE "/> 
 		 <gzip zipfile="${dist}.tar.gz" src="${build}/${dist}.tar" />
 		 <delete file="${build}/${dist}.tar"/>
 	</target>
