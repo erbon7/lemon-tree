@@ -204,6 +204,9 @@ public class RunCli {
 			
 			if (cmd.hasOption("go_p_value"))
 				go_p_value = cmd.getOptionValue("go_p_value");
+
+			if (cmd.hasOption("go_namespace"))
+				go_namespace = cmd.getOptionValue("go_namespace");
 			
 			if (cmd.hasOption("top_regulators"))
 				top_regulators = cmd.getOptionValue("top_regulators");
