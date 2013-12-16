@@ -1,5 +1,6 @@
 package lemontree.test;
 
+import lemontree.modulenetwork.Module;
 import lemontree.modulenetwork.ModuleNetwork;
 
 public class testExperiments {
@@ -8,9 +9,11 @@ public class testExperiments {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String datasetFile ="/Users/eric/work/lemone_test/all_NF.txt";
-		String regulatorsFile="/Users/eric/work/lemone_test/reg_mir_list.txt";
-		String clusterFile="/Users/eric/work/lemone_test/tc4.txt";
+		
+		String prefix = "/bioinfo/users/ebonnet/TreeLemon/gbm2/";
+		String datasetFile = prefix+"reg_cn/data";
+		String regulatorsFile= prefix+"reg_cn/del_list";
+		String clusterFile=prefix+"tight_clusters/tc_10_033.txt";
 
 		ModuleNetwork m = new ModuleNetwork();
 		m.setNormalGammaPriors(0.1f, 0.0, 0.1f, 0.1f);
@@ -36,11 +39,19 @@ public class testExperiments {
 		 * Read from xml and assign regulators
 		 */
 		
-		m.readRegTreeXML("/Users/eric/reg.xml.gz");
-		double beta_reg=20;
-		int num_reg=10;
-		m.assignRegulatorsNoAcyclStoch(beta_reg, num_reg);
-		m.printRegulators("/Users/eric/reg.txt", true, false);
+		m.readRegTreeXML(prefix+"experiments/exp.xml.gz");
+		
+		for (Module mod : m.moduleSet) {
+			mod.hierarchicalTree.testLevel(4);
+		}
+		
+		m.writeRegTreeXML(prefix+"experiments/exp_lev4.xml.gz");
+		
+//		double beta_reg=20;
+//		int num_reg=10;
+//		m.assignRegulatorsNoAcyclStoch(beta_reg, num_reg);
+//		m.printRegulators("/Users/eric/reg.txt", true, false);
+	
 	}
 
 }
