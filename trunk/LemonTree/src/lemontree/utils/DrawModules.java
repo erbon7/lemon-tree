@@ -48,10 +48,19 @@ public class DrawModules extends JComponent {
 	
 	private ModuleNetwork modNet;
 	
+	/**
+	 * Constructor
+	 * @param m module network object.
+	 */
 	public DrawModules(ModuleNetwork m) {
 		this.modNet = m;
 	}
 	
+	/**
+	 * Directory prefix for figure files
+	 * 
+	 * @param str
+	 */
 	public void setPrefix(String str) {
 		this.prefix = str;
 	}
@@ -133,6 +142,39 @@ public class DrawModules extends JComponent {
 		System.out.println("[ok]");
 	}
 
+	/**
+	 * Draw a list of modules
+	 * 
+	 * @param moduleList
+	 */
+	public void customDraw(ArrayList<Integer> moduleList) {
+
+		for (int mod_number : moduleList) {
+			
+			Module mod = modNet.moduleSet.get(mod_number);
+			if (mod.genes.size() > 0) {
+				/*
+				 * Some of the hierarchical trees might not be defined, so loop until
+				 * we find one that is not null to be able to draw it
+				 */
+				for (int nb=0;nb < mod.hierarchicalTrees.size(); nb++) {
+					TreeNode t = mod.hierarchicalTrees.get(nb);
+					mod.hierarchicalTree = t;
+					if (mod.hierarchicalTree.nodeStatus.equals("internal")) {
+						if (mod.topRegClasses.size()==0)
+							System.out.println("!!! no regulators !!!");
+						//String file = this.prefix + "module_" + mod.number + "_tree_" + nb;
+						String file = this.prefix + "module_" + mod.number;
+						System.out.println("Drawing " + file + " ...");
+						customDrawEps(mod, file);
+						break;
+					}
+				}
+			}
+		}
+		System.out.println("[ok]");
+	}
+
 	
 	/**
 	 * Converts an expression value to a color. Intermediate values are a gradient between blue and yellow.
@@ -185,11 +227,15 @@ public class DrawModules extends JComponent {
         return(c);
 	}
 	
-	private Color data2ColorCNV(double value, double mean, double sigma) {
+	private Color data2ColorCNV(double value) {
 		Color col = null;
-		if (value < -0.4)
+		
+		double lower_bound = -0.7f;
+		double upper_bound = 0.7f;
+		
+		if (value < lower_bound)
 			col = new Color(0,255,127); // green
-		else if (value > 0.4)
+		else if (value > upper_bound)
 			col = new Color(255,0,255);  // magenta
 		else {
 			col = new Color(155,155,155); // grey
@@ -599,6 +645,18 @@ public class DrawModules extends JComponent {
 		g.drawRect(x, y , 1, 2);
 	}
 
+	
+	private void plotCustomRectangle(Graphics2D g, int x, int y, int height) {
+		// fill rectangle at given coordinates on object
+		g.fillRect(x, y , 1, height);
+		// draw thin black rectangle around color block
+		//g.setPaint(Color.black);
+		//g.setStroke(new BasicStroke(0.1F));
+		g.drawRect(x, y , 1, height);
+	}
+
+	
+	
 	private void customDrawEps(Module mod, String filename) {
 
 		int sc = 8;         //scale factor
@@ -609,6 +667,7 @@ public class DrawModules extends JComponent {
 		int height;			// figure height
 		int x = x0;
 		int ybase = y0;
+		int deltaGeneY = 1;  // height for module genes rectangles
 
 		// get max text size for condition names
 		// create dummy image to estimate text size
@@ -649,7 +708,7 @@ public class DrawModules extends JComponent {
 			deltaReg += 2;
 		}
 		
-		height = ybase + deltaReg + 4 + mod.genes.size() * 2 + (int) MaxTextLen;
+		height = ybase + deltaReg + 4 + mod.genes.size() * deltaGeneY + (int) MaxTextLen;
 		
 //		}
 
@@ -670,7 +729,7 @@ public class DrawModules extends JComponent {
 			} else {
 				g2.setPaint(Color.white);
 				g2.fillRect(0, 0, width, height);
-				customDrawNode(mod, mod.hierarchicalTree, x, y0, h, ybase, g2);
+				customDrawNode(mod, mod.hierarchicalTree, x, y0, h, ybase, g2, deltaGeneY);
 				
 				// file name
 				g2.setPaint(Color.black);
@@ -688,8 +747,9 @@ public class DrawModules extends JComponent {
 		}
 	}
 
-	private void customDrawNode(Module mod, TreeNode node, int x, int y, int h, int ybase, Graphics2D g) {
-		double[][] data = mod.moduleNetwork.data; 
+	private void customDrawNode(Module mod, TreeNode node, int x, int y, int h, int ybase, Graphics2D g, int deltaGeneY) {
+		double[][] data = mod.moduleNetwork.data;
+		
 		if (node.nodeStatus.equals("internal")) {
 
 			// draw vertical split line
@@ -723,22 +783,23 @@ public class DrawModules extends JComponent {
 								for (int m = 0; m < node.leftChild.leafDistribution.condSet.size(); m++) {
 									int exp = node.leftChild.leafDistribution.condSet.get(m);
 									if (!Double.isNaN(data[reg.getGene().number][exp])) {
-										// convert data to color
+										//convert data to color
 										//Color col = data2Color(data[reg.getGene().number][exp], reg.getGene().mean, reg.getGene().sigma);
-										Color col = null;
-										if (i==0)
-											col = data2Color(data[reg.getGene().number][exp], reg.getGene().mean, reg.getGene().sigma);
-										else if (i==1)
-											col = data2ColorMir(data[reg.getGene().number][exp], reg.getGene().mean, reg.getGene().sigma);
-										else if (i>=2)
-											col = data2ColorCNV(data[reg.getGene().number][exp],this.regClassMean.get(i), this.regClassSd.get(i));
+										Color col = data2ColorCNV(data[reg.getGene().number][exp]);
+//										Color col = null;
+//										if (i==0)
+//											col = data2Color(data[reg.getGene().number][exp], reg.getGene().mean, reg.getGene().sigma);
+//										else if (i==1)
+//											col = data2ColorMir(data[reg.getGene().number][exp], reg.getGene().mean, reg.getGene().sigma);
+//										else if (i>=2)
+//											col = data2ColorCNV(data[reg.getGene().number][exp],this.regClassMean.get(i), this.regClassSd.get(i));
 										//else 
 										//	col = data2Color(data[reg.getGene().number][exp], this.regClassMean.get(i), this.regClassSd.get(i));
 										g.setPaint(col);
 									} else
 										// missing value
 										g.setPaint(Color.white);
-									plotRectangle(g, xl1+m, ybase + cursorY);
+									plotCustomRectangle(g, xl1+m, ybase + cursorY, 2);
 								}
 								cursorY += 2;
 							}
@@ -786,13 +847,13 @@ public class DrawModules extends JComponent {
 							// missing value
 							g.setPaint(Color.white);
 
-						plotRectangle(g, xl1+m, ybase+cursorY);
+						plotCustomRectangle(g, xl1+m, ybase+cursorY, deltaGeneY);
 					}
-					cursorY += 2;
+					cursorY += deltaGeneY;
 				}
 
 				// spacer
-				cursorY += 2;
+				cursorY += deltaGeneY;
 
 				// draw condition labels
 				if (this.drawExperimentNames)
@@ -803,7 +864,7 @@ public class DrawModules extends JComponent {
 						String name = mod.moduleNetwork.conditionSet.get(num).name;
 						Color col = mod.moduleNetwork.conditionSet.get(num).col;
 						g.setPaint(col);
-						plotRectangle(g, xl1 + c, ybase + cursorY);
+						plotCustomRectangle(g, xl1 + c, ybase + cursorY, deltaGeneY);
 
 						// sample name
 						int deltaText = 3;
@@ -848,20 +909,21 @@ public class DrawModules extends JComponent {
 								int exp = node.rightChild.leafDistribution.condSet.get(m);
 								if (!Double.isNaN(data[reg.getGene().number][exp])) {
 									//Color col = data2Color(data[reg.getGene().number][exp], reg.getGene().mean, reg.getGene().sigma);
-									Color col = null;
-									if (i==0)
-										col = data2Color(data[reg.getGene().number][exp], reg.getGene().mean, reg.getGene().sigma);
-									else if (i==1)
-										col = data2ColorMir(data[reg.getGene().number][exp], reg.getGene().mean, reg.getGene().sigma);
-									else if (i>=2)
-										col = data2ColorCNV(data[reg.getGene().number][exp], this.regClassMean.get(i), this.regClassSd.get(i));
+									Color col = data2ColorCNV(data[reg.getGene().number][exp]);
+//									Color col = null;
+//									if (i==0)
+//										col = data2Color(data[reg.getGene().number][exp], reg.getGene().mean, reg.getGene().sigma);
+//									else if (i==1)
+//										col = data2ColorMir(data[reg.getGene().number][exp], reg.getGene().mean, reg.getGene().sigma);
+//									else if (i>=2)
+//										col = data2ColorCNV(data[reg.getGene().number][exp], this.regClassMean.get(i), this.regClassSd.get(i));
 									//else 
 									//	col = data2Color(data[reg.getGene().number][exp], this.regClassMean.get(i), this.regClassSd.get(i));
 									g.setPaint(col);
 								} else
 									// missing value
 									g.setPaint(Color.white);
-								plotRectangle(g, x + m, ybase + cursorY);
+								plotCustomRectangle(g, x + m, ybase + cursorY, 2);
 							}
 							cursorY += 2;
 						}
@@ -911,12 +973,12 @@ public class DrawModules extends JComponent {
 							// missing value
 							g.setPaint(Color.white);
 
-						plotRectangle(g, x + m, ybase + cursorY);
+						plotCustomRectangle(g, x + m, ybase + cursorY, deltaGeneY);
 					}
-					cursorY += 2;
+					cursorY += deltaGeneY;
 				}
 
-				cursorY += 2;
+				cursorY += deltaGeneY;
 
 				// draw condition labels
 				if (this.drawExperimentNames)
@@ -926,7 +988,7 @@ public class DrawModules extends JComponent {
 						Color col = mod.moduleNetwork.conditionSet.get(num).col;
 						// draw rectangle for tissue type
 						g.setPaint(col);
-						plotRectangle(g, x+c, ybase + cursorY);
+						//plotCustomRectangle(g, x+c, ybase + cursorY);
 
 						// rotate canvas and draw string 45/90 deg.
 						int deltaText = 3;
@@ -962,7 +1024,7 @@ public class DrawModules extends JComponent {
 								else
 									col = new Color(255,255,153); // light yellow
 								g.setPaint(col);
-								plotRectangle(g, xtra_xbase, ybase + cursorY-2);
+								//plotCustomRectangle(g, xtra_xbase, ybase + cursorY-2, 2);
 							}
 							// draw score ratio indicator
 //							double scoreRatio = reg.getScore() / mod.maxTopRegScore;
@@ -1000,19 +1062,19 @@ public class DrawModules extends JComponent {
 						// draw gene name
 						g.setPaint(Color.black);
 						g.setFont(new Font("SansSerif", Font.BOLD, 2));
-						g.drawString(gene.name, new Float(x + node.rightChild.leafDistribution.condSet.size() +1), new Float(ybase + cursorY));
+						//g.drawString(gene.name, new Float(x + node.rightChild.leafDistribution.condSet.size() +1), new Float(ybase + cursorY));
 						
-						if (this.extraInfo.get(gene.name) != null){
-							Color col = null;
-							if (this.extraInfo.get(gene.name)<0)
-								col = new Color(0,102,255); // light blue
-							else
-								col = new Color(255,255,153); // light yellow
-							g.setPaint(col);
-							plotRectangle(g, xtra_xbase, ybase + cursorY-2);
-						}
+//						if (this.extraInfo.get(gene.name) != null){
+//							Color col = null;
+//							if (this.extraInfo.get(gene.name)<0)
+//								col = new Color(0,102,255); // light blue
+//							else
+//								col = new Color(255,255,153); // light yellow
+//							g.setPaint(col);
+//							plotCustomRectangle(g, xtra_xbase, ybase + cursorY-2);
+//						}
 						
-						cursorY += 2;
+						//cursorY += deltaGeneY;
 					}
 
 				} // end extra information
@@ -1026,8 +1088,8 @@ public class DrawModules extends JComponent {
 			g.drawLine(xl, y + h, xr, y + h);
 
 			// draw the childrens
-			customDrawNode(mod, node.leftChild, xl, y + h, h, ybase, g);
-			customDrawNode(mod, node.rightChild, xr, y + h, h, ybase, g);
+			customDrawNode(mod, node.leftChild, xl, y + h, h, ybase, g, deltaGeneY);
+			customDrawNode(mod, node.rightChild, xr, y + h, h, ybase, g, deltaGeneY);
 
 			// draw line between leaves, first for classes of regulators, then for module genes
 			int cursorY = 0;
@@ -1051,7 +1113,7 @@ public class DrawModules extends JComponent {
 			
 			cursorY += 2;
 			
-			g.drawLine(x, ybase + cursorY, x, ybase + cursorY + mod.genes.size()*2);
+			g.drawLine(x, ybase + cursorY, x, ybase + cursorY + mod.genes.size() * deltaGeneY);
 			
 		}
 	}

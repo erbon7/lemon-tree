@@ -10,7 +10,6 @@ public class TestTopRegClass {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
 		
 		String datasetFile ="/Users/eric/work/lemone_test/all_NF.txt";
 		String regulatorsFile="/Users/eric/work/lemone_test/reg_mir_list.txt";
@@ -31,7 +30,7 @@ public class TestTopRegClass {
 		
 		DrawModules dm = new DrawModules(m);
 		dm.drawAllModules();
-
+		
 	}
 
 }
