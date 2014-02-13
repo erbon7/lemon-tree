@@ -60,6 +60,7 @@ public class TestFigures {
 				}
 			}
 		}
+		M.changeGeneNames(data_prefix+"gene_name.txt");
 
 		DrawModules dm = new DrawModules(M);
 		dm.setPrefix("/Users/eric/gbm_test/");
