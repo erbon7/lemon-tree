@@ -28,7 +28,7 @@ A collection of module network papers listed in chronological order with Lemon-T
 
   * Vermeirssen V, Joshi A, *Michoel T*, *Bonnet E*, Casneuf T, et al. (2009) Transcription regulatory networks in Caenorhabditis elegans inferred through reverse-engineering of gene expression profiles constitute biological hypotheses for metazoan development. Mol Bio Syst 5: 1817–1830. ([http://pubs.rsc.org/en/Content/ArticleLanding/2009/MB/b908108a web])
 
-  * *Bonnet E*, Tatari M, Joshi A, *Michoel T*, Marchal K, et al. (2010) Network inference from a cancer gene expression data set identifies microRNA regulated modules. PLoS One 5: e10162. ([http://www.plosone.org/article/info:doi/10.1371/journal.pone.0010162 web])
+  * *Bonnet E*, Tatari M, Joshi A, *Michoel T*, Marchal K, et al. (2010) Module network inference from a cancer gene expression data set identifies microRNA regulated modules. PLoS One 5: e10162. ([http://www.plosone.org/article/info:doi/10.1371/journal.pone.0010162 web])
 
   * *Bonnet E*, *Michoel T*, Van de Peer Y (2010) Prediction of a gene regulatory network linked to prostate cancer from gene expression, microRNA and clinical data. Bioinformatics 26: i683–i644. ([http://bioinformatics.oxfordjournals.org/content/26/18/i638 web])
 
