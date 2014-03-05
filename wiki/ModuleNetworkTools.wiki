@@ -12,3 +12,9 @@ Legend:
 || Genomica || Java || g || no || m || http://genomica.weizmann.ac.il || 2003 || 
 || Geronemo || Java || g || no || m, e || http://http://ai.stanford.edu/~koller/index.html || 2006 ||
 || LeMoNe || Java/Matlab || c || yes || m, mi || http://bioinformatics.psb.ugent.be/software/details/LeMoNe ||  2007 ||
+|| Lirnet || Matlab || c || yes || m, e || http://homes.cs.washington.edu/~suinlee/lirnet || 2009 ||
+|| CONEXIC || Java || c || no || m, c || http://www.c2b2.columbia.edu/danapeerlab/html/conexic.html || 2010||
+|| PMN || Unix binary || c || no || m, p || http://www.compbio.cs.huji.ac.il/PMN || 2010 ||
+|| ARBORETUM || C || c || yes || m-s ||  http://pages.discovery.wisc.edu/~sroy/arboretum || 2013 ||
+|| MERLIN || C || c || yes || m || http://pages.discovery.wisc.edu/~sroy/merlin || 2013 ||
+|| *Lemon-Tree* || Java || c || yes || m, mi, e, c, any || http://lemon-tree.googlecode.com || 2014 ||
