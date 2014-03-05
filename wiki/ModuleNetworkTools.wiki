@@ -4,6 +4,8 @@ The table below presents a comparison of features and application domains of all
 
 Legend:
 
-  * *I/O*: _g_, graphical user interface; _c_, command line
+  * *I/O*: _g_, graphical user interface; _c_, command line.
+  * *Source*: source code available, _yes_ or _no_.
+  * *Data*: supported data integration; _m_, mRNA expression; _mi_, microRNA expression; _e_, eQTL data; _c_, CNV data; _p_, protein interactions; _m-s_, mRNA expression multiple species; _any_, any combination of discrete or continuous datatypes measured on the same samples.
 
 || *Software* || *Language* || *I/O* || *Source* || *Data* || *URL* || *Year* ||
