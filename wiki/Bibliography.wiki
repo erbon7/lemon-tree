@@ -1,5 +1,11 @@
 #summary Module network bibliography.
 
+A collection of module network papers listed in chronological order with LemonTree project members in bold. Let us know if we have overlooked any relevant publications!
+
+* Segal E, Shapira M, Regev A, Pe’er D, Botstein D, et al.(2003). Module networks: identifying regulatory modules and their condition-specific regulators from gene expression data. Nature Genetics 34: 166–167.
+
+* Lee S, Pe’er D, Dudley A, Church G, Koller D (2006). Identifying regulatory mechanisms using individual variation reveals key role for chromatin modification. Proc Natl Acad Sci USA 103: 14062–14067.
+
 = Introduction =
 
 Add your content here.
