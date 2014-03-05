@@ -2,9 +2,17 @@
 
 A collection of module network papers listed in chronological order with LemonTree project members in bold. Let us know if we have overlooked any relevant publications!
 
-  * Segal E, Shapira M, Regev A, Pe’er D, Botstein D, et al.(2003). Module networks: identifying regulatory modules and their condition-specific regulators from gene expression data. Nature Genetics 34: 166–167.
+  * Segal E, Shapira M, Regev A, Pe’er D, Botstein D, et al.(2003) Module networks: identifying regulatory modules and their condition-specific regulators from gene expression data. Nature Genetics 34: 166–167.
 
-  * Lee S, Pe’er D, Dudley A, Church G, Koller D (2006). Identifying regulatory mechanisms using individual variation reveals key role for chromatin modification. Proc Natl Acad Sci USA 103: 14062–14067.
+  * Lee S, Pe’er D, Dudley A, Church G, Koller D (2006) Identifying regulatory mechanisms using individual variation reveals key role for chromatin modification. Proc Natl Acad Sci USA 103: 14062–14067.
+
+ * Lee SI, Dudley AM, Drubin D, Silver PA, Krogan NJ, et al. (2009) Learning a prior on regulatory potential from eqtl data. PLoS Genetics 5: e1000358.
+
+  * *Bonnet E*, Tatari M, Joshi A, *Michoel T*, Marchal K, et al. (2010) Network inference from a cancer gene expression data set identifies microRNA regulated modules. PLoS One 5: e10162.
+
+  * Zhang W, Zhu J, Schadt EE, Liu JS (2010) A Bayesian partition method for detecting pleiotropic and epistatic eQTL modules. PLoS Computational Biology 6: e1000642.
+
+
 
 = Introduction =
 
