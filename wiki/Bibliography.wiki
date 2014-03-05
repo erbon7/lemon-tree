@@ -26,7 +26,7 @@ A collection of module network papers listed in chronological order with Lemon-T
 
   * Amit I, Garber M, Chevrier N, Leite AP, Donner Y, et al. (2009) Unbiased reconstruction of a mammalian transcriptional network mediating pathogen responses. Science 326: 257.
 
-  * Vermeirssen V, Joshi A, *Michoel T*, *Bonnet E*, Casneuf T, et al. (2009) Transcription regulatory networks in Caenorhabditis elegans inferred through reverse-engineering of gene expression profiles constitute biological hypotheses for metazoan development. Mol BioSyst 5: 1817–1830. ([http://pubs.rsc.org/en/Content/ArticleLanding/2009/MB/b908108a web])
+  * Vermeirssen V, Joshi A, *Michoel T*, *Bonnet E*, Casneuf T, et al. (2009) Transcription regulatory networks in Caenorhabditis elegans inferred through reverse-engineering of gene expression profiles constitute biological hypotheses for metazoan development. Mol Bio Syst 5: 1817–1830. ([http://pubs.rsc.org/en/Content/ArticleLanding/2009/MB/b908108a web])
 
   * *Bonnet E*, Tatari M, Joshi A, *Michoel T*, Marchal K, et al. (2010) Network inference from a cancer gene expression data set identifies microRNA regulated modules. PLoS One 5: e10162. ([http://www.plosone.org/article/info:doi/10.1371/journal.pone.0010162 web])
 
