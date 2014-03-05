@@ -9,3 +9,4 @@ Legend:
   * *Data*: supported data integration; _m_, mRNA expression; _mi_, microRNA expression; _e_, eQTL data; _c_, CNV data; _p_, protein interactions; _m-s_, mRNA expression multiple species; _any_, any combination of discrete or continuous datatypes measured on the same samples.
 
 || *Software* || *Language* || *I/O* || *Source* || *Data* || *URL* || *Year* ||
+|| Genomica || Java || g || no || m || http://genomica.weizmann.ac.il || 2003 || 
