@@ -6,22 +6,42 @@ A collection of module network papers listed in chronological order with Lemon-T
 
   * Lee S, Pe’er D, Dudley A, Church G, Koller D (2006) Identifying regulatory mechanisms using individual variation reveals key role for chromatin modification. Proc Natl Acad Sci USA 103: 14062–14067.
 
+  * *Michoel T*, Maere S, *Bonnet E*, Joshi A, Saeys Y, et al. (2007) Validating module networks learning algorithms using simulated data. BMC Bioinformatics 8: S5.
+
+  * Segal E, Sirlin CB, Ooi C, Adler AS, Gollub J, et al. (2007) Decoding global gene expression programs in liver cancer by noninvasive imaging. Nat Biotech 25: 675–680.
+
+  * Zhu H, Yang H, Owen MR (2007) Combined microarray analysis uncovers self-renewal related signaling in mouse embryonic stem cells. Syst Synth Biol 1: 171–181.
+
+  * Li J, Liu Z, Pan Y, Liu Q, Fu X, et al. (2007) Regulatory module network of basic/helix-loop-helix transcription factors in mouse brain. Genome Biol 8: R244.
+
+  * Joshi A, Van de Peer Y, *Michoel T* (2008) Analysis of a Gibbs sampler for model based clustering of gene expression data. Bioinformatics 24: 176–183.
+
+  * Novershtern N, Itzhaki Z, Manor O, Friedman N, Kaminski N (2008) A functional and regulatory map of asthma. Am J Respir Cell Mol Biol 38: 324–336.
+
+ * Joshi A, De Smet R, Marchal K,Van de Peer Y, *Michoel T*( 2009) Module networks revisited: computational assessment and prioritization of model predictions. Bioinformatics 25: 490- 496.
+
+  * *Michoel T*, De Smet R, Joshi A, Van de Peer Y, Marchal K (2009) Comparative analysis of module-based versus direct methods for reverse-engineering transcriptional regulatory networks. BMC Syst Biol 3: 49.
+
  * Lee SI, Dudley AM, Drubin D, Silver PA, Krogan NJ, et al. (2009) Learning a prior on regulatory potential from eqtl data. PLoS Genetics 5: e1000358.
+
+  * Amit I, Garber M, Chevrier N, Leite AP, Donner Y, et al. (2009) Unbiased reconstruction of a mammalian transcriptional network mediating pathogen responses. Science 326: 257.
+
+  * Vermeirssen V, Joshi A, *Michoel T*, *Bonnet E*, Casneuf T, et al. (2009) Transcription regulatory networks in Caenorhabditis elegans inferred through reverse-engineering of gene expression profiles constitute biological hypotheses for metazoan development. Mol BioSyst 5: 1817–1830.
 
   * *Bonnet E*, Tatari M, Joshi A, *Michoel T*, Marchal K, et al. (2010) Network inference from a cancer gene expression data set identifies microRNA regulated modules. PLoS One 5: e10162.
 
+  * *Bonnet E*, *Michoel T*, Van de Peer Y (2010) Prediction of a gene regulatory network linked to prostate cancer from gene expression, microRNA and clinical data. Bioinformatics 26: i683–i644.
+
   * Zhang W, Zhu J, Schadt EE, Liu JS (2010) A Bayesian partition method for detecting pleiotropic and epistatic eQTL modules. PLoS Computational Biology 6: e1000642.
 
+  * Akavia UD, Litvin O, Kim J, Sanchez-Garcia F, Kotliar D, et al. (2010) An integrated approach to uncover drivers of cancer. Cell 143: 1005–1017.
 
+  * Novershtern N, Regev A, Friedman N (2011) Physical module networks: an integrative approach for reconstructing transcription regulation. Bioinformatics 27: i177–i185.
 
-= Introduction =
+  * Novershtern N, Subramanian A, Lawton LN, Mak RH, Haining WN, et al. (2011) Densely interconnected transcriptional circuits control cell states in human hematopoiesis. Cell 144: 296–309.
 
-Add your content here.
+  * Zhu M, Deng X, Joshi T, Xu D, Stacey G, et al. (2012) Reconstructing differentially co- expressed gene modules and regulatory networks of soybean cells. BMC Genomics 13: 437.
 
+  * Roy S, Lagree S, Hou Z, Thomson JA, Stewart R, et al. (2013) Integrated module and gene- specific regulatory inference implicates upstream signaling networks. PLoS Computational Biology 9.
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+  * Roy S, Wapinski I, Pfiffner J, French C, Socha A,et al. (2013) Arboretum: reconstructiona nd analysis of the evolutionary history of condition-specific transcriptional modules. Genome Research 23: 1039–1050.
