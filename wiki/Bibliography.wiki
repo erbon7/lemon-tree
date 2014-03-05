@@ -12,7 +12,7 @@ A collection of module network papers listed in chronological order with Lemon-T
 
   * Zhu H, Yang H, Owen MR (2007) Combined microarray analysis uncovers self-renewal related signaling in mouse embryonic stem cells. Syst Synth Biol 1: 171–181.
 
-  * Li J, Liu Z, Pan Y, Liu Q, Fu X, et al. (2007) Regulatory module network of basic/helix-loop-helix transcription factors in mouse brain. Genome Biol 8: R244.
+  * Li J, Liu Z, Pan Y, Liu Q, Fu X, et al. (2007) Regulatory module network of basic/helix-loop-helix transcription factors in mouse brain. Genome Biol 8: R 244.
 
   * Joshi A, Van de Peer Y, *Michoel T* (2008) Analysis of a Gibbs sampler for model based clustering of gene expression data. Bioinformatics 24: 176–183. ([http://bioinformatics.oxfordjournals.org/content/24/2/176.long web])
 
