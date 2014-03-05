@@ -1,3 +1,9 @@
 #summary A survey of available module network software tools.
 
+The table below presents a comparison of features and application domains of all available module network software tools that we are aware of, in chronological order by their first release date.
+
+Legend:
+
+  * *I/O*: _g_, graphical user interface; _c_, command line
+
 || *Software* || *Language* || *I/O* || *Source* || *Data* || *URL* || *Year* ||
