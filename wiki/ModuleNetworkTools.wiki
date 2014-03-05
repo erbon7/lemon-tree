@@ -10,7 +10,7 @@ Legend:
 
 || *Software* || *Language* || *I/O* || *Source* || *Data* || *URL* || *Year* ||
 || Genomica || Java || g || no || m || http://genomica.weizmann.ac.il || 2003 || 
-|| Geronemo || Java || g || no || m, e || http://http://ai.stanford.edu/~koller/index.html || 2006 ||
+|| Geronemo || Java || g || no || m, e || http://ai.stanford.edu/~koller/index.html || 2006 ||
 || LeMoNe || Java/Matlab || c || yes || m, mi || http://bioinformatics.psb.ugent.be/software/details/LeMoNe ||  2007 ||
 || Lirnet || Matlab || c || yes || m, e || http://homes.cs.washington.edu/~suinlee/lirnet || 2009 ||
 || CONEXIC || Java || c || no || m, c || http://www.c2b2.columbia.edu/danapeerlab/html/conexic.html || 2010||
