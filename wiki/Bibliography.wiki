@@ -1,6 +1,6 @@
 #summary Module network bibliography.
 
-A collection of module network papers listed in chronological order with LemonTree project members in bold. Let us know if we have overlooked any relevant publications!
+A collection of module network papers listed in chronological order with Lemon-Tree project members in bold. Let us know if we have overlooked any relevant publications!
 
   * Segal E, Shapira M, Regev A, Pe’er D, Botstein D, et al.(2003) Module networks: identifying regulatory modules and their condition-specific regulators from gene expression data. Nature Genetics 34: 166–167.
 
