@@ -28,7 +28,7 @@ Requirements:
 
 = Installation =
 
-The LemonTree software is a command line program, there is no graphical user interface (at this stage). The package is a zipped archive that you have to unzip in the directory of your choice.
+The Lemon-Tree software is a command line program, there is no graphical user interface (at this stage). The package is a zipped archive that you have to unzip in the directory of your choice.
 
 Let's take an example. Say the archive was unpacked in /home/jdoe/progs/. You can call the program by the command:
 
@@ -42,7 +42,7 @@ You can pass memory size parameters to the java virtual machine, it might help i
 java -Xmx10g -jar /home/jdoe/progs/lemone.jar 
 }}}
 
-An alternative to launch the program is to set the CLASSPATH environmental variable to include the path to the LemonTree jar file and also to all the Java libraries (located in the "lib/" directory of the package). Then you can launch the program with the command:
+An alternative to launch the program is to set the CLASSPATH environmental variable to include the path to the Lemon-Tree jar file and also to all the Java libraries (located in the "lib/" directory of the package). Then you can launch the program with the command:
 
 {{{
 java lemontree.modulenetwork.RunCli
@@ -50,7 +50,7 @@ java lemontree.modulenetwork.RunCli
 
 = Synopsis =
 
-The purpose of the LemonTree software package is to create a module network from expression data. The end result is a set of gene clusters (co-expressed genes), and their associated "regulators".  To achieve this goal, you'll have to follow the LemonTree recipe, which consists of different steps that have to be performed. For each step, you'll have to use one or more specific part of the software, which are
+The purpose of the Lemon-Tree software package is to create a module network from expression data. The end result is a set of gene clusters (co-expressed genes), and their associated "regulators".  To achieve this goal, you'll have to follow the LemonTree recipe, which consists of different steps that have to be performed. For each step, you'll have to use one or more specific part of the software, which are
 designated as "tasks". There are three fundamental tasks:
 
   * Generate several cluster solutions ("ganesh" task).
