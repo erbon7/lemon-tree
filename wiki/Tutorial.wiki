@@ -148,7 +148,12 @@ java -jar lemontree_v3.0.jar -task go_annotation -cluster_file tight_clusters.tx
 }}}
 
 == Build from source ==
-To build the software from source, you can download the latest version with the following svn command:
+To build the software from source, you can download anonymously the latest version (read-only) in the current directory with the following svn command:
 {{{
 svn checkout http://lemon-tree.googlecode.com/svn/trunk/ .
+}}}
+
+Then you can use the ant tool to build the jar file:
+{{{
+ant jar
 }}}
