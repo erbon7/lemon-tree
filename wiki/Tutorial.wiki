@@ -157,3 +157,5 @@ Then you can use the ant tool to build the jar file:
 {{{
 ant jar
 }}}
+
+If everything went well, you should see a file named lemontree_vx.x.x.jar in the current directory.
