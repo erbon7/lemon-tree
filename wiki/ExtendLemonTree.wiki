@@ -25,6 +25,13 @@ Parsing of the tasks is done within {{{if}}} blocks, like this entry for the "ga
 // ---------------------------------------------------------------
 if (task.equalsIgnoreCase("ganesh")) {
 }}}
+ In the body of the function, we can see that the clustering procedure is done in 4 essential steps:
+* creation of an a {{{ModuleNetwork}}} object.
+* read data matrix.
+* initialization of clustering parameters.
+* two-way probabilistic clustering. 
+* write results to output file.
+
 
 {{{
 // Create ModuleNetwork object
