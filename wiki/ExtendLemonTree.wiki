@@ -62,3 +62,15 @@ Note that the output format for the final clustering solution is very simple: a 
 The {{{ModuleNetwork.writeClusters()}}} function can be called to write the clustering results. This function is looking at the {{{moduleSet}}} property, which is a list of {{{Module}}} objects (= clusters) containing the cluster number ({{{.number}}} property) and the list of genes ({{{.genes}}} objects for this module.
 
 === Implementing a novel regulator assignment algorithm ===
+
+The implementation for this task follows the same steps as descibed for the clustering algorithm:
+
+  * Create a novel class implementing the core algorithm.
+  * Create a novel function in the {{{ModuleNetwork}}} class, that can be called to run the new clustering algorithm.
+  * Create a new entry in the {{{RunCli}}} class, specifying the command line options necessary to call the new algorithm.
+ 
+The data structures described in the previous paragraph can be re-used for regulator assignment, especially the {{{moduleSet}}} structure containing the list of modules.
+
+Developpers can have a look at the code for the "regulators" task in the {{{RunCli}}} class, implementing the default algorithm for this step.
+
+One extra data structure that is 
