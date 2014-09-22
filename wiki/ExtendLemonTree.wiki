@@ -73,4 +73,8 @@ The data structures described in the previous paragraph can be re-used for regul
 
 Developpers can have a look at the code for the "regulators" task in the {{{RunCli}}} class, implementing the default algorithm for this step.
 
-One extra data structure that is 
+One extra data structure that will be used for this task is the {{{regulatorSet}}} property of the {{{ModuleNetwork}}} class, a list of {{{Gene}}} objects representing the candidate regulators that will be used during the assignment to modules.
+
+The output format after the regulator assignment is also a tab-delimited text file with 3 fields: regulator (gene) name, module number, and a regulator score.
+
+For each {{{Module}}} object, the list of assigned regulators is encoded in the {{{regulatorWeights}}} object, a map structure associating a {{{gene}}} object and a score value. This data structure can be used to store the regulators assigned with the new method and for creating the final output file.
