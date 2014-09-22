@@ -33,11 +33,9 @@ if (task.equalsIgnoreCase("ganesh")) {
   * two-way probabilistic clustering. 
   * write results to output file.
 
-
 {{{
 // Create ModuleNetwork object
 ModuleNetwork M = new ModuleNetwork();
-M.setNormalGammaPriors(lambda, mu, alpha, beta);
 M.readExpressionMatrix(data_file, gene_file);
 M.setNormalGammaPriors(lambda, mu, alpha, beta);
 // Gibbs sample different module sets with one tree per module
@@ -45,3 +43,7 @@ M.gibbsSamplerGenes(init_num_clust, num_runs, num_steps, burn_in, sample_steps, 
 // write results to text file
 M.writeClusters(output_file);
 }}}
+
+The data structures useful to implement a novel clustering algorithm are located in the {{{ModuleNetwork}}} class:
+
+  *{{{data}}}:
