@@ -8,8 +8,12 @@ We strongly encourage people to extend the functionalities of Lemon-Tree, by ext
 
 = Details =
 
-== javadoc ==
+== Javadoc ==
 
-The complete java documentation (javadoc) is available for [https://drive.google.com/folderview?id=0Bzj0HOAsmfNwd1NHOTFpcjM2eXc&usp=sharing download] from the home page. Most of the classes properties and funstions are commented, so it is probably good idea to start browsing around this documentation.
+The complete java documentation (javadoc) is available for [https://drive.google.com/folderview?id=0Bzj0HOAsmfNwd1NHOTFpcjM2eXc&usp=sharing download] from the home page. Most of the classes properties and functions are commented, so it is probably good idea to start browsing around this documentation.
 
 == Adding new functions ==
+
+Let us take a concrete example of how to extend Lemon-Tree to add a new clustering algorithm and a new regulator assignment algorithm.
+
+A good entry point to understand how the code is organized and how it is working is to look at the class RunCli, which is parsing all the commands and creating objects and calling functions according to the different options specified for the task chosen.
