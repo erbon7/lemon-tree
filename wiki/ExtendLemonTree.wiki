@@ -46,4 +46,7 @@ M.writeClusters(output_file);
 
 The data structures useful to implement a novel clustering algorithm are located in the {{{ModuleNetwork}}} class:
 
-  * {{{data}}}:
+  * {{{data}}}: double 2-dimensional array storing expression data values. Rows correspond to genes, columns to experiments or samples.
+  * {{{numCond}}}: integer indicating the number of samples or experiments.
+  * {{{numRows}}}: integer value indicating the number of genes or rows in the data matrix.
+  * {{{geneSet}}}: list of {{{Gene}}} objects, with the gene name (e.g. HUGO codes) encoded in the {{{Gene.name}}} property.
