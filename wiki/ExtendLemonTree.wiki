@@ -73,6 +73,24 @@ The data structures described in the previous paragraph can be re-used for regul
 
 Developpers can have a look at the code for the "regulators" task in the {{{RunCli}}} class, implementing the default algorithm for this step.
 
+{{{
+ModuleNetwork M = new ModuleNetwork();
+M.setNormalGammaPriors(lambda, mu, alpha, beta);
+M.readExpressionMatrix(data_file, null);
+M.readClusters(cluster_file);
+M.readRegulators(reg_file);
+M.initStatisticsAndScore();
+M.setDataMeanAndSDFromModuleset();
+
+// cluster experiments using the gibbs sampler
+M.gibbsSamplerExpts(num_runs, num_steps, burn_in, sample_steps, score_gain, use_bayesian_score);
+// assign regulators
+M.assignRegulatorsNoAcyclStoch(beta_reg, num_reg);
+// write results as text file with all regulators, top 1%, random regulators and regulations trees as xml
+M.printRegulators(output_file+".allreg.txt", true, false);
+M.printRegulators(output_file+".topreg.txt", false, false);
+}}}
+
 One extra data structure that will be used for this task is the {{{regulatorSet}}} property of the {{{ModuleNetwork}}} class, a list of {{{Gene}}} objects representing the candidate regulators that will be used during the assignment to modules.
 
 The output format after the regulator assignment is also a tab-delimited text file with 3 fields: regulator (gene) name, module number, and a regulator score.
