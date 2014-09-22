@@ -21,7 +21,7 @@ A good entry point to understand how the code is organized and how it is working
 Parsing of the tasks is done within {{{if}}} blocks:
 {{{
 // ---------------------------------------------------------------
-		// ganesh task: 2-way clustering of genes using the gibbs sampler
-		// ---------------------------------------------------------------
+// ganesh task: 2-way clustering of genes using the gibbs sampler
+// ---------------------------------------------------------------
 		if (task.equalsIgnoreCase("ganesh")) {
 }}}
