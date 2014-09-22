@@ -6,7 +6,7 @@
 We strongly encourage people to extend the functionalities of Lemon-Tree, by extending the codebase. Here, we describe the basic data structures and give some guidelines, assuming that the reader knows the fundamentals of programming in Java.
 
 
-= Details =
+= Implementing new algorithms =
 
 == Javadoc ==
 
@@ -60,3 +60,5 @@ Those structures can be used to implement a novel clustering algorithm in Lemon-
 Note that the output format for the final clustering solution is very simple: a tab-delimited file with a gene name and cluster number for all genes.
 
 The {{{ModuleNetwork.writeClusters()}}} function can be called to write the clustering results. This function is looking at the {{{moduleSet}}} property, which is a list of {{{Module}}} objects (= clusters) containing the cluster number ({{{.number}}} property) and the list of genes ({{{.genes}}} objects for this module.
+
+=== Implementing a novel regulator assignment algorithm ===
