@@ -3,7 +3,7 @@
 
 = Introduction =
 
-We strongly encourage people to extend the functionalities of Lemon-Tree, by extending the codebase. Here, we describe the basic data structures and give some guidelines.
+We strongly encourage people to extend the functionalities of Lemon-Tree, by extending the codebase. Here, we describe the basic data structures and give some guidelines, assuming that the reader knows the fundamentals of programming in Java.
 
 
 = Details =
@@ -23,5 +23,5 @@ Parsing of the tasks is done within {{{if}}} blocks:
 // ---------------------------------------------------------------
 // ganesh task: 2-way clustering of genes using the gibbs sampler
 // ---------------------------------------------------------------
-		if (task.equalsIgnoreCase("ganesh")) {
+if (task.equalsIgnoreCase("ganesh")) {
 }}}
