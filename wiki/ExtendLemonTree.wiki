@@ -17,3 +17,11 @@ The complete java documentation (javadoc) is available for [https://drive.google
 Let us take a concrete example of how to extend Lemon-Tree to add a new clustering algorithm and a new regulator assignment algorithm.
 
 A good entry point to understand how the code is organized and how it is working is to look at the class {{{RunCli}}}, which is parsing all the commands and creating objects and calling functions according to the different options specified for the task chosen.
+
+Parsing of the tasks is done within {{{if}}} blocks:
+{{{
+// ---------------------------------------------------------------
+		// ganesh task: 2-way clustering of genes using the gibbs sampler
+		// ---------------------------------------------------------------
+		if (task.equalsIgnoreCase("ganesh")) {
+}}}
