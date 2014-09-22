@@ -7,7 +7,9 @@ We strongly encourage people to extend the functionalities of Lemon-Tree, by ext
 
 = Details =
 
+== javadoc ==
 
+The complete java documentation (javadoc) is available for download from the home page. Most of the classes properties and function are commented. 
 
 
 Add your content here.  Format your content with:
