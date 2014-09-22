@@ -1,5 +1,5 @@
+#summary How to extend the Lemon-Tree code to add new functionalities.
 #labels Java,code,extending
-# How to extend the Lemon-Tree code to add new functionalities.
 
 = Introduction =
 
