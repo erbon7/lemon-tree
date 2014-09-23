@@ -12,7 +12,7 @@ We strongly encourage people to extend the functionalities of Lemon-Tree, by ext
 
 == Javadoc ==
 
-The complete java documentation (javadoc) is available for [https://drive.google.com/folderview?id=0Bzj0HOAsmfNwd1NHOTFpcjM2eXc&usp=sharing download] from the home page. Most of the classes properties and functions are commented, so it is probably good idea to start browsing around this documentation.
+The complete java documentation (javadoc) is available for [https://drive.google.com/folderview?id=0Bzj0HOAsmfNwd1NHOTFpcjM2eXc&usp=sharing download] from the home page. Most of the classes properties and functions are commented, so it is probably a good idea to start browsing this documentation to get familiar with the code organization.
 
 == Adding new functions ==
 
