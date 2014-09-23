@@ -8,4 +8,6 @@ Due to the modular nature and simple input/output format of the program, it's ea
 
 == External clustering == 
 
-Many different algorithms can be used to cluster a matrix of gene expression data. For example, the R statistical software has literally hundreds of different package to perform this procedure [http://wiki.math.yorku.ca/index.php/R:_Cluster_analysis see a list here]
+Many different algorithms can be used to cluster a matrix of gene expression data. For example, the R statistical software has literally hundreds of different package to perform this procedure ([http://wiki.math.yorku.ca/index.php/R:_Cluster_analysis see a list here]).
+
+The results of the clustering procedure can be used in Lemon-Tree as the input for 
