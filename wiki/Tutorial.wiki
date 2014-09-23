@@ -1,4 +1,4 @@
-#summary Detailed tutorial for the LemonTree software.
+#summary Detailed instruction on how to install and use Lemon-Tree.
 
 <wiki:toc max_depth="4" />
 
