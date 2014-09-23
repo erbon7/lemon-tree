@@ -164,6 +164,8 @@ If everything went well, you should see a file named lemontree_vx.x.x.jar in the
 
 = Using external programs =
 
+With the modular organization of the Lemon-Tree algorithm, it is possible to use external programs for performing some tasks, and then use the results as input for a given task.
+
 ==External clustering==
 
 Many different algorithms can be used to cluster a matrix of gene expression data. For example, the R statistical software has literally hundreds of different package to perform this procedure (see a list here).
