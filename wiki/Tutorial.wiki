@@ -4,7 +4,7 @@
 
 = Copyright and License =
 
-Copyright (c) 2012 Eric Bonnet, Tom Michoel. 
+Copyright (c) 2007-2014 Eric Bonnet & Tom Michoel. 
 
 Lemon-Tree is free software, released under the terms of the GNU general
 Public License (GPL) v2 ([http://www.gnu.org/licenses/old-licenses/gpl-2.0.html link]).
