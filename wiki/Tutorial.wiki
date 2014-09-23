@@ -1,5 +1,7 @@
 #summary Detailed tutorial for the LemonTree software.
 
+<wiki:toc max_depth="4" />
+
 = Copyright and License =
 
 Copyright (c) 2012 Eric Bonnet, Tom Michoel. 
@@ -147,7 +149,7 @@ The goal of this task is to calculate the GO category enrichment for each module
 java -jar lemontree_v3.0.jar -task go_annotation -cluster_file tight_clusters.txt -go_annot_file gene_association.goa_human -go_ontology_file gene_ontology_ext.obo -go_ref_file all_gene_list -output_file go.txt
 }}}
 
-= Build from source =
+= Building from source =
 To build the software from source, you can download anonymously the latest version (read-only) in the current directory with the following svn command:
 {{{
 svn checkout http://lemon-tree.googlecode.com/svn/trunk/ .
