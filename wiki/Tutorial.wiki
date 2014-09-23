@@ -28,6 +28,10 @@ Coding crew:
 Requirements:
   * Java version 1.6 or higher installed.
 
+= Versioning =
+
+The Lemon-Tree executable name (the {{{.jar}}} file) is formatted with a prefix ({{{lemontree}}}), followed by a version number, e.g. {{{v3.0}}}. The version number will of course be changed with subsequent releases, fixing bugs and/or adding new functionalities. In this document, we will always use the prefix {{{lemontree}}} without specifying the version number. Users should of course replace this name with the latest version of the {{{jar}}} file available.
+
 = Installation =
 
 The Lemon-Tree software is a command line program, there is no graphical user interface (at this stage). The package is a zipped archive that you have to unzip in the directory of your choice.
@@ -35,13 +39,13 @@ The Lemon-Tree software is a command line program, there is no graphical user in
 Let's take an example. Say the archive was unpacked in /home/jdoe/progs/. You can call the program by the command:
 
 {{{
-java -jar /home/jdoe/progs/lemone.jar
+java -jar /home/jdoe/progs/lemontree.jar
 }}}
 
 You can pass memory size parameters to the java virtual machine, it might help if you have a large dataset. For example, this command is allocating 10 Gigabytes of memory (max.) for the program:
 
 {{{
-java -Xmx10g -jar /home/jdoe/progs/lemone.jar 
+java -Xmx10g -jar /home/jdoe/progs/lemontree.jar 
 }}}
 
 An alternative to launch the program is to set the CLASSPATH environmental variable to include the path to the Lemon-Tree jar file and also to all the Java libraries (located in the "lib/" directory of the package). Then you can launch the program with the command:
@@ -76,7 +80,7 @@ We did a selection of genes having non-flat profiles, keeping genes having a sta
 score, but this might depend on the dataset. In this example, we have an input matrix of 500 genes and 50 samples. The data is centered and scaled (by row) to have a mean of 0 and a standard deviation of 1. we can generate a cluster solution with the command:
 
 {{{
-java -jar lemontree_v3.0.jar -task ganesh -data_file data/expr_matrix.txt -output_file cluster1
+java -jar lemontree.jar -task ganesh -data_file data/expr_matrix.txt -output_file cluster1
 }}}
 
 This step will be repeated multiple times, using the same command, only
@@ -87,7 +91,7 @@ changing the name of the output file. Here we have generated 5 runs, prefixed  c
 Here, we are going to generate a single, robust clustering solution from all the individual solutions generated at the previous step.
 
 {{{
-java -jar lemontree_v3.0.jar -task tight_clusters -data_file data/expr_matrix.txt -cluster_file cluster_file_list -output_file tight_clusters.txt
+java -jar lemontree.jar -task tight_clusters -data_file data/expr_matrix.txt -cluster_file cluster_file_list -output_file tight_clusters.txt
 }}}
 
 The "cluster_file" is a simple text file, listing the location of all the individual cluster files generated at the "ganesh" step.
@@ -103,7 +107,7 @@ The candidate regulators are divided in two different types, depending on the na
 For this tutorial, we have selected a set of 85 candidate regulators from the mRNA expression matrix, based on their GO annotation (corresponding to either transcription factors, signal transducers or kinase activity). We have also selected a set of 100 microRNAs, for which we have expression profiles measured by dedicated microarrays. Both datasets correspond to continuous types of data. We will assign regulators separately for the two types.
 
 {{{
-java -jar lemontree_v3.0.jar -task regulators -data_file data/expr_matrix.txt -reg_file data/reg_list.txt -cluster_file tight_clusters.txt -output_file results/reg_tf
+java -jar lemontree.jar -task regulators -data_file data/expr_matrix.txt -reg_file data/reg_list.txt -cluster_file tight_clusters.txt -output_file results/reg_tf
 }}}
 
 The "reg_file" option is a simple text list of candidate regulators that are present in the expression matrix. If the regulators are discrete, it is mandatory to add a second column in the text file, describing the type of the regulator ("c" for continuous or "d" for discrete).
@@ -120,7 +124,7 @@ The regulators text files all have the same format: three columns representing r
 Now, let's assign the microRNAs as regulators of the modules.
 
 {{{
-java -jar lemontree_v3.0.jar -task regulators -data_file data/all.txt -reg_file data/mir_reg_list.txt -cluster_file tight_clusters.txt -output_file results/reg_mir
+java -jar lemontree.jar -task regulators -data_file data/all.txt -reg_file data/mir_reg_list.txt -cluster_file tight_clusters.txt -output_file results/reg_mir
 }}}
 
 Note that the data file "all.txt" contains both the expression profiles for mRNAs and microRNAs.
@@ -130,7 +134,7 @@ Note that the data file "all.txt" contains both the expression profiles for mRNA
 This task is creating one figure per module. The figure represent the expression values color-coded with a gradient ranging from dark blue (low expression values) to bright yellow (high expression values). All the module genes are in the lower panel while the top regulators for the different classes or types of regulators (if any) are displayed in the upper panel. A regulation trees is represented on top of the figure, with the different split points highlighted on the figure as vertical red lines. The name of each gene is displayed on the left of the figure.
 
 {{{
-java -jar lemontree_v3.0.jar -task figures -top_regulators reg_files.txt -data_file data/all.txt -reg_file data/all_reg_list.txt -cluster_file tight_clusters.txt -tree_file results/reg_tf.xml.gz
+java -jar lemontree.jar -task figures -top_regulators reg_files.txt -data_file data/all.txt -reg_file data/all_reg_list.txt -cluster_file tight_clusters.txt -tree_file results/reg_tf.xml.gz
 }}}
 
 Note that the "top_regulators" parameter is a simple text file listing the different top regulator files, for different types of regulators (such as transcription factors, microRNAs, etc.). The content of such a file could be:
@@ -147,10 +151,11 @@ All figures are generated to the eps (encapsulated postcript) format.
 The goal of this task is to calculate the GO category enrichment for each module. We use the BiNGO library to calculate the statistics. We have to specify two GO annotation files that are describing the GO codes associated with the genes ("gene_association.goa_human") and another file describing the GO graph ("gene_onotlogy_ext.obo"). These files can be downloaded for various organisms from the [http://www.geneontology.org/GO.downloads.shtml GO website]. We also specify the set of genes that should be used as the reference for the calculation of the statistics, in this case the list of all the genes that are present on the microarray chip (file "all_gene_list"). The results are stored in the output file "go.txt".
 
 {{{
-java -jar lemontree_v3.0.jar -task go_annotation -cluster_file tight_clusters.txt -go_annot_file gene_association.goa_human -go_ontology_file gene_ontology_ext.obo -go_ref_file all_gene_list -output_file go.txt
+java -jar lemontree.jar -task go_annotation -cluster_file tight_clusters.txt -go_annot_file gene_association.goa_human -go_ontology_file gene_ontology_ext.obo -go_ref_file all_gene_list -output_file go.txt
 }}}
 
 = Building from source =
+
 To build the software from source, you can download anonymously the latest version (read-only) in the current directory with the following svn command:
 {{{
 svn checkout http://lemon-tree.googlecode.com/svn/trunk/ .
