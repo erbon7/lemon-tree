@@ -91,7 +91,7 @@ M.printRegulators(output_file+".allreg.txt", true, false);
 M.printRegulators(output_file+".topreg.txt", false, false);
 }}}
 
-The steps for the regulators assignment procedure can be describe this way:
+The steps for the regulators assignment procedure can be described as:
 
   * set initial parameters.
   * load expression matrix.
@@ -102,11 +102,10 @@ The steps for the regulators assignment procedure can be describe this way:
   * print regulator results files.
 
 
-A data structure from the {{{ModuleNetwork}}} class that will be useful for a novel regulator assignment algorithm is the {{{regulatorSet}}} property, a list of {{{Gene}}} objects representing the candidate regulators that will be used during the assignment to modules.
+A data structure from the {{{ModuleNetwork}}} class that will be useful for a novel regulator assignment algorithm is the {{{regulatorSet}}} property, a list of {{{Gene}}} objects representing the candidate regulators that will be used during the assignment procedure.
 
 For each {{{Module}}} object, the list of assigned regulators is encoded in the {{{regulatorWeights}}} object, a map structure associating a {{{gene}}} object and a score value. This data structure can be used to store the regulators assigned with the new method and for creating the final output file.
 
-The output format after the regulator assignment is also a tab-delimited text file with 3 fields: regulator (gene) name, module number, and a regulator score.
-
+The output format after the regulator assignment is also a tab-delimited text file with 3 fields: regulator (gene) name, module number, and a regulator score (see the {{{printRegulators}}} function for more details).
 
 Finally, developers should incorporate a new entry in the {{{RunCli}}} class, handling the call to the new assignment algorithm, with the appropriate parameters.
