@@ -161,3 +161,11 @@ ant jar
 }}}
 
 If everything went well, you should see a file named lemontree_vx.x.x.jar in the current directory.
+
+= Using external programs =
+
+==External clustering==
+
+Many different algorithms can be used to cluster a matrix of gene expression data. For example, the R statistical software has literally hundreds of different package to perform this procedure (see a list here).
+
+The results of the clustering procedure can be used in Lemon-Tree as the input for 
