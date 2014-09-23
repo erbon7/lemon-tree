@@ -1,7 +1,7 @@
 #summary How to extend the Lemon-Tree code to add new functionalities.
 #labels Java,code,extending
 
-<wiki:toc max_depth="2" />
+<wiki:toc max_depth="3" />
 
 = Introduction =
 
