@@ -1,6 +1,8 @@
 #summary How to extend the Lemon-Tree code to add new functionalities.
 #labels Java,code,extending
 
+<wiki:toc max_depth="1" />
+
 = Introduction =
 
 We strongly encourage people to extend the functionalities of Lemon-Tree, by extending the codebase. Here, we describe the basic data structures and give some guidelines, assuming that the reader knows the fundamentals of programming in Java.
