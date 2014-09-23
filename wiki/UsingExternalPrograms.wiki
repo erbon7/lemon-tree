@@ -2,7 +2,7 @@
 
 = Introduction =
 
-Add your content here.
+Due to the modular nature and simple input/output format of the program, it's easy to use external tools to generate input data for Lemon-Tree algorithm using external tools. Here we describe in details how to proceed to feed data to the program at different levels.
 
 
 = Details =
