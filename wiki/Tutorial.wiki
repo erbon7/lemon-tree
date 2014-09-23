@@ -83,6 +83,7 @@ This step will be repeated multiple times, using the same command, only
 changing the name of the output file. Here we have generated 5 runs, prefixed  cluster1, 2, 3, 4, 5. The files are in the "results" directory.
 
 == Tight clusters task ==
+
 Here, we are going to generate a single, robust clustering solution from all the individual solutions generated at the previous step.
 
 {{{
