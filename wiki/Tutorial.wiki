@@ -160,6 +160,12 @@ java -jar lemontree.jar -task go_annotation -cluster_file tight_clusters.txt -go
 java -jar ../lemontree_v3.0.1.jar -task experiments -data_file data/expr_matrix.txt  -cluster_file tight_clusters.txt -output_file exp.xml.gz
 }}}
 
+
+{{{
+java -jar ../lemontree_v3.0.1.jar  -task split_reg -data_file data/expr_matrix.txt -reg_file data/reg_list.txt -cluster_file tight_clusters.txt -tree_file exp.xml.gz -range 5:10 -output_file reg_5_10
+}}}
+
+
 = Building from source =
 
 To build the software from source, you can download anonymously the latest version (read-only) in the current directory with the following svn command:
