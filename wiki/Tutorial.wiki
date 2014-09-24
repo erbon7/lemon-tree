@@ -162,7 +162,7 @@ The "experiments" task is sampling conditions for a given data set, and the resu
 
 This task is using a special option, named "range", that is specifying the number of modules for which the assignment will be done. The parameter for the "range" option consist in two numbers separated by a column character. The two numbers indicate the range of modules for which the assignment will be made. Thus with different range options, users can run assignment tasks in parallel. It is also possible to do the assignment module by module, by using the same number on each side of the column character (i.e. "-range 5:5" will perform the assignment for module 5 only).
 
-The two examples below, give the command line syntax to perform experiments sampling and then assign regulators for modules 5 to 10 (included).
+The two examples below, give the command line syntax to perform experiments sampling and then assign regulators for modules 5 to 10.
 
 
 {{{
