@@ -156,13 +156,15 @@ java -jar lemontree.jar -task go_annotation -cluster_file tight_clusters.txt -go
 
 = Advanced usage = 
 
+With large data sets, the users might have running time issues. For the clustering task, it is fairly easy to run "ganesh" task in parallel on different computers or cores (on a cluster system, for example). For the assignment of regulators, in priciple this kind of task can also be parallelized since the assignment is independent for each module. We have added two options to allow users to easily run regulator assignment in parallel.
+
 {{{
-java -jar ../lemontree_v3.0.1.jar -task experiments -data_file data/expr_matrix.txt  -cluster_file tight_clusters.txt -output_file exp.xml.gz
+java -jar lemontree.jar -task experiments -data_file data/expr_matrix.txt  -cluster_file tight_clusters.txt -output_file exp.xml.gz
 }}}
 
 
 {{{
-java -jar ../lemontree_v3.0.1.jar  -task split_reg -data_file data/expr_matrix.txt -reg_file data/reg_list.txt -cluster_file tight_clusters.txt -tree_file exp.xml.gz -range 5:10 -output_file reg_5_10
+java -jar lemontree.jar -task split_reg -data_file data/expr_matrix.txt -reg_file data/reg_list.txt -cluster_file tight_clusters.txt -tree_file exp.xml.gz -range 5:10 -output_file reg_5_10
 }}}
 
 
