@@ -83,8 +83,17 @@ score, but this might depend on the dataset. In this example, we have an input m
 java -jar lemontree.jar -task ganesh -data_file data/expr_matrix.txt -output_file cluster1
 }}}
 
-This step will be repeated multiple times, using the same command, only
-changing the name of the output file. Here we have generated 5 runs, prefixed  cluster1, 2, 3, 4, 5. The files are in the "results" directory.
+Note that the default behavior of the program is to create the output file in the current directory. To create the output file in a different directory, first create it (for example "my_results") and then use this directory with the "-output_file" parameter like this:
+
+{{{
+-output_file my_results/cluster1
+}}}
+
+
+The clustering procedure should be repeated multiple times, using the same command, only
+changing the name of the output file. Here we have generated 5 runs, prefixed  cluster1, 2, 3, 4, 5. The example files are in the "results" directory.
+
+
 
 == Tight clusters task ==
 
