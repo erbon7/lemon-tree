@@ -153,7 +153,12 @@ results/reg_tf.topreg.txt
 results/reg_mir.topreg.txt
 }}}
 
-All figures are generated to the eps (encapsulated postcript) format. Please note that all files are generated in the current directory. If you want to generate the files in a given directory, first create it, then move into this directory and launch the command above (with the correct path to files, of course).
+All figures are generated to the eps (encapsulated postcript) format. On Unix system, you can convert the {{{eps}}} format to {{{pdf}}} with the command {{{epstopdf}}}. The conversion of all files can be done with this shell one-liner:
+{{{
+for f in *.eps; do epstopdf $f; done
+}}}
+
+Please note that all files are generated in the current directory. If you want to generate the files in a given directory, first create it, then move into this directory and launch the command above (with the correct path to files, of course).
 
 == GO annotation task ==
 
