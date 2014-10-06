@@ -6,7 +6,7 @@ A collection of module network papers listed in chronological order with Lemon-T
 
   * Lee S, Pe’er D, Dudley A, Church G, Koller D (2006) Identifying regulatory mechanisms using individual variation reveals key role for chromatin modification. Proc Natl Acad Sci USA 103: 14062–14067.
 
-  * *Michoel T*, Maere S, *Bonnet E*, Joshi A, Saeys Y, et al. (2007) Validating module networks learning algorithms using simulated data. BMC Bioinformatics 8: S5. ([http://www.biomedcentral.com/1471-2105/8/S2/S5 web])
+  * *Michoel T*, Maere S, *Bonnet E*, Joshi A, Saeys Y, et al. (2007) [http://www.biomedcentral.com/1471-2105/8/S2/S5 Validating module networks learning algorithms using simulated data.] BMC Bioinformatics 8: S5.
 
   * Segal E, Sirlin CB, Ooi C, Adler AS, Gollub J, et al. (2007) Decoding global gene expression programs in liver cancer by noninvasive imaging. Nat Biotech 25: 675–680.
 
