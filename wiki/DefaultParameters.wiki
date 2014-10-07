@@ -1,13 +1,6 @@
-#summary One-sentence summary of this page.
+#summary All the default parameters.
 
-= Introduction =
-
-Add your content here.
+= ganesh task =
 
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+||Parameter|| Default value || Description ||
