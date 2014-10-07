@@ -9,3 +9,7 @@
 ||beta || 0.1 || beta parameter of the bayesian inference model||
 ||mu || 0.0 || mu parameter of the bayesian inference model||
 ||init_num_clust || 1/2 nb of genes in data matrix || initial number of clusters||
+||num_steps|| 100 || nb of steps for Gibbs sampling procedure||
+||burn_in|| 50 || nb of steps for the Gibbs sampling procedure which are not sampled||
+||sample_steps|| 100 || sampling steps for the Gibbs sampling procedure||
+|| score_gain|| 0.0 || score gain parameter for the Gibbs sampling||
