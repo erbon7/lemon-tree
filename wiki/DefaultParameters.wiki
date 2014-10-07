@@ -1,4 +1,4 @@
-#summary All the default parameters.
+#summary All the default parameters for the different Lemon-Tree tasks.
 
 == ganesh task ==
 
@@ -17,7 +17,11 @@
 == tight_clusters task ==
 
 ||Parameter|| Default value || Description ||
-||node_clustering|| true || choose between node (true) or edge (false) clustering procedure||
+||node_clustering|| true || choose between node (true) or edge (false) clustering procedures to create the tight clusters||
 || min_weight || 0.25 || minimum weight for node or edge clustering procedure||
 || min_clust_size || 10 || minimal cluster size for node or edge clustering procedure||
 || min_clust_score || 2 || minimal cluster score for node or edge clustering procedure||
+
+== regulators task ==
+
+||Parameter|| Default value || Description ||
