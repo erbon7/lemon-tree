@@ -8,3 +8,4 @@
 ||alpha || 0.1 || alpha parameter of the bayesian inference model||
 ||beta || 0.1 || beta parameter of the bayesian inference model||
 ||mu || 0.0 || mu parameter of the bayesian inference model||
+||init_num_clust || 1/2 nb of genes in data matrix || initial number of clusters||
