@@ -4,3 +4,4 @@
 
 
 ||Parameter|| Default value || Description ||
+||lambda || 0.1 || lambda parameter ||
