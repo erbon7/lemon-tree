@@ -1,6 +1,6 @@
 #summary All the default parameters.
 
-= ganesh task =
+== ganesh task ==
 
 
 ||Parameter|| Default value || Description ||
@@ -13,3 +13,10 @@
 ||burn_in|| 50 || nb of steps for the Gibbs sampling procedure which are not sampled||
 ||sample_steps|| 100 || sampling steps for the Gibbs sampling procedure||
 || score_gain|| 0.0 || score gain parameter for the Gibbs sampling||
+
+== tight_clusters task ==
+
+||Parameter|| Default value || Description ||
+|| min_weight || 0.25 || minimum weight for node or edge clustering ||
+|| min_clust_size || 10 || minimal cluster size for node or edge clustering||
+|| min_clust_score || 2 || minimal cluster score for node or edge clustering procedure||
