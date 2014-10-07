@@ -17,6 +17,7 @@
 == tight_clusters task ==
 
 ||Parameter|| Default value || Description ||
-|| min_weight || 0.25 || minimum weight for node or edge clustering ||
-|| min_clust_size || 10 || minimal cluster size for node or edge clustering||
+||node_clustering|| true || choose between node (true) or edge (false) clustering procedure||
+|| min_weight || 0.25 || minimum weight for node or edge clustering procedure||
+|| min_clust_size || 10 || minimal cluster size for node or edge clustering procedure||
 || min_clust_score || 2 || minimal cluster score for node or edge clustering procedure||
