@@ -100,12 +100,14 @@ changing the name of the output file. Here we have generated 5 runs, prefixed  c
 Here, we are going to generate a single, robust clustering solution from all the individual solutions generated at the previous step.
 
 {{{
-java -jar lemontree.jar -task tight_clusters -data_file data/expr_matrix.txt -cluster_file cluster_file_list -output_file tight_clusters.txt
+java -jar lemontree.jar -task tight_clusters -data_file data/expr_matrix.txt -cluster_file cluster_file_list -output_file tight_clusters.txt -node_clustering true
 }}}
 
 The "cluster_file" is a simple text file, listing the location of all the individual cluster files generated at the "ganesh" step.
 
-By default, this option is keeping only clusters that have a minimum of 10 genes. This number can be easily changed by overriding the parameter "min_clust_size" with another value on the command line for this task.
+By default, this option is keeping only clusters that have a minimum of 10 genes. This number can be easily changed by overriding the parameter "min_clust_size" with another value on the command line for this task (see the wiki page on default parameters).
+
+There are two methods included to create the tight clusters, either by clustering nodes ({{{-node_clustering true}}}) or by clustering edges ({{{-node_clustering false}}}).
 
 == Regulators task == 
 
