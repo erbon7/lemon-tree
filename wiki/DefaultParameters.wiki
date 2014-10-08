@@ -39,3 +39,5 @@
 ||Parameter|| Default value || Description ||
 ||go_p_value || 0.05 || GO p-value cutoff level||
 ||go_namespace || biological_process|| default namespace for enrichment calculations||
+
+== figures task ==
