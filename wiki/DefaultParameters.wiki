@@ -25,3 +25,12 @@
 == regulators task ==
 
 ||Parameter|| Default value || Description ||
+||lambda || 0.1 || lambda parameter of the bayesian inference model (clustering of conditions)||
+||alpha || 0.1 || alpha parameter of the bayesian inference model (clustering of conditions)||
+||beta || 0.1 || beta parameter of the bayesian inference model (clustering of conditions)||
+||mu || 0.0 || mu parameter of the bayesian inference model (clustering of conditions)||
+||num_steps|| 1100 || nb of steps for Gibbs sampling procedure (clustering of conditions)||
+||burn_in|| 100 || nb of steps for the Gibbs sampling procedure which are not sampled (clustering of conditions)||
+||sample_steps|| 100 || sampling steps for the Gibbs sampling procedure (clustering of conditions)||
+|| score_gain|| 0.0 || score gain parameter for the Gibbs sampling (clustering of conditions)||
+|| num_reg|| 10 || Number of regulators assigned per leaf node||
