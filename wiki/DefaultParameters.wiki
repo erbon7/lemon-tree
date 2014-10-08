@@ -34,3 +34,8 @@
 ||sample_steps|| 100 || sampling steps for the Gibbs sampling procedure (clustering of conditions)||
 || score_gain|| 0.0 || score gain parameter for the Gibbs sampling (clustering of conditions)||
 || num_reg|| 10 || Number of regulators assigned per leaf node||
+
+== go_annotation task ==
+||Parameter|| Default value || Description ||
+||go_p_value || 0.05 || GO p-value cutoff level||
+||go_namespace || biological_process|| default namespace for enrichment calculations||
