@@ -30,7 +30,7 @@ Requirements:
 
 = Versioning =
 
-The Lemon-Tree executable name (the {{{.jar}}} file) is formatted with a prefix ({{{lemontree}}}), followed by a version number, e.g. {{{v3.0}}}. The version number will of course be changed with subsequent releases, fixing bugs and/or adding new functionalities. In this document, we will always use the prefix {{{lemontree}}} without specifying the version number. Users should replace this name with the latest version of the {{{jar}}} file available.
+The Lemon-Tree executable name (the {{{.jar}}} file) is formatted with a prefix ({{{lemontree}}}), followed by a version number, e.g. {{{v3.0}}}. The version number will of course be changed with subsequent releases, fixing bugs and/or adding new functionalities. In this document, we will always use the prefix {{{lemontree}}} without specifying the version number. Users should replace this name with the latest version of the {{{jar}}} file available. At this moment, the latest version is {{{3.0.2}}}.
 
 = Installation =
 
