@@ -44,3 +44,4 @@
 ||Parameter|| Default value || Description ||
 ||use_global_mean||false|| Use the global mean for the color gradient in the figures||
 ||use_regulator_mean||false || Use the regulator mean for the color gradient in the figures||
+||cut_level|| 0 || Cut the regulation tree at a given depth for the figures (0 means no cutting)||
