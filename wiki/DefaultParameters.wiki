@@ -41,3 +41,6 @@
 ||go_namespace || biological_process|| default namespace for enrichment calculations||
 
 == figures task ==
+||Parameter|| Default value || Description ||
+||use_global_mean||false|| Use the global mean for the color gradient in the figures||
+||use_regulator_mean||false || Use the regulator mean for the color gradient in the figures||
