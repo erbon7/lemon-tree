@@ -58,6 +58,7 @@ public class RunCli {
 		String map_file = null;
 		String go_ontology_file = null;
 		
+		
 		// set default values for those parameters, users can override them
 		double alpha = 0.1;
 		double beta = 0.1;
@@ -77,6 +78,7 @@ public class RunCli {
 		double min_weight = 0.25;
 		int min_clust_size = 10;
 		int min_clust_score = 2;
+		Boolean node_clustering = true;
 		
 		// create the different options
 		Options opts = new Options();
@@ -121,6 +123,7 @@ public class RunCli {
 		opts.addOption("min_weight", true, "Tight clusters minimum weight");
 		opts.addOption("min_clust_size", true, "Tight clusters minimum cluster size");
 		opts.addOption("min_clust_score", true, "Tight clusters minimum cluster score");
+		opts.addOption("node_clustering", true, "Perform node clustering (true) or edge clustering (false)");
 		
 		// build a parser object and parse the command line (!)
 		CommandLineParser parser = new PosixParser();
@@ -222,6 +225,11 @@ public class RunCli {
 			
 			if (cmd.hasOption("cut_level"))
 				cut_level = Integer.parseInt(cmd.getOptionValue("cut_level"));
+			
+			if (cmd.hasOption("node_clustering"))
+				if (cmd.getOptionValue("node_clustering").equalsIgnoreCase("false"))
+					node_clustering = false;
+			
 		}
 		catch (ParseException exp) {
 			System.out.println("Error while parsing command line:");
@@ -302,6 +310,7 @@ public class RunCli {
 			 System.out.println("data_file:          " + data_file);
 			 System.out.println("cluster_file:       " + cluster_file);
 			 System.out.println("output_file:        " + output_file);
+			 System.out.println("node_clustering:    " + node_clustering);
 			 System.out.println("min_weight:         " + min_weight);
 			 System.out.println("min_clust_size:     " + min_clust_size);
 			 System.out.println("min_clust_score:    " + min_clust_score);
@@ -312,7 +321,7 @@ public class RunCli {
 			 M.readMultipleClusters(cluster_file);
 
 			 // find tight clusters with node clustering algorithm
-			 CentroidClustering cc = new CentroidClustering(M, true, min_weight, min_clust_size, min_clust_score);
+			 CentroidClustering cc = new CentroidClustering(M, node_clustering, min_weight, min_clust_size, min_clust_score);
 			 cc.doCentroidClustering();
 			 cc.printClusters(output_file);
 			 
@@ -596,7 +605,7 @@ public class RunCli {
 	
 	public static void printBanner () {
 		System.out.println("");
-		System.out.println("LemonTree - Version 3.0.1");
+		System.out.println("LemonTree - Version 3.0.2");
 		System.out.println("-------------------------");
 		System.out.println("");
 	}

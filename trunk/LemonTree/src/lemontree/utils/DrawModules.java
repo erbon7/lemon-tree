@@ -230,7 +230,7 @@ public class DrawModules extends JComponent {
 	private Color data2ColorCNV(double value) {
 		Color col = null;
 		
-		double lower_bound = -1.8f;
+		double lower_bound = -1.3f;
 		double upper_bound = 0.7f;
 		
 		if (value < lower_bound)
@@ -658,7 +658,7 @@ public class DrawModules extends JComponent {
 	
 	private void customDrawEps(Module mod, String filename) {
 
-		int sc = 6;         //scale factor for output file
+		int sc = 8;         //scale factor for output file
 		int x0 = 10;		// coordinates of origin
 		int y0 = 10;
 		int h = 1;			// tree step height
@@ -666,7 +666,7 @@ public class DrawModules extends JComponent {
 		int height;			// figure height
 		int x = x0;
 		int ybase = y0;
-		int deltaGeneY = 1;  // height for module genes rectangles
+		int deltaGeneY = 2;  // height for module genes rectangles
 		
 
 		// get max text size for condition names
@@ -1017,7 +1017,7 @@ public class DrawModules extends JComponent {
 							//g.setFont(new Font("SansSerif", Font.BOLD, 2));
 							//g.drawString(reg.getGene().name, new Float(x + node.rightChild.leafDistribution.condSet.size() + 1), new Float(ybase + cursorY));
 							
-							g.setFont(new Font("SansSerif", Font.BOLD, 5));
+							g.setFont(new Font("SansSerif", Font.BOLD, 2));
 							g.drawString(reg.getGene().name, new Float(x + node.rightChild.leafDistribution.condSet.size() + 1), new Float(ybase + cursorY));
 							
 							if (this.extraInfo.get(reg.getGene().name) != null){
@@ -1046,8 +1046,8 @@ public class DrawModules extends JComponent {
 							cursorY += 2;
 						}
 						if (mod.topRegClasses.get(i).size() > 0)
-							//cursorY += 2;
-							cursorY += 4;
+							cursorY += 2;
+							//cursorY += 4;
 					}
 					
 //					for (Gene reg : mod.topRegulators) {
@@ -1066,7 +1066,7 @@ public class DrawModules extends JComponent {
 						// draw gene name
 						g.setPaint(Color.black);
 						g.setFont(new Font("SansSerif", Font.BOLD, 2));
-						//g.drawString(gene.name, new Float(x + node.rightChild.leafDistribution.condSet.size() +1), new Float(ybase + cursorY));
+						g.drawString(gene.name, new Float(x + node.rightChild.leafDistribution.condSet.size() +1), new Float(ybase + cursorY));
 						
 //						if (this.extraInfo.get(gene.name) != null){
 //							Color col = null;
@@ -1078,7 +1078,7 @@ public class DrawModules extends JComponent {
 //							plotCustomRectangle(g, xtra_xbase, ybase + cursorY-2);
 //						}
 						
-						//cursorY += deltaGeneY;
+						cursorY += deltaGeneY;
 					}
 
 				} // end extra information
