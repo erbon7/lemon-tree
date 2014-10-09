@@ -39,9 +39,11 @@
 ||burn_in|| 100 || nb of Gibbs sampling steps before storing the first condition clustering solution||
 ||sample_steps|| 100 || nb of Gibbs sampling steps between storing successive condition clustering solutions||
 || score_gain|| 0.0 || Bayesian score difference for keeping two condition clusters as separate leaves in the decision tree vs. merging them||
-|| num_reg|| 10 || Number of regulators assigned per leaf node||
+|| num_reg|| 10 || Number of regulators sampled per leaf node||
 
-  * The regulators task uses the same Gibbs sampling procedure as the ganesh task to sample condition clustering solutions for each module, but without reassigning genes, hence one Gibbs sampling step is defined here as performing (nb of conditions) condition reassignment operations for each module..
+  * The regulators task uses the same Gibbs sampling procedure as the ganesh task to sample condition clustering solutions for each module, but without reassigning genes, hence one Gibbs sampling step is defined here as performing (nb of conditions) condition reassignment operations for each module.
+  * Regulators are sampled at each decision tree node according to a logistic regression model, see [http://bioinformatics.oxfordjournals.org/content/25/4/490.long the module network inference paper].
+  * The default settings mean that 10 condition clustering solutions and associated decision trees are sampled for each module, and 10 regulators are sampled at each decision tree node. 
 
 == go_annotation task ==
 ||Parameter|| Default value || Description ||
