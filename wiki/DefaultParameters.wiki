@@ -12,7 +12,7 @@
 ||num_steps|| 100 || total nb of Gibbs sampling steps||
 ||burn_in|| 50 || nb of Gibbs sampling steps before storing the first clustering solution ||
 ||sample_steps|| 100 || nb of Gibbs sampling steps between storing successive clustering solutions||
-|| score_gain|| 0.0 || Bayesian score difference for keeping two condition clusters as separate leaves in the decision tree vs. merging them.||
+|| score_gain|| 0.0 || Bayesian score difference for keeping two condition clusters as separate leaves in the decision tree vs. merging them||
 
   * For a detailed definition of the Bayesian score function and the normal-gamma prior, see eq. (1) in [http://bioinformatics.oxfordjournals.org/content/24/2/176.long the Gibbs sampler paper].
   * One Gibbs sampler step is defined as performing (nb of genes) gene reassignment operations followed by (nb of conditions) condition reassignment operations for each current module.
@@ -31,15 +31,17 @@
 == regulators task ==
 
 ||Parameter|| Default value || Description ||
-||lambda || 0.1 || lambda parameter of the bayesian inference model (clustering of conditions)||
-||alpha || 0.1 || alpha parameter of the bayesian inference model (clustering of conditions)||
-||beta || 0.1 || beta parameter of the bayesian inference model (clustering of conditions)||
-||mu || 0.0 || mu parameter of the bayesian inference model (clustering of conditions)||
-||num_steps|| 1100 || nb of steps for Gibbs sampling procedure (clustering of conditions)||
-||burn_in|| 100 || nb of steps for the Gibbs sampling procedure which are not sampled (clustering of conditions)||
-||sample_steps|| 100 || sampling steps for the Gibbs sampling procedure (clustering of conditions)||
-|| score_gain|| 0.0 || score gain parameter for the Gibbs sampling (clustering of conditions)||
+||lambda || 0.1 || normal-gamma prior parameter||
+||alpha || 0.1 || normal-gamma prior parameter||
+||beta || 0.1 || normal-gamma prior parameter||
+||mu || 0.0 || normal-gamma prior parameter||
+||num_steps|| 1100 || total nb of Gibbs sampling steps||
+||burn_in|| 100 || nb of Gibbs sampling steps before storing the first condition clustering solution||
+||sample_steps|| 100 || nb of Gibbs sampling steps between storing successive condition clustering solutions||
+|| score_gain|| 0.0 || Bayesian score difference for keeping two condition clusters as separate leaves in the decision tree vs. merging them||
 || num_reg|| 10 || Number of regulators assigned per leaf node||
+
+  * The regulators task uses the same Gibbs sampling procedure as the ganesh task to sample condition clustering solutions for each module, but without reassigning genes, hence one Gibbs sampling step is defined here as performing (nb of conditions) condition reassignment operations for each module..
 
 == go_annotation task ==
 ||Parameter|| Default value || Description ||
