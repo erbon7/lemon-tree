@@ -50,6 +50,8 @@
 ||go_p_value || 0.05 || GO p-value cutoff level||
 ||go_namespace || biological_process|| default namespace for enrichment calculations||
 
+  * For details, see [http://bioinformatics.oxfordjournals.org/content/21/16/3448.short the BiNGO paper].
+
 == figures task ==
 ||Parameter|| Default value || Description ||
 ||use_global_mean||false|| Use the global mean for the color gradient in the figures||
