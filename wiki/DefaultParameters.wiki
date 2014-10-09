@@ -1,5 +1,7 @@
 #summary All the default parameters for the different Lemon-Tree tasks.
 
+The following is a list of all parameters that can be changed via the command line. However, unless you know what you're doing, it's best to leave these unchanged and stick to the instructions in the [https://code.google.com/p/lemon-tree/wiki/Tutorial Tutorial].
+
 == ganesh task ==
 
 
