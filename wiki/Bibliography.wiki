@@ -4,7 +4,7 @@ A collection of module network papers listed in chronological order with Lemon-T
 
 ==New Methodology==
 
-Papers in this section introduces new module network methods and algorithms, along with various degrees of biological validation.
+Papers in this section introduced new module network methods and algorithms, along with various degrees of biological validation.
 
   * Segal E, Shapira M, Regev A, Pe’er D, Botstein D, et al.(2003) Module networks: identifying regulatory modules and their condition-specific regulators from gene expression data. Nature Genetics 34: 166–167.
 
