@@ -2,7 +2,7 @@
 
 A collection of module network papers listed in chronological order with Lemon-Tree project members in bold. Let us know if we have overlooked any relevant publications!
 
-==New Methodology==
+===New Methodology===
 
 Papers in this section introduced new module network methods and algorithms, along with various degrees of biological validation.
 
@@ -36,7 +36,7 @@ Papers in this section introduced new module network methods and algorithms, alo
 
   * Roy S, Wapinski I, Pfiffner J, French C, Socha A,et al. (2013) Arboretum: reconstructiona nd analysis of the evolutionary history of condition-specific transcriptional modules. Genome Research 23: 1039–1050.
 
-==Applications==
+===Applications===
 
 Papers in this section applied existing module network methods to concrete biological and biomedical problems.
 
