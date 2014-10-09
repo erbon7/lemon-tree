@@ -4,10 +4,10 @@
 
 
 ||Parameter|| Default value || Description ||
-||lambda || 0.1 || normal-gamma prior parameter [see eq. (1) in [http://bioinformatics.oxfordjournals.org/content/24/2/176.long this paper]]||
-||alpha || 0.1 || normal-gamma prior (see eq. (1) in [http://bioinformatics.oxfordjournals.org/content/24/2/176.long this paper])||
-||beta || 0.1 || normal-gamma prior (see eq. (1) in [http://bioinformatics.oxfordjournals.org/content/24/2/176.long this paper])||
-||mu || 0.0 || normal-gamma prior (see eq. (1) in [http://bioinformatics.oxfordjournals.org/content/24/2/176.long this paper])||
+||lambda || 0.1 || normal-gamma prior parameter (see eq. (1) in [http://bioinformatics.oxfordjournals.org/content/24/2/176.long this paper])||
+||alpha || 0.1 || normal-gamma prior parameter (see eq. (1) in [http://bioinformatics.oxfordjournals.org/content/24/2/176.long this paper])||
+||beta || 0.1 || normal-gamma prior parameter (see eq. (1) in [http://bioinformatics.oxfordjournals.org/content/24/2/176.long this paper])||
+||mu || 0.0 || normal-gamma prior parameter (see eq. (1) in [http://bioinformatics.oxfordjournals.org/content/24/2/176.long this paper])||
 ||init_num_clust || 1/2 nb of genes in data matrix || initial number of clusters||
 ||num_steps|| 100 || nb of steps for Gibbs sampling procedure||
 ||burn_in|| 50 || nb of steps for the Gibbs sampling procedure which are not sampled||
