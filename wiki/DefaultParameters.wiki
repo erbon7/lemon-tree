@@ -26,6 +26,8 @@
 || min_clust_size || 10 || minimal cluster size for node or edge clustering procedure||
 || min_clust_score || 2 || minimal cluster score for node or edge clustering procedure||
 
+  * Detailed definitions of these parameters are provided in the Supplementary Methods of [http://arxiv.org/abs/1408.0472 the Lemon-Tree paper].
+
 == regulators task ==
 
 ||Parameter|| Default value || Description ||
