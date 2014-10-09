@@ -56,7 +56,7 @@
 ||Parameter|| Default value || Description ||
 ||use_global_mean||false|| Use the global mean for the color gradient in the figures||
 ||use_regulator_mean||false || Use the regulator mean for the color gradient in the figures||
-||map_file|| none || file name mapping data IDs used for clustering to IDs used for figures (e.g. to print gene symbols instead of transcript IDs)
+||map_file|| none || file name mapping data IDs used for clustering to IDs used for figures (e.g. to print gene symbols instead of transcript IDs)||
 ||cut_level|| 0 || Cut the regulation tree at a given depth for the figures (0 means no cutting)||
 
   * The default settings mean that the color gradient is defined separately for each module based on the mean expression level of genes in the module (as opposed to all genes in the data) and that the regulator panel uses the same color gradient as the module genes. When combining different types of regulator data, setting use_regulator_mean to true is recommended.
