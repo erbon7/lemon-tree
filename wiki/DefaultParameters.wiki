@@ -4,15 +4,18 @@
 
 
 ||Parameter|| Default value || Description ||
-||lambda || 0.1 || normal-gamma prior parameter (see eq. (1) in [http://bioinformatics.oxfordjournals.org/content/24/2/176.long this paper])||
-||alpha || 0.1 || normal-gamma prior parameter (see eq. (1) in [http://bioinformatics.oxfordjournals.org/content/24/2/176.long this paper])||
-||beta || 0.1 || normal-gamma prior parameter (see eq. (1) in [http://bioinformatics.oxfordjournals.org/content/24/2/176.long this paper])||
-||mu || 0.0 || normal-gamma prior parameter (see eq. (1) in [http://bioinformatics.oxfordjournals.org/content/24/2/176.long this paper])||
+||lambda || 0.1 || normal-gamma prior parameter||
+||alpha || 0.1 || normal-gamma prior parameter||
+||beta || 0.1 || normal-gamma prior parameter||
+||mu || 0.0 || normal-gamma prior parameter||
 ||init_num_clust || 1/2 nb of genes in data matrix || initial number of clusters||
 ||num_steps|| 100 || nb of steps for Gibbs sampling procedure||
 ||burn_in|| 50 || nb of steps for the Gibbs sampling procedure which are not sampled||
 ||sample_steps|| 100 || sampling steps for the Gibbs sampling procedure||
 || score_gain|| 0.0 || score gain parameter for the Gibbs sampling||
+
+  * For a detailed definition of the Bayesian score function and the normal-gamma prior, see eq. (1) in [http://bioinformatics.oxfordjournals.org/content/24/2/176.long this paper].
+  * One Gibbs sampler step is defined as performing (nb of genes) gene reassignment operations and (nb of conditions) condition reassignment operations for each current module.
 
 == tight_clusters task ==
 
