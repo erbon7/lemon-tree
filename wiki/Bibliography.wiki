@@ -6,9 +6,9 @@ A collection of module network papers listed in chronological order with Lemon-T
 
 Papers in this section introduced new module network methods and algorithms, along with various degrees of biological validation.
 
-  * Segal E, Shapira M, Regev A, Pe’er D, Botstein D, et al.(2003) Module networks: identifying regulatory modules and their condition-specific regulators from gene expression data. Nature Genetics 34: 166–167.
+  * Segal E, Shapira M, Regev A, Pe’er D, Botstein D, et al.(2003) [http://www.nature.com/ng/journal/v34/n2/abs/ng1165.html Module networks: identifying regulatory modules and their condition-specific regulators from gene expression data]. Nature Genetics 34: 166–167.
 
-  * Lee S, Pe’er D, Dudley A, Church G, Koller D (2006) Identifying regulatory mechanisms using individual variation reveals key role for chromatin modification. Proc Natl Acad Sci USA 103: 14062–14067.
+  * Lee S, Pe’er D, Dudley A, Church G, Koller D (2006) [http://www.pnas.org/content/103/38/14062.short Identifying regulatory mechanisms using individual variation reveals key role for chromatin modification]. Proc Natl Acad Sci USA 103: 14062–14067.
 
   * *Michoel T*, Maere S, *Bonnet E*, Joshi A, Saeys Y, et al. (2007) [http://www.biomedcentral.com/1471-2105/8/S2/S5 Validating module networks learning algorithms using simulated data]. BMC Bioinformatics 8: S5.
 
