@@ -40,16 +40,16 @@ Papers in this section introduced new module network methods and algorithms, alo
 
 Papers in this section applied existing module network methods to concrete biological and biomedical problems.
 
- * Segal E, Sirlin CB, Ooi C, Adler AS, Gollub J, et al. (2007) Decoding global gene expression programs in liver cancer by noninvasive imaging. Nat Biotech 25: 675–680.
+ * Segal E, Sirlin CB, Ooi C, Adler AS, Gollub J, et al. (2007) [http://www.nature.com/nbt/journal/v25/n6/abs/nbt1306.html Decoding global gene expression programs in liver cancer by noninvasive imaging]. Nat Biotech 25: 675–680.
 
-  * Zhu H, Yang H, Owen MR (2007) Combined microarray analysis uncovers self-renewal related signaling in mouse embryonic stem cells. Syst Synth Biol 1: 171–181.
+  * Zhu H, Yang H, Owen MR (2007) [http://link.springer.com/article/10.1007/s11693-008-9015-2 Combined microarray analysis uncovers self-renewal related signaling in mouse embryonic stem cells]. Syst Synth Biol 1: 171–181.
 
-  * Li J, Liu Z, Pan Y, Liu Q, Fu X, et al. (2007) Regulatory module network of basic/helix-loop-helix transcription factors in mouse brain. Genome Biol 8: R 244.
+  * Li J, Liu Z, Pan Y, Liu Q, Fu X, et al. (2007) [http://www.biomedcentral.com/1465-6906/8/R244 Regulatory module network of basic/helix-loop-helix transcription factors in mouse brain]. Genome Biol 8: R 244.
 
-  * Novershtern N, Itzhaki Z, Manor O, Friedman N, Kaminski N (2008) A functional and regulatory map of asthma. Am J Respir Cell Mol Biol 38: 324–336.
+  * Novershtern N, Itzhaki Z, Manor O, Friedman N, Kaminski N (2008) [http://www.atsjournals.org/doi/abs/10.1165/rcmb.2007-0151OC A functional and regulatory map of asthma]. Am J Respir Cell Mol Biol 38: 324–336.
 
- * Amit I, Garber M, Chevrier N, Leite AP, Donner Y, et al. (2009) Unbiased reconstruction of a mammalian transcriptional network mediating pathogen responses. Science 326: 257.
+ * Amit I, Garber M, Chevrier N, Leite AP, Donner Y, et al. (2009) [http://www.sciencemag.org/content/326/5950/257.short Unbiased reconstruction of a mammalian transcriptional network mediating pathogen responses]. Science 326: 257.
 
   * Vermeirssen V, Joshi A, *Michoel T*, *Bonnet E*, Casneuf T, et al. (2009) [http://pubs.rsc.org/en/Content/ArticleLanding/2009/MB/b908108a Transcription regulatory networks in Caenorhabditis elegans inferred through reverse-engineering of gene expression profiles constitute biological hypotheses for metazoan development]. Mol Bio Syst 5: 1817–1830.
 
-  * Zhu M, Deng X, Joshi T, Xu D, Stacey G, et al. (2012) Reconstructing differentially co- expressed gene modules and regulatory networks of soybean cells. BMC Genomics 13: 437.
+  * Zhu M, Deng X, Joshi T, Xu D, Stacey G, et al. (2012) [http://www.biomedcentral.com/1471-2164/13/437 Reconstructing differentially co-expressed gene modules and regulatory networks of soybean cells]. BMC Genomics 13: 437.
