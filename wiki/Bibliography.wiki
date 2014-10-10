@@ -30,11 +30,11 @@ Papers in this section introduced new module network methods and algorithms, alo
 
   * Novershtern N, Regev A, Friedman N (2011) [http://bioinformatics.oxfordjournals.org/content/27/13/i177.short Physical module networks: an integrative approach for reconstructing transcription regulation]. Bioinformatics 27: i177–i185.
 
-  * Novershtern N, Subramanian A, Lawton LN, Mak RH, Haining WN, et al. (2011) Densely interconnected transcriptional circuits control cell states in human hematopoiesis. Cell 144: 296–309.
+  * Novershtern N, Subramanian A, Lawton LN, Mak RH, Haining WN, et al. (2011) [http://www.sciencedirect.com/science/article/pii/S0092867411000055 Densely interconnected transcriptional circuits control cell states in human hematopoiesis]. Cell 144: 296–309.
 
-  * Roy S, Lagree S, Hou Z, Thomson JA, Stewart R, et al. (2013) Integrated module and gene- specific regulatory inference implicates upstream signaling networks. PLoS Computational Biology 9.
+  * Roy S, Lagree S, Hou Z, Thomson JA, Stewart R, et al. (2013) [http://dx.plos.org/10.1371/journal.pcbi.1003252 Integrated module and gene-specific regulatory inference implicates upstream signaling networks]. PLoS Computational Biology 9.
 
-  * Roy S, Wapinski I, Pfiffner J, French C, Socha A,et al. (2013) Arboretum: reconstructiona nd analysis of the evolutionary history of condition-specific transcriptional modules. Genome Research 23: 1039–1050.
+  * Roy S, Wapinski I, Pfiffner J, French C, Socha A,et al. (2013) [http://genome.cshlp.org/content/23/6/1039.short Arboretum: reconstruction and analysis of the evolutionary history of condition-specific transcriptional modules]. Genome Research 23: 1039–1050.
 
 ===Applications===
 
