@@ -18,17 +18,17 @@ Papers in this section introduced new module network methods and algorithms, alo
 
   * *Michoel T*, De Smet R, Joshi A, Van de Peer Y, Marchal K (2009) [http://www.biomedcentral.com/1752-0509/3/49 Comparative analysis of module-based versus direct methods for reverse-engineering transcriptional regulatory networks]. BMC Syst Biol 3: 49.
 
- * Lee SI, Dudley AM, Drubin D, Silver PA, Krogan NJ, et al. (2009) Learning a prior on regulatory potential from eqtl data. PLoS Genetics 5: e1000358.
+ * Lee SI, Dudley AM, Drubin D, Silver PA, Krogan NJ, et al. (2009) [http://dx.plos.org/10.1371/journal.pgen.1000358.g008 Learning a prior on regulatory potential from eQTL data]. PLoS Genetics 5: e1000358.
 
   * *Bonnet E*, Tatari M, Joshi A, *Michoel T*, Marchal K, et al. (2010) [http://www.plosone.org/article/info:doi/10.1371/journal.pone.0010162 Module network inference from a cancer gene expression data set identifies microRNA regulated modules]. PLoS One 5: e10162.
 
   * *Bonnet E*, *Michoel T*, Van de Peer Y (2010) [http://bioinformatics.oxfordjournals.org/content/26/18/i638 Prediction of a gene regulatory network linked to prostate cancer from gene expression, microRNA and clinical data]. Bioinformatics 26: i683–i644.
 
-  * Zhang W, Zhu J, Schadt EE, Liu JS (2010) A Bayesian partition method for detecting pleiotropic and epistatic eQTL modules. PLoS Computational Biology 6: e1000642.
+  * Zhang W, Zhu J, Schadt EE, Liu JS (2010) [http://dx.plos.org/10.1371/journal.pcbi.1000642.g006 A Bayesian partition method for detecting pleiotropic and epistatic eQTL modules]. PLoS Computational Biology 6: e1000642.
 
-  * Akavia UD, Litvin O, Kim J, Sanchez-Garcia F, Kotliar D, et al. (2010) An integrated approach to uncover drivers of cancer. Cell 143: 1005–1017.
+  * Akavia UD, Litvin O, Kim J, Sanchez-Garcia F, Kotliar D, et al. (2010) [http://www.sciencedirect.com/science/article/pii/S0092867410012936 An integrated approach to uncover drivers of cancer]. Cell 143: 1005–1017.
 
-  * Novershtern N, Regev A, Friedman N (2011) Physical module networks: an integrative approach for reconstructing transcription regulation. Bioinformatics 27: i177–i185.
+  * Novershtern N, Regev A, Friedman N (2011) [http://bioinformatics.oxfordjournals.org/content/27/13/i177.short Physical module networks: an integrative approach for reconstructing transcription regulation]. Bioinformatics 27: i177–i185.
 
   * Novershtern N, Subramanian A, Lawton LN, Mak RH, Haining WN, et al. (2011) Densely interconnected transcriptional circuits control cell states in human hematopoiesis. Cell 144: 296–309.
 
