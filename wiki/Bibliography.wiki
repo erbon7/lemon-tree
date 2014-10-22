@@ -53,3 +53,5 @@ Papers in this section applied existing module network methods to concrete biolo
   * Vermeirssen V, Joshi A, *Michoel T*, *Bonnet E*, Casneuf T, et al. (2009) [http://pubs.rsc.org/en/Content/ArticleLanding/2009/MB/b908108a Transcription regulatory networks in Caenorhabditis elegans inferred through reverse-engineering of gene expression profiles constitute biological hypotheses for metazoan development]. Mol Bio Syst 5: 1817–1830.
 
   * Zhu M, Deng X, Joshi T, Xu D, Stacey G, et al. (2012) [http://www.biomedcentral.com/1471-2164/13/437 Reconstructing differentially co-expressed gene modules and regulatory networks of soybean cells]. BMC Genomics 13: 437.
+
+  * Benitez C.M., Qu, K., Sugiyama, T., Pauerstein, P. T., Liu, Y., Tsai, J., et al. (2014). [http://www.plosgenetics.org/article/info%3Adoi%2F10.1371%2Fjournal.pgen.1004645 An Integrated Cell Purification and Genomics Strategy Reveals Multiple Regulators of Pancreas Development]. PLOS Genetics, 10(10), e1004645. 
