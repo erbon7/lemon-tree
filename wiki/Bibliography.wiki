@@ -54,4 +54,6 @@ Papers in this section applied existing module network methods to concrete biolo
 
   * Zhu M, Deng X, Joshi T, Xu D, Stacey G, et al. (2012) [http://www.biomedcentral.com/1471-2164/13/437 Reconstructing differentially co-expressed gene modules and regulatory networks of soybean cells]. BMC Genomics 13: 437.
 
-  * Benitez C.M., Qu, K., Sugiyama, T., Pauerstein, P. T., Liu, Y., Tsai, J., et al. (2014). [http://www.plosgenetics.org/article/info%3Adoi%2F10.1371%2Fjournal.pgen.1004645 An Integrated Cell Purification and Genomics Strategy Reveals Multiple Regulators of Pancreas Development]. PLOS Genetics, 10(10), e1004645. 
+  * Benitez C.M., et al. (2014). [http://www.plosgenetics.org/article/info%3Adoi%2F10.1371%2Fjournal.pgen.1004645 An Integrated Cell Purification and Genomics Strategy Reveals Multiple Regulators of Pancreas Development]. PLOS Genetics, 10(10), e1004645. 
+
+ * Kogelman, L. J., et al. [http://www.biomedcentral.com/1755-8794/7/57 Identification of co-expression gene networks, regulatory genes and pathways for obesity based on adipose tissue RNA Sequencing in a porcine model]. BMC Medical Genomics 7.1 (2014): 57.
