@@ -376,7 +376,7 @@ public class DrawModules extends JComponent {
 
 			// draw vertical split line
 			g.setPaint(Color.black);
-			g.setStroke(new BasicStroke(1));
+			g.setStroke(new BasicStroke(1.5F));
 			g.drawLine(x, y, x, y + h);
 			
 			// leftChild ******************************************************
@@ -392,7 +392,7 @@ public class DrawModules extends JComponent {
 				// if child is leaf, we draw a vertical to the middle of the leaf as well as the leaf data point (vertical line of reg tree)
 				xl = x - node.leftChild.leafDistribution.condSet.size() / 2;
 				g.setPaint(Color.black);
-				g.setStroke(new BasicStroke(1));
+				g.setStroke(new BasicStroke(1.5F));
 				g.drawLine(xl, y + h, xl, ybase);
 				int xl1 = x - node.leftChild.leafDistribution.condSet.size();
 
@@ -486,7 +486,7 @@ public class DrawModules extends JComponent {
 				// if child is leaf, we draw a vertical to the middle of the leaf as well as the leaf data point (vertical line of the reg tree)
 				xr = x + node.rightChild.leafDistribution.condSet.size() / 2;
 				g.setPaint(Color.black);
-				g.setStroke(new BasicStroke(1));
+				g.setStroke(new BasicStroke(1.5F));
 				g.drawLine(xr, y + h, xr, ybase);
 
 				// draw top regulators expression and names
@@ -614,7 +614,7 @@ public class DrawModules extends JComponent {
 			// draw horizontal line between start coordinates for the children
 			// = horizontal lines for the tree
 			g.setColor(Color.black);
-			g.setStroke(new BasicStroke(1));
+			g.setStroke(new BasicStroke(1.5F));
 			g.drawLine(xl, y + h, xr, y + h);
 
 			// draw the childrens
@@ -623,7 +623,7 @@ public class DrawModules extends JComponent {
 
 			// draw line between leaves, first for classes of regulators, then for module genes
 			int cursorY = 0;
-			g.setStroke(new BasicStroke(0.1F));
+			g.setStroke(new BasicStroke(1.5F));
 			g.setPaint(Color.magenta);
 			
 			int startY = 0;
@@ -764,7 +764,7 @@ public class DrawModules extends JComponent {
 
 			// draw vertical split line
 			g.setPaint(Color.black);
-			g.setStroke(new BasicStroke(1));
+			g.setStroke(new BasicStroke(1.5F));
 			g.drawLine(x, y, x, y + h);
 			
 			// leftChild ******************************************************
@@ -780,7 +780,7 @@ public class DrawModules extends JComponent {
 				// if child is leaf, we draw a vertical to the middle of the leaf as well as the leaf data point (vertical line of reg tree)
 				xl = x - node.leftChild.leafDistribution.condSet.size() / 2;
 				g.setPaint(Color.black);
-				g.setStroke(new BasicStroke(1));
+				g.setStroke(new BasicStroke(1.5F));
 				g.drawLine(xl, y + h, xl, ybase);
 				int xl1 = x - node.leftChild.leafDistribution.condSet.size();
 
@@ -904,7 +904,7 @@ public class DrawModules extends JComponent {
 				// if child is leaf, we draw a vertical to the middle of the leaf as well as the leaf data point (vertical line of the reg tree)
 				xr = x + node.rightChild.leafDistribution.condSet.size() / 2;
 				g.setPaint(Color.black);
-				g.setStroke(new BasicStroke(1));
+				g.setStroke(new BasicStroke(1.5F));
 				g.drawLine(xr, y + h, xr, ybase);
 
 				// draw top regulators expression and names
@@ -1098,7 +1098,7 @@ public class DrawModules extends JComponent {
 			// draw horizontal line between start coordinates for the children
 			// = horizontal lines for the tree
 			g.setColor(Color.black);
-			g.setStroke(new BasicStroke(1));
+			g.setStroke(new BasicStroke(1.5F));
 			g.drawLine(xl, y + h, xr, y + h);
 
 			// draw the childrens
@@ -1107,7 +1107,7 @@ public class DrawModules extends JComponent {
 
 			// draw line between leaves, first for classes of regulators, then for module genes
 			int cursorY = 0;
-			g.setStroke(new BasicStroke(0.1F));
+			g.setStroke(new BasicStroke(1.5F));
 			g.setPaint(Color.magenta);
 			
 			int startY = 0;
