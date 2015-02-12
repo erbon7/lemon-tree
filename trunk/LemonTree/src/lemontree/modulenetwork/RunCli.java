@@ -79,6 +79,7 @@ public class RunCli {
 		int min_clust_size = 10;
 		int min_clust_score = 2;
 		Boolean node_clustering = true;
+		boolean draw_experiment_names = true;
 		
 		// create the different options
 		Options opts = new Options();
@@ -124,6 +125,7 @@ public class RunCli {
 		opts.addOption("min_clust_size", true, "Tight clusters minimum cluster size");
 		opts.addOption("min_clust_score", true, "Tight clusters minimum cluster score");
 		opts.addOption("node_clustering", true, "Perform node clustering (true) or edge clustering (false)");
+		opts.addOption("draw_experiment_names", true, "Draw experiment names in the figures");
 		
 		// build a parser object and parse the command line (!)
 		CommandLineParser parser = new PosixParser();
@@ -229,6 +231,10 @@ public class RunCli {
 			if (cmd.hasOption("node_clustering"))
 				if (cmd.getOptionValue("node_clustering").equalsIgnoreCase("false"))
 					node_clustering = false;
+			
+			if (cmd.hasOption("draw_experiment_names"))
+				if (cmd.getOptionValue("draw_experiment_names").equalsIgnoreCase("false"))
+					draw_experiment_names = false;
 			
 		}
 		catch (ParseException exp) {
@@ -543,16 +549,17 @@ public class RunCli {
 
 			System.out.println("Parameters");
 			System.out.println("----------");
-			System.out.println("task:               " + task);
-			System.out.println("data_file:          " + data_file);
-			System.out.println("reg_file:           " + reg_file);
-			System.out.println("cluster_file:       " + cluster_file);
-			System.out.println("tree_file:          " + tree_file);
-			System.out.println("top_regulators:     " + top_regulators);
-			System.out.println("use_regulator_mean: " + use_regulator_mean);
-			System.out.println("use_global_mean:    " + use_global_mean);
-			System.out.println("map_file:           " + map_file);
-			System.out.println("cut_level:          " + cut_level);
+			System.out.println("task:                  " + task);
+			System.out.println("data_file:             " + data_file);
+			System.out.println("reg_file:              " + reg_file);
+			System.out.println("cluster_file:          " + cluster_file);
+			System.out.println("tree_file:             " + tree_file);
+			System.out.println("top_regulators:        " + top_regulators);
+			System.out.println("use_regulator_mean:    " + use_regulator_mean);
+			System.out.println("use_global_mean:       " + use_global_mean);
+			System.out.println("map_file:              " + map_file);
+			System.out.println("cut_level:             " + cut_level);
+			System.out.println("draw_experiment_names: " + draw_experiment_names);
 			
 			ModuleNetwork M = new ModuleNetwork();
 			//read expression data, genes, clusters and regulators from files
@@ -589,8 +596,25 @@ public class RunCli {
 	          }
 	        }
 
-			DrawModules dm = new DrawModules(M);
+			DrawModules dm = new DrawModules(M,draw_experiment_names);
 			dm.drawAllModules();
+		}
+		//----------------------------------------------------------------------------
+		// topdown task: run "old" heuristic algo
+		//----------------------------------------------------------------------------
+		else if (task.equalsIgnoreCase("topdown")) {
+			int maxParents = 3;
+			double epsConvergence = 1E-3;
+			// Create ModuleNetwork object
+			ModuleNetwork M = new ModuleNetwork();
+			M.setNormalGammaPriors(lambda, mu, alpha, beta);
+			M.readExpressionMatrix(data_file, gene_file);
+			M.setNormalGammaPriors(lambda, mu, alpha, beta);
+			M.readRegulators(reg_file);
+			// Top-down search
+			M.heuristicSearchMaxTopDown(maxParents,epsConvergence);
+			// write results as xml file
+			M.writeRegTreeXML(output_file);
 		}
 		else {
 			System.out.println("task option '"+task+"' unknown.");

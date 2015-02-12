@@ -39,7 +39,7 @@ public class DrawModules extends JComponent {
 
 	private static final long serialVersionUID = 1L;
 
-	private boolean drawExperimentNames = false;
+	private boolean drawExperimentNames = true; //false;
 	
 	private String prefix = "";
 	public ArrayList<Double> regClassMean = new ArrayList<Double>();
@@ -54,6 +54,16 @@ public class DrawModules extends JComponent {
 	 */
 	public DrawModules(ModuleNetwork m) {
 		this.modNet = m;
+	}
+	
+	/**
+	 * Constructor
+	 * @param m module network object.
+	 * @param draw_experiment_names
+	 */
+	public DrawModules(ModuleNetwork m, boolean draw_experiment_names) {
+		this.modNet = m;
+		this.drawExperimentNames = draw_experiment_names;
 	}
 	
 	/**
