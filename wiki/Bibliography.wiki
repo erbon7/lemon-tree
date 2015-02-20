@@ -36,6 +36,8 @@ Papers in this section introduced new module network methods and algorithms, alo
 
   * Roy S, Wapinski I, Pfiffner J, French C, Socha A,et al. (2013) [http://genome.cshlp.org/content/23/6/1039.short Arboretum: reconstruction and analysis of the evolutionary history of condition-specific transcriptional modules]. Genome Research 23: 1039–1050.
 
+  *  Bonnet E, Calzone L, Michoel T. (2015) [http://dx.doi.org/10.1371/journal.pcbi.1003983 Integrative multi-omics module network inference with Lemon-Tree]. PLoS Comput Biol 11(2): e1003983.
+
 ===Applications===
 
 Papers in this section applied existing module network methods to concrete biological and biomedical problems.
