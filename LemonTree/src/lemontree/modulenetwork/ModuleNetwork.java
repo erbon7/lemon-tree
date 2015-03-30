@@ -437,6 +437,7 @@ public class ModuleNetwork {
 					if (line.length()>0 && !line.startsWith("#"))
 						geneList.add(line);
 				}
+				buff.close();
 			}
 		} 
 		catch (FileNotFoundException e) {
@@ -644,6 +645,7 @@ public class ModuleNetwork {
 				line.trim();
 				clusterFiles.add(line);
 			}
+			buf.close();
 		}
 		catch (FileNotFoundException e){
 			System.out.println("Error: file "+fileName+" not found.");
@@ -3252,6 +3254,7 @@ public class ModuleNetwork {
 					map.put(tk[0], tk[1]);
 				}
 			}
+			buf.close();
 		}
 		catch (FileNotFoundException e) {
 			System.out.println("Error: file "+fileName+" not found");

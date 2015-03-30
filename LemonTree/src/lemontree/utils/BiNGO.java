@@ -122,7 +122,8 @@ public class BiNGO {
     					String[] tk = line.trim().split("\\s+|\\t");
     					geneMap.put(tk[0], tk[1]);
     				}
-    			}	
+    			}
+    			buf.close();
     		}
     		catch (FileNotFoundException e) {
     			System.out.println("File "+mapFile+" not found.");
@@ -145,6 +146,7 @@ public class BiNGO {
     				clusterID.add(tk[1]);
     			}
     		}
+    		buf.close();
     	}
     	catch (FileNotFoundException f) {
     		System.out.println("Error: file "+clusterFileName+" not found.");
@@ -181,6 +183,7 @@ public class BiNGO {
     		while((line = buf.readLine()) != null) {
     			allNodes.add(line.trim().toUpperCase());
     		}
+    		buf.close();
     	}
     	catch (FileNotFoundException f) {
     		System.out.println("Error: file "+referenceSetFileName+" not found.");
