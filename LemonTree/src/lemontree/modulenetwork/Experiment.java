@@ -11,7 +11,6 @@
 package lemontree.modulenetwork;
 
 import java.awt.Color;
-import java.util.*;
 
 /**
  * Class to store description and ID number for an experiment. The ID number

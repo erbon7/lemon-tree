@@ -11,9 +11,6 @@
 
 package lemontree.modulenetwork;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.*;
 
 import lemontree.networktools.*;
@@ -217,10 +214,10 @@ public class EnsembleCalculator {
     
     public void computeEdgeProbs(int numSample){
     	Network net = new Network();
-    	Random rand = new Random();
-    	HashMap<String, HashMap<String,boolean[]>> edges = new HashMap<String, HashMap<String,boolean[]>>();
+    	//Random rand = new Random();
+    	//HashMap<String, HashMap<String,boolean[]>> edges = new HashMap<String, HashMap<String,boolean[]>>();
     	
-    	double Z = 0.0;
+    	//double Z = 0.0;
     	
     	// first take sample to normalize score
     	this.sampleModuleNetwork();
@@ -253,7 +250,7 @@ public class EnsembleCalculator {
     		double p = this.logProbData();
     		System.out.println((p-p0)/p0);
     		// update normalization constant (partition function)
-    		Z += Math.exp(p-p0);
+    		//Z += Math.exp(p-p0);
     	}
     	net.scaleEdgeWeights((double)numSample);
     	net.setProperties();

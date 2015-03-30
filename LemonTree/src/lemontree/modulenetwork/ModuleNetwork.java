@@ -521,6 +521,8 @@ public class ModuleNetwork {
 				}
 			}
 			
+			buff.close();
+			
 			System.out.println(" [ok]");
 			if (geneList.size()>0)
 				System.out.println("Number of genes in the gene list: "+geneList.size());
@@ -568,7 +570,9 @@ public class ModuleNetwork {
 				if (!line.startsWith("#"))
 					allLines.add(line.trim());
 			}
+			input.close();
 		}
+		
 		catch (FileNotFoundException e) {
 			System.out.println("Error: file "+clusterFile+" not found.");
 			System.exit(1);
@@ -776,6 +780,7 @@ public class ModuleNetwork {
 						}
 					}
 				}
+				input.close();
 				System.out.println(" [ok]");
 				System.out.println("Found " + assigned + " regulators belonging to the geneset.");
 				System.out.println(assignedDiscrete + " of them are discrete");
@@ -811,11 +816,13 @@ public class ModuleNetwork {
 		for (Gene gene : this.geneSet)
 			geneMap.put(gene.name, gene);
 		try {
-			Scanner geneScanner = new Scanner(new File(dataDir, geneFile)).useDelimiter("\\n");
+			Scanner geneScanner = new Scanner(new File(dataDir, geneFile));
+			geneScanner.useDelimiter("\\n");
 			// walk through file, we only collect the first column (assuming
 			// DESCRIPTION is already set in the datafile)
 			while (geneScanner.hasNext()) {
-				Scanner line = new Scanner(geneScanner.next().toString()).useDelimiter("\\s");
+				Scanner line = new Scanner(geneScanner.next().toString());
+				line.useDelimiter("\\s");
 				// read gene name
 				String name = line.next();
 				if (!name.startsWith("#")) { // skip comment lines
@@ -826,9 +833,11 @@ public class ModuleNetwork {
 					} else
 						notassigned++;
 				}
+				line.close();
 			}
 			System.out.println("... found " + assigned + " genes belonging to the gene set, and " + notassigned + " not belonging to the gene set.");
 			System.out.println();
+			geneScanner.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("Gene file not found.");
 		}
@@ -2126,10 +2135,10 @@ public class ModuleNetwork {
 
 				// default parameters ...
 				int lev = 0;
-				double fac = 1.0;
+				//double fac = 1.0;
 				if (this.parameters.containsKey("downWeightLevel") && this.parameters.containsKey("downWeightFactor")) {
 					lev = Integer.parseInt(this.parameters.get("downWeightLevel"));
-					fac = Double.parseDouble(this.parameters.get("downWeightFactor"));
+					//fac = Double.parseDouble(this.parameters.get("downWeightFactor"));
 				}
 				//mod.setRegulatorWeightsMax(lev, fac);
 				//mod.setRegulatorWeightsSum(lev, fac);

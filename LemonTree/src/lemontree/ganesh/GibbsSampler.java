@@ -183,10 +183,10 @@ public class GibbsSampler {
 	public double clusterClusters() {
 		double large = 0, loglike = 0;
 		loglike = this.loglikelihoodsum();
-		int count = 1;
+		//int count = 1;
 		do {
 			large = loglike;
-			count += 1;
+		//	count += 1;
 			for (int m = 0; m < ClusterSet.size(); m++) {
 				for (int k = 0; k < ClusterSet.size(); k++) {
 					ClusterSet.get(k).number = k;
@@ -440,7 +440,7 @@ public class GibbsSampler {
 			ratio.set(currentCluster, Math.exp(ClusterSet.get(currentCluster)
 					.logLikelihoodDiffFixed(row, data)));
 		for (int i = 0; i < num_cluster; i++) {
-			int nsize = ClusterSet.get(i).RowSet.size();
+			//int nsize = ClusterSet.get(i).RowSet.size();
 			ratio.set(i, Math.exp(bayesRatioFixedCluster(row, i)));
 		}
 		double sum = ratio.zSum();

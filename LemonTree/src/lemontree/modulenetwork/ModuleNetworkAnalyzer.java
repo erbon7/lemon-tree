@@ -259,11 +259,13 @@ public class ModuleNetworkAnalyzer {
 	public void readGeneNetwork (String networkFile){
 		this.geneNetworkMax = new Network();
 		try {
-			Scanner fileScanner = new Scanner(new File(networkFile)).useDelimiter("\\n");
+			Scanner fileScanner = new Scanner(new File(networkFile));
+			fileScanner.useDelimiter("\\n");
 			// walk through file
 			int k=0;
 			while (fileScanner.hasNext()){
-				Scanner line = new Scanner(fileScanner.next().toString()).useDelimiter("\\s");
+				Scanner line = new Scanner(fileScanner.next().toString());
+				line.useDelimiter("\\s");
 				// we can process all values by only processing regulator lines
 				Gene reg = this.moduleNetwork.geneSet.get(k);
 				if (this.moduleNetwork.regulatorSet.contains(reg)){
@@ -278,8 +280,10 @@ public class ModuleNetworkAnalyzer {
 						l++;
 					}
 				}
+				line.close();
 				k++;
 			}
+			fileScanner.close();
 		} catch (FileNotFoundException e) {
 			System.out.println(e);
 		}

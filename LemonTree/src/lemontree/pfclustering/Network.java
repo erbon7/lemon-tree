@@ -65,10 +65,12 @@ public class Network {
 	public Network (String dir, String file, boolean issym) {
 		this.edges = new ArrayList<Edge>();
 		try {
-			Scanner fileScanner = new Scanner(new File(dir, file)).useDelimiter("\\n");
+			Scanner fileScanner = new Scanner(new File(dir, file));
+			fileScanner.useDelimiter("\\n");
 			// walk through file, skip comment lines (starting with #)
 			while (fileScanner.hasNext()){
-				Scanner line = new Scanner(fileScanner.next().toString()).useDelimiter("\\t");
+				Scanner line = new Scanner(fileScanner.next().toString());
+				line.useDelimiter("\\t");
 				// read from
 				String from = line.next();
 				from = from.trim();
@@ -84,6 +86,7 @@ public class Network {
 						this.edges.add(new Edge(from,to,1.0));
 					}
 				}
+				line.close();
 			}
 			this.issym = issym;
 			for (Edge e:this.edges){
@@ -91,6 +94,7 @@ public class Network {
 			}
 			this.setProperties();
 			System.out.println("Read network with " + this.nodes.size() + " nodes and " + this.edges.size() + " edges.");
+			fileScanner.close();
 		} catch (FileNotFoundException e) {
 			System.out.println(e);
 		}

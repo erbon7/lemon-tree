@@ -324,11 +324,13 @@ public class Module {
 	        	expclust.add(new ArrayList<Integer>());
 	        
 	        try {
-	            Scanner clusterScanner = new Scanner(new File(file)).useDelimiter("\\n");
+	            Scanner clusterScanner = new Scanner(new File(file));
+	            clusterScanner.useDelimiter("\\n");
 	            // walk through clusterfile, skip comment lines, check if counter starts with 0 or 1
 	            int first = 1;
 	            while (clusterScanner.hasNext()) {
-	                Scanner line = new Scanner(clusterScanner.next().toString()).useDelimiter("\\s");
+	                Scanner line = new Scanner(clusterScanner.next().toString());
+	                line.useDelimiter("\\s");
 	                // read experiment number
 	                int exp = line.nextInt();
 	                int number = line.nextInt();
@@ -337,10 +339,13 @@ public class Module {
 	                }
 	                expclust.get(number-first).add(exp);
 	                assigned += 1;
+	                line.close();
 	            }
+	            clusterScanner.close();
 	            System.out.println("... assigned " + assigned	+ " experiments to "
 	                    + expclust.size() + " clusters.");
 	            System.out.println();
+	            clusterScanner.close();
 	        } catch (FileNotFoundException e) {
 	            System.out.println("Cluster file not found.");
 	        }
@@ -798,7 +803,7 @@ public class Module {
 	public void expandSignificantSplits(double fact){
 		this.setNonInformCond();
 		if (!this.nonInformCond.leafDistribution.condSet.isEmpty()){
-			int num = 0;
+			//int num = 0;
 			ArrayList<TreeNode> leaves = this.hierarchicalTree.getLeafNodes();
 			for (int m : this.nonInformCond.leafDistribution.condSet){
 				double mean = 0;
@@ -818,7 +823,7 @@ public class Module {
 						// update score and normal dist param
 						leaf.leafDistribution.bayesianScore();
 						// done
-						num += 1;
+						//num += 1;
 						break;
 					}
 				}
@@ -909,7 +914,7 @@ public class Module {
 	
 	public void setRegulatorSign (){
 		// initialize
-		int numCond = this.moduleNetwork.data[0].length;
+		//int numCond = this.moduleNetwork.data[0].length;
 		this.regulatorSign = new HashMap<Gene,Double>();
 		for (Gene reg : this.regulatorWeights.keySet())
 			this.regulatorSign.put(reg, 0.0);

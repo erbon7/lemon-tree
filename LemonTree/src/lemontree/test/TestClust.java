@@ -3,8 +3,6 @@ package lemontree.test;
 import java.io.File;
 import java.io.PrintWriter;
 
-import lemontree.pfclustering.Edge;
-
 import lemontree.modulenetwork.CentroidClustering;
 import lemontree.modulenetwork.Gene;
 import lemontree.modulenetwork.ModuleNetwork;

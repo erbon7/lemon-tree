@@ -1,9 +1,6 @@
 package lemontree.test;
 
-import lemontree.utils.DrawModules;
-import lemontree.modulenetwork.Module;
 import lemontree.modulenetwork.ModuleNetwork;
-import lemontree.modulenetwork.TreeNode;
 
 public class testReadXML {
 

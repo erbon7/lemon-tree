@@ -79,14 +79,14 @@ package lemontree.pfclustering;
 	  @param int i, int j, double v
 	  */
 	  public void setElementAt(int i, int j, double v){
-	  	double element = 0.0;
+	  	//double element = 0.0;
 		boolean test = true;
 		double[] value = Avalue[i];
 		int[] index = Aindex[i];
 		for(int k = 0;k<value.length&&test;k++){
 			if(j==index[k]){
 				test = false;
-				element = value[k];
+				//element = value[k];
 			}
 		}
 		if(test)
@@ -100,7 +100,7 @@ package lemontree.pfclustering;
 	  */
 	  public void removeElementAt(int i, int j){
 	  	int stop = 0;
-	  	double element = 0.0;
+	  	//double element = 0.0;
 		boolean test = true;
 		double[] value = Avalue[i];
 		int[] index = Aindex[i];
@@ -108,7 +108,7 @@ package lemontree.pfclustering;
 			if(j==index[k]){
 				test = false;
 				stop = k;
-				element = value[k];
+				//element = value[k];
 			}
 		}
 		double[] value1 = new double[value.length-1];
@@ -126,14 +126,14 @@ package lemontree.pfclustering;
 	  */
 	  public void addElementAt(int i, int j, double v){
 	  	int stop = 0;
-	  	double element = 0.0;
+	  	//double element = 0.0;
 		boolean test = true;
 		double[] value = Avalue[i];
 		int[] index = Aindex[i];
 		for(int k = 0;k<value.length&&test;k++){
 			if(j==index[k]){
 				test = false;
-				element = value[k];
+				//element = value[k];
 			}
 		}
 		double[] value1 = new double[value.length+1];

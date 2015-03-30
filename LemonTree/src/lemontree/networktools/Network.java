@@ -108,10 +108,12 @@ public class Network {
 	public Network (String dir, String file) {
 		this.edges = new HashMap<String, HashMap<String, Double>>();
 		try {
-			Scanner fileScanner = new Scanner(new File(dir, file)).useDelimiter("\\n");
+			Scanner fileScanner = new Scanner(new File(dir, file));
+			fileScanner.useDelimiter("\\n");
 			// walk through file, skip comment lines (starting with #)
 			while (fileScanner.hasNext()){
-				Scanner line = new Scanner(fileScanner.next().toString()).useDelimiter("\\t");
+				Scanner line = new Scanner(fileScanner.next().toString());
+				line.useDelimiter("\\t");
 				// read regulator
 				String regname = line.next();
 				regname = regname.trim();
@@ -129,7 +131,9 @@ public class Network {
 						this.edges.get(regname).put(genename, 1.0);
 					}
 				}
+				line.close();
 			}
+			fileScanner.close();
 			this.setProperties();
 		} catch (FileNotFoundException e) {
 			System.out.println(e);

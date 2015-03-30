@@ -1,10 +1,7 @@
 package lemontree.test;
 
-import java.io.IOException;
 
 import lemontree.modulenetwork.ModuleNetwork;
-import java.io.*;
-
 import lemontree.utils.DrawModules;
 
 public class TestDrawMod {
@@ -24,13 +21,13 @@ public class TestDrawMod {
 		String prefix = "/bioinfo/users/ebonnet/TreeLemon/tcga/figures/";
 		String datasetFile = prefix + "data_matrix";
 		String regulatorsFile= prefix + "reg_files_list";
-		String regulatorsType=prefix + "reg_types";
+		//String regulatorsType=prefix + "reg_types";
 		String clusterFile=prefix + "U133A_tc10.txt";
 		String regFile = prefix + "st.tf.kin.list";
 		String exp = prefix + "exp.xml.gz";
 		
-		String reg_param = prefix + "reg_param";
-		String extra_info = prefix + "inter_U133A_AGI_fc_sign";
+		//String reg_param = prefix + "reg_param";
+		//String extra_info = prefix + "inter_U133A_AGI_fc_sign";
 		
 		ModuleNetwork m = new ModuleNetwork();
 		m.setNormalGammaPriors(0.1f, 0.0, 0.1f, 0.1f);

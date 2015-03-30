@@ -69,13 +69,13 @@ public class IO {
 		}
 
 		// parse first line and get number of conditions
-		String firstLine;
+		String firstLine="";
 		try {
 			firstLine = bufferedReader.readLine();
 		} catch (IOException e) {
 			System.out.println("error processing first line");
 			e.printStackTrace();
-			return;
+			System.exit(1);
 		}
 		String[] tokens = firstLine.trim().split("\\t");
 		//Columns UID and DESCRIPTION don't count
@@ -132,6 +132,13 @@ public class IO {
 			}
 		}
 
+		try {
+			bufferedReader.close();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		System.out.println("... found " + numGenes
 				+ " genes, with expression values for " + numCond
 				+ " conditions (but " + numMissing + " out of " + numGenes

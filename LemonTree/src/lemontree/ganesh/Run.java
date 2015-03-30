@@ -61,13 +61,15 @@ public class Run {
 			while ((inputline = file.readLine()) != null) {
 				inputline = inputline.trim();
 				if (!inputline.startsWith("#")) {
-					Scanner s = new Scanner(inputline).useDelimiter("=");
+					Scanner s = new Scanner(inputline);
+					s.useDelimiter("=");
 					if (s.hasNext()) {
 						String key = s.next().trim();
 						String value = s.next().trim();
 						//System.out.println(key + "<=>" + value);
 						h.put(key, value);
 					}
+					s.close();
 				}
 			}
 			file.close();

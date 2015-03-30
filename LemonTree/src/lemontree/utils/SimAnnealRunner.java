@@ -139,6 +139,7 @@ public class SimAnnealRunner {
         			tempEnergy = currentEnergy;
         		k += 1;
          	}
+            pw.close();
         } catch (IOException e) {
             System.out.println("IOException: " + e);
         }

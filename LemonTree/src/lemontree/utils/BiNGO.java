@@ -39,7 +39,6 @@ import cytoscape.data.annotation.OntologyTerm;
  * @author stmae, erbon
  * 
  */
-@SuppressWarnings("unchecked")
 public class BiNGO {
 	
 	/**

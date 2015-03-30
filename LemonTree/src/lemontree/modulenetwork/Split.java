@@ -14,7 +14,6 @@ package lemontree.modulenetwork;
 import java.util.*;
 
 import lemontree.utils.*;
-import cern.colt.matrix.impl.*;
 
 /**
  * Class to store all information to explain a split on a {@link TreeNode}. 

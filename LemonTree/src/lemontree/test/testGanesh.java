@@ -1,8 +1,6 @@
 package lemontree.test;
 
 import lemontree.modulenetwork.ModuleNetwork;
-import lemontree.modulenetwork.Gene;
-import java.util.*;
 
 public class testGanesh {
 
