@@ -58,7 +58,7 @@ public class DrawModules extends JComponent {
 	/**
 	 * Constructor
 	 * @param m module network object.
-	 * @param draw_experiment_names
+	 * @param draw_experiment_names boolean (default true)
 	 */
 	public DrawModules(ModuleNetwork m, boolean draw_experiment_names) {
 		this.modNet = m;

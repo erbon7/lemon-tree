@@ -200,6 +200,7 @@ public class ModuleNetwork {
 	 * Empty constructor
 	 */
 	public ModuleNetwork() {
+		// void
 	}
 
 	/**
@@ -2950,6 +2951,7 @@ public class ModuleNetwork {
 		try {
 			// load list of regulator file names
 			BufferedReader input = new BufferedReader(new FileReader(new File(topRegFiles)));
+			System.out.println(topRegFiles);
 			String line;
 			while((line = input.readLine()) != null) {
 				if (!line.startsWith("#") && line.length()>1) {
@@ -2976,6 +2978,7 @@ public class ModuleNetwork {
 			int ct = 0;
 			for (String fn : fileList) {
 				
+				System.out.println(fn);
 				BufferedReader input = new BufferedReader(new FileReader(new File(fn)));
 				String line;
 				while((line = input.readLine()) != null) {
