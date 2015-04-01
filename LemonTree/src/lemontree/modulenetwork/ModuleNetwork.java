@@ -9,6 +9,7 @@
 
 package lemontree.modulenetwork;
 
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -37,7 +38,6 @@ import java.util.zip.GZIPOutputStream;
 
 import lemontree.utils.SetOperation;
 import lemontree.utils.XmlXomReader;
-
 import nu.xom.Builder;
 import nu.xom.Document;
 import nu.xom.Element;
@@ -3418,10 +3418,21 @@ public class ModuleNetwork {
 		  for (String s : rawData) {
 			  if (!s.startsWith("#") && s.length()>1) {
 				  String[] tok = s.split("\\t|\\s+");
-				  String color = tok[0];
-				  String exp = tok
+				  Color col = string2color(tok[0]);
+				  String[] exp = tok[1].split("\\,");
+				  for (int i=0;i<exp.length;i++) {
+					  int exp_num = Integer.parseInt(exp[i]);
+				  }
 			  }
 		  }
+	  }
+	  
+	  private Color string2color(String s) {
+		  Color col = Color.white;
+		  
+		  
+		  return col;
+		  
 	  }
 
 }
