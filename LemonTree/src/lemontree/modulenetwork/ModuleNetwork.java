@@ -3396,5 +3396,32 @@ public class ModuleNetwork {
 	      conditionMap.put(e.name, e);
 	    }
 	  }
+	  
+	  public void setExperimentColor(String fileName) {
+		  ArrayList<String> rawData = new ArrayList<String>();
+		  
+		  try {
+			  BufferedReader buf = new BufferedReader(new FileReader(fileName)); 
+			  String line = null;
+			  while ((line = buf.readLine()) != null) {
+				  line.trim();
+				  rawData.add(line);
+			  }
+			  buf.close();
+		  }
+		  catch (Exception e) {
+			  System.out.println("An error occurred while trying to read file: "+fileName);
+			  e.printStackTrace();
+			  System.exit(1);
+		  }
+		  
+		  for (String s : rawData) {
+			  if (!s.startsWith("#") && s.length()>1) {
+				  String[] tok = s.split("\\t|\\s+");
+				  String color = tok[0];
+				  String exp = tok
+			  }
+		  }
+	  }
 
 }
