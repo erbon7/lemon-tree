@@ -3427,9 +3427,11 @@ public class ModuleNetwork {
 		  }
 	  }
 	  
+	  // black blue cyan darkGray gray green yellow lightGray magenta orange pink red white
 	  private Color string2color(String s) {
 		  Color col = Color.white;
-		  
+		  if (s.toLowerCase().equals("black"))
+			  col = Color.black;
 		  
 		  return col;
 		  
