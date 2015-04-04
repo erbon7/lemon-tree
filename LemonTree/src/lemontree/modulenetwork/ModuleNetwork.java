@@ -3429,7 +3429,6 @@ public class ModuleNetwork {
 				  // should be within a try / catch, index might be out of range
 				  Experiment exp = conditionSet.get(index);
 				  exp.col = col;
-				  
 			  }
 		  }
 	  }
@@ -3437,8 +3436,31 @@ public class ModuleNetwork {
 	  // black blue cyan darkGray gray green yellow lightGray magenta orange pink red white
 	  private Color string2color(String s) {
 		  Color col = Color.white;
+		  
 		  if (s.toLowerCase().equals("black"))
 			  col = Color.black;
+		  else if (s.toLowerCase().equals("blue"))
+			  col = Color.blue;
+		  else if (s.toLowerCase().equals("cyan"))
+			  col = Color.cyan;
+		  else if (s.toLowerCase().equals("darkgray"))
+			  col = Color.darkGray;
+		  else if (s.toLowerCase().equals("gray"))
+			  col = Color.gray;
+		  else if (s.toLowerCase().equals("green"))
+			  col = Color.green;
+		  else if (s.toLowerCase().equals("yellow"))
+			  col = Color.yellow;
+		  else if (s.toLowerCase().equals("lightgray"))
+			  col = Color.lightGray;
+		  else if (s.toLowerCase().equals("magenta"))
+			  col = Color.magenta;
+		  else if (s.toLowerCase().equals("orange"))
+			  col = Color.orange;
+		  else if (s.toLowerCase().equals("pink"))
+			  col = Color.pink;
+		  else if (s.toLowerCase().equals("red"))
+			  col = Color.red;
 		  
 		  return col;
 		  
