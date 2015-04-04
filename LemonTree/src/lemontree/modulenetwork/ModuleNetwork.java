@@ -3415,14 +3415,21 @@ public class ModuleNetwork {
 			  System.exit(1);
 		  }
 		  
+		  // set all experiments colors to white as the default
+		  for (int i=0;i<conditionSet.size();i++) {
+			  conditionSet.get(i).col = Color.white;
+		  }
+		  
+		  // set colors according to map file
 		  for (String s : rawData) {
 			  if (!s.startsWith("#") && s.length()>1) {
 				  String[] tok = s.split("\\t|\\s+");
-				  Color col = string2color(tok[0]);
-				  String[] exp = tok[1].split("\\,");
-				  for (int i=0;i<exp.length;i++) {
-					  int exp_num = Integer.parseInt(exp[i]);
-				  }
+				  int index = Integer.parseInt(tok[0]);
+				  Color col = string2color(tok[1]);
+				  // should be within a try / catch, index might be out of range
+				  Experiment exp = conditionSet.get(index);
+				  exp.col = col;
+				  
 			  }
 		  }
 	  }
