@@ -57,6 +57,7 @@ public class RunCli {
 		String top_regulators = null;
 		String map_file = null;
 		String go_ontology_file = null;
+		String draw_experiment_color = null;
 		
 		
 		// set default values for those parameters, users can override them
@@ -126,6 +127,7 @@ public class RunCli {
 		opts.addOption("min_clust_score", true, "Tight clusters minimum cluster score");
 		opts.addOption("node_clustering", true, "Perform node clustering (true) or edge clustering (false)");
 		opts.addOption("draw_experiment_names", true, "Draw experiment names in the figures");
+		opts.addOption("draw_experiment_color", true, "Draw experiment color codes in the figures");
 		
 		// build a parser object and parse the command line (!)
 		CommandLineParser parser = new PosixParser();
@@ -235,6 +237,9 @@ public class RunCli {
 			if (cmd.hasOption("draw_experiment_names"))
 				if (cmd.getOptionValue("draw_experiment_names").equalsIgnoreCase("false"))
 					draw_experiment_names = false;
+			
+			if (cmd.hasOption("draw_experiment_color"))
+				draw_experiment_color = cmd.getOptionValue("draw_experiment_color");
 			
 		}
 		catch (ParseException exp) {
@@ -560,6 +565,7 @@ public class RunCli {
 			System.out.println("map_file:              " + map_file);
 			System.out.println("cut_level:             " + cut_level);
 			System.out.println("draw_experiment_names: " + draw_experiment_names);
+			System.out.println("draw_experiment_color: " + draw_experiment_color);
 			
 			ModuleNetwork M = new ModuleNetwork();
 			//read expression data, genes, clusters and regulators from files
@@ -596,7 +602,18 @@ public class RunCli {
 	          }
 	        }
 
-			DrawModules dm = new DrawModules(M,draw_experiment_names);
+	       
+	        DrawModules dm = new DrawModules(M);
+	        
+	        if (draw_experiment_color != null) {
+				M.setExperimentColor(draw_experiment_color);
+				dm.enableExperimentColor();
+	        }
+			
+			if (draw_experiment_names == false) {
+				dm.unsetDrawExperimentNames();
+			}
+			
 			dm.drawAllModules();
 		}
 		//----------------------------------------------------------------------------

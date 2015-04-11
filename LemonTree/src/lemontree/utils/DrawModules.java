@@ -39,6 +39,7 @@ public class DrawModules extends JComponent {
 	private static final long serialVersionUID = 1L;
 
 	private boolean drawExperimentNames = true; //false;
+	private boolean drawExperimentColor = false;
 	
 	private String prefix = "";
 	public ArrayList<Double> regClassMean = new ArrayList<Double>();
@@ -50,21 +51,20 @@ public class DrawModules extends JComponent {
 	/**
 	 * Constructor
 	 * @param m module network object.
+	 * @param draw_experiment_names boolean (default true)
 	 */
 	public DrawModules(ModuleNetwork m) {
 		this.modNet = m;
 	}
 	
-	/**
-	 * Constructor
-	 * @param m module network object.
-	 * @param draw_experiment_names boolean (default true)
-	 */
-	public DrawModules(ModuleNetwork m, boolean draw_experiment_names) {
-		this.modNet = m;
-		this.drawExperimentNames = draw_experiment_names;
+	
+	public void unsetDrawExperimentNames () {
+		this.drawExperimentNames = false;
 	}
 	
+	public void enableExperimentColor() {
+		this.drawExperimentColor = true;
+	}
 	/**
 	 * Directory prefix for figure files
 	 * 
