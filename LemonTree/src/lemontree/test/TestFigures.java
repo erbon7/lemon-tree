@@ -11,7 +11,7 @@ public class TestFigures {
 
 	public static void main(String[] args) {
 		
-		String data_prefix = "/Users/eric/gbm_test/data_dir/";
+		String data_prefix = "/Users/eric/w/gbm_test/data_dir/";
 		String data_file = data_prefix + "data";
 		String cluster_file = data_prefix + "tc_abs_10_033.txt";
 		String tree_file = data_prefix + "exp_abs.xml.gz";
@@ -63,9 +63,11 @@ public class TestFigures {
 		//M.changeGeneNames(data_prefix+"gene_name.txt");
 
 		DrawModules dm = new DrawModules(M);
-		dm.setPrefix("/Users/eric/gbm_test/");
+		dm.setPrefix("/Users/eric/w/gbm_test/");
 		ArrayList<Integer> mod_list = new ArrayList<Integer>();
 		mod_list.add(18);
-		dm.customDraw(mod_list);
+		//dm.customDraw(mod_list);
+		//dm.unsetDrawExperimentNames();
+		dm.drawOneModule(18);
 	}
 }

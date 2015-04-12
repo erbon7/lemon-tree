@@ -445,17 +445,23 @@ public class DrawModules extends JComponent {
 
 				// spacer
 				cursorY += 2;
-
-				// draw condition labels
-				if (this.drawExperimentNames)
+				
+				if (this.drawExperimentColor == true) {
 					for (int c=0;c<node.leftChild.leafDistribution.condSet.size();c++) {
-
-						// sample color
 						int num = node.leftChild.leafDistribution.condSet.get(c);
-						String name = mod.moduleNetwork.conditionSet.get(num).name;
+						// sample color
 						Color col = mod.moduleNetwork.conditionSet.get(num).col;
 						g.setPaint(col);
 						plotRectangle(g, xl1 + c, ybase + cursorY);
+					}
+				}
+
+				// draw condition labels
+				if (this.drawExperimentNames == true) {
+					for (int c=0;c<node.leftChild.leafDistribution.condSet.size();c++) {
+						
+						int num = node.leftChild.leafDistribution.condSet.get(c);
+						String name = mod.moduleNetwork.conditionSet.get(num).name;
 
 						// sample name
 						int deltaText = 3;
@@ -465,6 +471,7 @@ public class DrawModules extends JComponent {
 						g.drawString(name, xl1 + c, ybase + cursorY + deltaText);
 						g.rotate(-Math.PI/2, xl1 + c, ybase + cursorY + deltaText);
 					}
+				}
 			} // end leftchild **************************************************
 
 			// rightChild *****************************************************
@@ -542,15 +549,21 @@ public class DrawModules extends JComponent {
 
 				cursorY += 2;
 
+				if (this.drawExperimentColor == true) {
+					for (int c=0;c<node.rightChild.leafDistribution.condSet.size();c++) {
+						int num = node.rightChild.leafDistribution.condSet.get(c);
+						Color col = mod.moduleNetwork.conditionSet.get(num).col;
+						// draw rectangle for experiment class or type
+						g.setPaint(col);
+						plotRectangle(g, x+c, ybase + cursorY);
+					}
+				}
+
 				// draw condition labels
-				if (this.drawExperimentNames)
+				if (this.drawExperimentNames) {
 					for (int c=0;c<node.rightChild.leafDistribution.condSet.size();c++) {
 						int num = node.rightChild.leafDistribution.condSet.get(c);
 						String name = mod.moduleNetwork.conditionSet.get(num).name;
-						Color col = mod.moduleNetwork.conditionSet.get(num).col;
-						// draw rectangle for tissue type
-						g.setPaint(col);
-						plotRectangle(g, x+c, ybase + cursorY);
 
 						// rotate canvas and draw string 45/90 deg.
 						int deltaText = 3;
@@ -560,6 +573,7 @@ public class DrawModules extends JComponent {
 						g.drawString(name, x + c, ybase + cursorY + deltaText);
 						g.rotate(-Math.PI/2, x + c, ybase + cursorY + deltaText);
 					}
+				}
 
 				// draw extra information, like gene names, etc.
 				if (node == mod.hierarchicalTree.rightMostNode()) {
