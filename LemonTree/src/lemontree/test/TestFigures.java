@@ -63,7 +63,9 @@ public class TestFigures {
 		//M.changeGeneNames(data_prefix+"gene_name.txt");
 
 		DrawModules dm = new DrawModules(M);
+		M.setExperimentColor(data_prefix + "/col2.txt");
 		dm.setPrefix("/Users/eric/w/gbm_test/");
+		dm.enableExperimentColor();
 		ArrayList<Integer> mod_list = new ArrayList<Integer>();
 		mod_list.add(18);
 		//dm.customDraw(mod_list);

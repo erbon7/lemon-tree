@@ -3400,6 +3400,7 @@ public class ModuleNetwork {
 	  public void setExperimentColor(String fileName) {
 		  ArrayList<String> rawData = new ArrayList<String>();
 		  
+		  System.out.println("Reading experiments color file...");
 		  try {
 			  BufferedReader buf = new BufferedReader(new FileReader(fileName)); 
 			  String line = null;
@@ -3421,6 +3422,7 @@ public class ModuleNetwork {
 		  }
 		  
 		  // set colors according to map file
+		  int ct = 0;
 		  for (String s : rawData) {
 			  if (!s.startsWith("#") && s.length()>1) {
 				  String[] tok = s.split("\\t|\\s+");
@@ -3428,9 +3430,13 @@ public class ModuleNetwork {
 				  Color col = string2color(tok[1]);
 				  // should be within a try / catch, index might be out of range
 				  Experiment exp = conditionSet.get(index);
-				  exp.col = col;
+				  if (exp != null) {
+					  exp.col = col;
+					  ct++;
+				  }
 			  }
 		  }
+		  System.out.println("Found color codes for " + ct + " experiments.");
 	  }
 	  
 	  // black blue cyan darkGray gray green yellow lightGray magenta orange pink red white
