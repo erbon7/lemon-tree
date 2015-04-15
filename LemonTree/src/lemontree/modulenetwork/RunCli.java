@@ -646,7 +646,7 @@ public class RunCli {
 	
 	public static void printBanner () {
 		System.out.println("");
-		System.out.println("LemonTree - Version 3.0.3");
+		System.out.println("LemonTree - Version 3.0.4");
 		System.out.println("-------------------------");
 		System.out.println("");
 	}
