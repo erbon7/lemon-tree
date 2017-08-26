@@ -1517,6 +1517,121 @@ public class ModuleNetwork {
 	}
 
 	/**
+	 * Heuristic search algorithm to find a (local) maximum of the Bayesian score, performing only
+	 * those moves that score more than a certain threshold
+	 * 
+	 * @see ModuleNetwork#heuristicSearchMax(double, boolean, double, String[])
+	 * @param reassign_thr only move nodes that improve score more than this threshold
+	 * @param scoregain in the final regulation trees, keep only splits which improve
+	 * the score by at least this value.
+	 * @param useBHCscore use merge score from Bayesian Hierarchical Clustering or 
+	 * simple score difference when hierarchically clustering experiments.
+	 * @param epsConvergence stop searching for a better solution if the difference in
+	 * scores between successive solutions becomes smaller than this value.
+	 * @param scoreFiles store network scores during heuristic search to evaluate 
+	 * convergence (optional argument).
+	 * 
+	 * @author tomic
+	 * @author pauerola
+	 */
+	public void heuristicSearchMaxRevamp(double reassign_thr, double scoregain, boolean useBHCscore, double epsConvergence, String... scoreFiles) {
+		Integer numMoves = 0;
+		int numMovesTot = 0;
+		double fracMoves, currentScore;
+		HashMap<Integer, HashSet<Gene>> genesets = new HashMap<Integer, HashSet<Gene>>();
+		ArrayList<Integer> allConds = new ArrayList<Integer>(this.numCond);
+
+		for (int m = 0; m < this.numCond; m++)
+			allConds.add(m);
+
+		try {
+			PrintWriter pw;
+			if (scoreFiles.length == 1) { // a score file is given
+				File f = new File(scoreFiles[0]);
+				FileWriter fw = new FileWriter(f);
+				pw = new PrintWriter(fw);
+			} else { // no score file given, print scores to stdout
+				pw = new PrintWriter(System.out);
+			}
+			this.bayesianScore();
+			pw.println(networkScore / numGenes + "\t" + 0);
+			// compute initial statistics and score
+			for (Module mod : moduleSet) {
+				mod.hierarchicalTree = new TreeNode(mod, normalGammaPrior);
+				mod.hierarchicalTree.leafDistribution.condSet = allConds;
+				mod.hierarchicalTree.statistics();
+				mod.moduleScore = mod.hierarchicalTree.bayesianScore();
+				// initialize gene sets
+				HashSet<Gene> set = new HashSet<Gene>();
+				// initialize modules
+				for (Gene gene : mod.genes)
+					set.add(gene);
+				genesets.put(mod.number, set);
+				this.bayesianScore();
+				pw.println(networkScore / numGenes + "\t" + 0);
+			}
+			System.out.println("Initial network score per gene " + networkScore / numGenes);
+			do {
+				currentScore = networkScore;
+				// compute hierarchical cluster trees
+				System.out.println("Learning trees ...");
+				int numRelearn = 0;
+				for (Module mod : moduleSet) {
+					// check if gene set has been changed
+					if (!mod.genes.equals(genesets.get(mod.number))) {
+						List<TreeNode> treeList = mod.initTreeList(allConds);
+						TreeNode candidateRoot = mod.hierarchicalClustering(treeList, useBHCscore);
+						candidateRoot.testScore(0.0);
+						if (candidateRoot.bayesianScore() > mod.moduleScore) {
+							mod.hierarchicalTree = candidateRoot;
+						}
+						mod.moduleScore = mod.hierarchicalTree.bayesianScore();
+						this.bayesianScore();
+						pw.println(networkScore / numGenes + "\t" + 0);
+						// update copy of gene set
+						HashSet<Gene> set = new HashSet<Gene>();
+						for (Gene gene : mod.genes)
+							set.add(gene);
+						genesets.put(mod.number, set);
+						mod.changed = true;
+						numRelearn += 1;
+					} else {
+						mod.changed = false;
+					}
+				}
+				System.out.println("... learned " + numRelearn + " trees.");
+				System.out.println("new network score per gene " + networkScore / numGenes);
+				System.out.println("Reassigning genes ...");
+				numMovesTot = 0;
+				//	reassign genes
+				do {
+					numMoves = moduleReassign(reassign_thr);
+					fracMoves = numMoves.doubleValue() / numGenes;
+					numMovesTot += numMoves;
+					pw.println(networkScore / numGenes + "\t" + fracMoves);
+				} while (numMoves > 0);
+				System.out.println("... made " + numMovesTot + " reassignments.");
+				System.out.println("new network score per gene " + networkScore / numGenes);
+			} while (Math.abs(networkScore - currentScore) / numGenes > epsConvergence);
+
+			// cut trees with score cutoff requirement
+			System.out.println("Final tree pruning ...");
+			for (Module mod : moduleSet) {
+				mod.hierarchicalTree.testScore(scoregain);
+				mod.moduleScore = mod.hierarchicalTree.bayesianScore();
+			}
+			System.out.println("...done.");
+			this.bayesianScore();
+			pw.println(networkScore / numGenes + "\t" + 0);
+			System.out.println("Final network score per gene " + networkScore / numGenes);
+			pw.println(networkScore / numGenes + "\t" + 0);
+			pw.close();
+		} catch (IOException e) {
+			System.out.println("IOException: " + e);
+		}
+	}
+
+	/**
 	 * Finds an ensemble of equally likely networks by Gibbs sampling different experiment 
 	 * partitions. This method starts with optimal gene assignments to modules, such as
 	 * for instance found by 

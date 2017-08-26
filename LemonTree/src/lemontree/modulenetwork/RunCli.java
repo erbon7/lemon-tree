@@ -81,7 +81,8 @@ public class RunCli {
 		int min_clust_score = 2;
 		Boolean node_clustering = true;
 		boolean draw_experiment_names = true;
-		
+		double reassign_thr = 0.0;
+
 		// create the different options
 		Options opts = new Options();
 		opts.addOption("task", true, "task to perform");
@@ -128,7 +129,8 @@ public class RunCli {
 		opts.addOption("node_clustering", true, "Perform node clustering (true) or edge clustering (false)");
 		opts.addOption("draw_experiment_names", true, "Draw experiment names in the figures");
 		opts.addOption("draw_experiment_color", true, "Draw experiment color codes in the figures");
-		
+		opts.addOption("reassign_thr", true, "Node re-assignment threshold");
+
 		// build a parser object and parse the command line (!)
 		CommandLineParser parser = new PosixParser();
 		try {
@@ -241,6 +243,9 @@ public class RunCli {
 			if (cmd.hasOption("draw_experiment_color"))
 				draw_experiment_color = cmd.getOptionValue("draw_experiment_color");
 			
+			if (cmd.hasOption("reassign_thr"))
+				reassign_thr = Double.parseDouble(cmd.getOptionValue("reassign_thr"));
+
 		}
 		catch (ParseException exp) {
 			System.out.println("Error while parsing command line:");
@@ -633,6 +638,57 @@ public class RunCli {
 			// write results as xml file
 			M.writeRegTreeXML(output_file);
 		}
+
+		//----------------------------------------------------------------------------
+		// revamp task: reassign nodes if score is above a certain threshold
+		//----------------------------------------------------------------------------
+		else if (task.equalsIgnoreCase("revamp")) {
+
+			double scoregain = 0.0;
+			boolean useBHCscore = true;
+			double epsConvergence = 1E-3;
+			
+
+			// those parameters must be set
+			if (data_file == null)
+				Die("Error: data_file parameter must be set.");
+			if (cluster_file == null)
+				Die("Error: cluster_file parameter must be set.");
+			if (output_file == null)
+				Die("Error: output_file option must be set.");
+			
+
+			System.out.println("Parameters");
+			System.out.println("----------");
+			System.out.println("task:               " + task);
+			System.out.println("data_file:          " + data_file);
+			System.out.println("cluster_file:       " + cluster_file);
+			System.out.println("output_file:        " + output_file);
+			System.out.println("node_clustering:    " + node_clustering);
+			System.out.println("reassign_thr:       " + reassign_thr);
+
+
+			// Create ModuleNetwork object and initialise to into one cluster
+			ModuleNetwork M = new ModuleNetwork();
+			M.setNormalGammaPriors(lambda, mu, alpha, beta);
+			M.readExpressionMatrix(data_file, null); // if a "gene_file" list is given, add only the genes that are in the list
+			//M.readExpressionMatrix(data_file, gene_file); // if a "gene_file" list is given, add only the genes that are in the list
+			M.readClusters(cluster_file);
+			//M.readRegulators(reg_file);
+
+			// run node reassignment
+			M.heuristicSearchMaxRevamp(reassign_thr, scoregain, useBHCscore, epsConvergence);
+
+			// write results as xml file
+			M.writeRegTreeXML(output_file+".xml.gz");
+			//M.writeXML(output_file);
+
+			// write results to text file
+			M.writeClusters(output_file+".txt");
+			
+
+		}
+
 		else {
 			System.out.println("task option '"+task+"' unknown.");
 			System.out.println();
