@@ -671,7 +671,7 @@ public class RunCli {
 			// Create ModuleNetwork object and initialise to into one cluster
 			ModuleNetwork M = new ModuleNetwork();
 			M.setNormalGammaPriors(lambda, mu, alpha, beta);
-			M.readExpressionMatrix(data_file, null); // if a "gene_file" list is given, add only the genes that are in the list
+			M.readExpressionMatrixRevamp(data_file, cluster_file); // if a "gene_file" list is given, add only the genes that are in the list
 			//M.readExpressionMatrix(data_file, gene_file); // if a "gene_file" list is given, add only the genes that are in the list
 			M.readClusters(cluster_file);
 			//M.readRegulators(reg_file);

@@ -550,6 +550,131 @@ public class ModuleNetwork {
 
 	}
 
+
+	/**
+	 * Reads the expression data and conditions from a tab-delimited text file.
+	 * 
+	 * @param dataFile expression data file name, with header. 
+	 * 
+	 * @author tomic, erbon
+	 */
+	public void readExpressionMatrixRevamp(String dataFile, String geneFile) {
+		
+		System.out.print("Reading expression data...");
+		HashSet<String> geneList = new HashSet<String>();
+		
+		// if a gene file is given, load the genes in a hashset		
+		try {
+
+			if (geneFile !=null) {
+				BufferedReader buff = new BufferedReader(new FileReader(new File(geneFile)));
+				String line;
+				while ((line = buff.readLine()) != null) {
+					line.trim();
+					if (line.length()>0 && !line.startsWith("#"))
+						geneList.add(line.split("\t")[0]);
+				}
+				buff.close();
+			}
+		} 
+		catch (FileNotFoundException e) {
+			System.out.println();
+			System.out.println("Error: file "+geneFile+" not found.");
+			System.exit(1);
+		}
+		catch (IOException e) {
+			System.out.println();
+			System.out.println("Error: can't read "+geneFile+" file.");
+			System.exit(1);
+		}
+		
+		
+		try {
+			// read data file
+			BufferedReader buff = new BufferedReader(new FileReader(new File(dataFile)));
+			// read first line and set the number of conditions and experiments
+			String line = buff.readLine();
+			line.trim();
+			String[] tokens = line.split("\\t|\\s+");
+			this.numCond = tokens.length - 1;
+			this.conditionSet = new ArrayList<Experiment>(numCond);
+			for (int i = 1; i < tokens.length; i++) {
+				this.conditionSet.add(new Experiment(tokens[i], i - 1));
+			}
+			// read all remaining lines in a list
+			ArrayList<String> geneLines = new ArrayList<String>();
+			int numberOfGenes = 0;
+			while ((line = buff.readLine()) != null) {
+				if (line.length()>0) {
+					geneLines.add(line.trim());
+					numberOfGenes++;
+				}
+			}
+			// set the number of genes, data matrix size and gene set
+			if (geneList.size()>0)
+				this.numGenes=geneList.size();
+			else
+				this.numGenes = numberOfGenes;
+			
+			this.data = new double[numGenes][numCond];
+			this.geneSet = new ArrayList<Gene>(numGenes);
+	
+			/*
+			 * process all lines and set genes and expression values.
+			 * if a gene list was given, add only the genes that are in the list.
+			 */
+			int numMissing = 0;
+			int ii = 0;
+			for (int i = 0; i < geneLines.size(); i++) {
+				
+				String[] val = geneLines.get(i).split("\\t|\\s+");
+				
+				if (geneList.contains(val[0])) {
+					this.geneSet.add(new Gene(val[0].trim(), "", ii));
+					for (int j = 1; j < val.length; j++) {
+						try {
+							this.data[ii][j - 1] = new Double(val[j].trim()).doubleValue();
+							if (Double.isNaN(data[ii][j-1]))
+								numMissing++;
+						} catch (NumberFormatException e) {
+							data[ii][j - 1] = Double.NaN;
+							numMissing++;
+						}
+					}
+					ii++;
+				}
+			}
+			
+			buff.close();
+			
+			System.out.println(" [ok]");
+			if (geneList.size()>0)
+				System.out.println("Number of genes in the gene list: "+geneList.size());
+			System.out.println("Number of genes in the data matrix: "+numGenes);
+			System.out.println("Number of conditions in the data matrix: "+numCond);
+			System.out.println("Number of missing values in the data matrix: "+numMissing);
+			System.out.println("Total number of expression values: "+(numGenes * numCond));
+			
+			//initialize module set objects
+			this.moduleSet = new ArrayList<Module>();
+			this.moduleSets = new ArrayList<ArrayList<Module>>();
+
+		} 
+		catch (FileNotFoundException e) {
+			System.out.println();
+			System.out.println("Error: file "+dataFile+" not found.");
+			System.exit(1);
+		}
+		catch (IOException e) {
+			System.out.println();
+			System.out.println("Error: can't read "+dataFile+" file.");
+			System.exit(1);
+		}
+
+	}
+
+
+
 	/**
 	 * Reads an initial clustering of the genes.
 	 * 
