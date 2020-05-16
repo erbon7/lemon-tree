@@ -49,6 +49,7 @@ import org.xml.sax.SAXParseException;
 
 import lemontree.ganesh.GibbsSampler;
 import lemontree.modulenetwork.Regulator;
+import lemontree.modulenetwork.Globals; //revamp
 import cern.colt.list.DoubleArrayList;
 import cern.jet.stat.Descriptive;
 
@@ -122,6 +123,12 @@ public class ModuleNetwork {
 	 */
 	public double[][] data;
 
+	
+	/**
+	 * Vector of weights, one value per experiment
+	 */
+	public double[] condition_weight; //revamp
+	
 	/**
 	 * Map of genes to the module (identified by index) they belong to. 
 	 */
@@ -558,7 +565,7 @@ public class ModuleNetwork {
 	 * 
 	 * @author tomic, erbon
 	 */
-	public void readExpressionMatrixRevamp(String dataFile, String geneFile) {
+	public void readExpressionMatrixRevamp(String dataFile, String geneFile, String weightFile) { //revamp
 		
 		System.out.print("Reading expression data...");
 		HashSet<String> geneList = new HashSet<String>();
@@ -671,6 +678,52 @@ public class ModuleNetwork {
 			System.exit(1);
 		}
 
+		
+		// revamp: read file with weights if provided 
+		try {
+
+			this.condition_weight = new double[numCond];
+			int ii = 0;
+			
+			if (weightFile != null) {
+
+				// read column weight file 
+				System.out.print("Reading file with weights...");
+
+			  	ArrayList<String> lines = new ArrayList<String>();
+
+	    		BufferedReader buf = new BufferedReader(new FileReader(weightFile));
+	    		String line;
+	    		while((line = buf.readLine()) != null) {
+	    			if (!line.startsWith("#")) {
+	    				lines.add(line.trim());
+	    				String[] tk = line.trim().split("\\s+|\\t");
+	    				this.condition_weight[ii] = Float.parseFloat( tk[0] );
+	    				ii++;
+	    			}
+				}
+				Globals.unweighted = false;
+	    		buf.close();
+		    }
+			else {
+				for (int i = 0; i < numCond; i++)
+					this.condition_weight[i] = 1.0;
+					Globals.unweighted = true;
+			}
+				
+		}
+		catch (FileNotFoundException f) {
+			System.out.println("Error: file "+ weightFile +" not found.");
+		    System.exit(1);
+		}
+		catch (IOException e) {
+			System.out.println();
+			System.out.println("Error: can't read "+ weightFile +" file.");
+			System.exit(1);
+		}
+		System.out.println(" [ok]");
+
+		
 	}
 
 
@@ -1669,6 +1722,7 @@ public class ModuleNetwork {
 		for (int m = 0; m < this.numCond; m++)
 			allConds.add(m);
 
+				
 		try {
 			PrintWriter pw;
 			if (scoreFiles.length == 1) { // a score file is given
@@ -1705,13 +1759,17 @@ public class ModuleNetwork {
 					// check if gene set has been changed
 					if (!mod.genes.equals(genesets.get(mod.number))) {
 						List<TreeNode> treeList = mod.initTreeList(allConds);
-						TreeNode candidateRoot = mod.hierarchicalClustering(treeList, useBHCscore);
-						candidateRoot.testScore(0.0);
-						if (candidateRoot.bayesianScore() > mod.moduleScore) {
-							mod.hierarchicalTree = candidateRoot;
+						if (Globals.unweighted) { //revamp
+							TreeNode candidateRoot = mod.hierarchicalClustering(treeList, useBHCscore);
+							candidateRoot.testScore(0.0);
+							if (candidateRoot.bayesianScore() > mod.moduleScore) {
+								mod.hierarchicalTree = candidateRoot;
+							}
+						} else {
+							mod.hierarchicalTree = mod.hierarchicalClusteringOrdered(treeList, useBHCscore); //revamp
 						}
-						mod.moduleScore = mod.hierarchicalTree.bayesianScore();
-						this.bayesianScore();
+						mod.moduleScore = mod.hierarchicalTree.bayesianScore(); //revamp
+						this.bayesianScore(); //revamp
 						pw.println(networkScore / numGenes + "\t" + 0);
 						// update copy of gene set
 						HashSet<Gene> set = new HashSet<Gene>();

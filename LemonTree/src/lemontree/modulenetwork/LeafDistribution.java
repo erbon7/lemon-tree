@@ -11,6 +11,7 @@
 
 package lemontree.modulenetwork;
 
+import lemontree.modulenetwork.Globals; //revamp
 import java.util.*;
 import cern.jet.stat.*;
 
@@ -27,14 +28,14 @@ public class LeafDistribution {
 	 * {number of experiments, sum of expression values, 
 	 * sum of the square of expression values}.
 	 */
-	public double[] statistics = new double[3];
+	public double[] statistics = new double[4]; //revamp
 
 	/**
 	 * Place to store temporary statistics. For instance when testing if a 
 	 * gene should be moved to another module (see also 
 	 * {@link ModuleNetwork#moduleReassign(double)}).
 	 */
-	public double[] statisticsTmp = new double[3];
+	public double[] statisticsTmp = new double[4]; //revamp
 
 	/**
 	 * Bayesian score corresponding to the statistics.
@@ -119,7 +120,7 @@ public class LeafDistribution {
 
 		gaussianParam[0] = statistics[1]/statistics[0]; // mu1; // mean
 		gaussianParam[1] = Math.sqrt(statistics[2] - statistics[0]*Math.pow(gaussianParam[0],2))/Math.sqrt(statistics[0]);  // Math.sqrt(beta1 / (alpha1 - 0.5)); // std.dev.
-		
+
 		return score;
 	}
 
@@ -144,6 +145,8 @@ public class LeafDistribution {
 				- Gamma.logGamma(normalGammaPrior[2]) + Gamma.logGamma(alpha1) - alpha1
 				* Math.log(beta1) - 0.5 * Math.log(lambda1);
 		
+		// debug System.err.println("SCOREtmp " + score  + " * " + statistics[3]);
+
 		return score;
 	}
 	
