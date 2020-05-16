@@ -21,6 +21,8 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.apache.commons.cli.PosixParser;
 
+import lemontree.modulenetwork.Globals; //revamp
+
 
 /**
  * 
@@ -52,6 +54,7 @@ public class RunCli {
 		int burn_in = 0;
 		int sample_steps = 0;
 		String cluster_file = null;
+		String column_file = null; //revamp
 		String go_annot_file = null;
 		String go_ref_file = null;
 		String top_regulators = null;
@@ -96,6 +99,7 @@ public class RunCli {
 		opts.addOption("sample_steps", true, "sample steps interval (Gibbs sampler)");
 		opts.addOption("cluster_file", true, "cluster file name");
 		opts.addOption("num_clust", true, "number of clusters");
+		opts.addOption("column_file", true, "column weight file name"); //revamp
 		opts.addOption("alpha", true, "alpha0 parameter value");
 		opts.addOption("beta", true, "beta0 parameter value");
 		opts.addOption("mu", true, "mu0 parameter value");
@@ -163,9 +167,12 @@ public class RunCli {
 			if (cmd.hasOption("output_file"))
 				output_file = cmd.getOptionValue("output_file");
 			
-			if (cmd.hasOption("cluster_file"))
+			if (cmd.hasOption("cluster_file")) //revamp
 				cluster_file = cmd.getOptionValue("cluster_file");
-			
+
+			if (cmd.hasOption("column_file"))
+				column_file = cmd.getOptionValue("column_file");
+
 			if (cmd.hasOption("alpha"))
 				alpha = Double.parseDouble(cmd.getOptionValue("alpha"));
 			
@@ -663,6 +670,7 @@ public class RunCli {
 			System.out.println("task:               " + task);
 			System.out.println("data_file:          " + data_file);
 			System.out.println("cluster_file:       " + cluster_file);
+			System.out.println("column_file:        " + column_file); //revamp
 			System.out.println("output_file:        " + output_file);
 			System.out.println("node_clustering:    " + node_clustering);
 			System.out.println("reassign_thr:       " + reassign_thr);
@@ -671,8 +679,8 @@ public class RunCli {
 			// Create ModuleNetwork object and initialise to into one cluster
 			ModuleNetwork M = new ModuleNetwork();
 			M.setNormalGammaPriors(lambda, mu, alpha, beta);
-			M.readExpressionMatrixRevamp(data_file, cluster_file); // if a "gene_file" list is given, add only the genes that are in the list
-			//M.readExpressionMatrix(data_file, gene_file); // if a "gene_file" list is given, add only the genes that are in the list
+			// if a "gene_file" list is given, add only the genes that are in the list
+			M.readExpressionMatrixRevamp(data_file, cluster_file, column_file); //revamp
 			M.readClusters(cluster_file);
 			//M.readRegulators(reg_file);
 
@@ -702,7 +710,7 @@ public class RunCli {
 	
 	public static void printBanner () {
 		System.out.println("");
-		System.out.println("LemonTree - Version 3.0.5");
+		System.out.println("LemonTree - Version 3.1.0");
 		System.out.println("-------------------------");
 		System.out.println("");
 	}

@@ -28,6 +28,7 @@ import lemontree.utils.SetOperation;
 
 import lemontree.ganesh.Cluster;
 import lemontree.ganesh.GibbsSampler;
+import lemontree.modulenetwork.Globals; //revamp
 import cern.colt.matrix.DoubleMatrix2D;
 import cern.colt.matrix.impl.DenseDoubleMatrix2D;
 import cern.colt.matrix.linalg.Algebra;
@@ -732,6 +733,7 @@ public class Module {
 			for (int s = 0; s < 3; s++)
 				tree.leafDistribution.statistics[s] = tree.leftChild.leafDistribution.statistics[s]
 						+ tree.rightChild.leafDistribution.statistics[s];
+			tree.leafDistribution.statistics[3] = tree.leftChild.leafDistribution.statistics[3]; //revamp
 			// union of condition sets
 			tree.leafDistribution.condSet = SetOperation.union(tree.leftChild.leafDistribution.condSet, 
 					tree.rightChild.leafDistribution.condSet);
@@ -904,6 +906,8 @@ public class Module {
 					tree.leafDistribution.statistics[1] += data[gene.number][i];
 					tree.leafDistribution.statistics[2] += Math.pow(data[gene.number][i], 2);
 				}
+			// revamp: only works if there's one node per condition
+			tree.leafDistribution.statistics[3] = this.moduleNetwork.condition_weight[i]; //revamp
 			tree.leafDistribution.bayesianScore();
 			tree.mergeScore = 1.0;
 			treeList.add(tree);

@@ -10,6 +10,9 @@
 
 package lemontree.utils;
 
+import lemontree.modulenetwork.Globals; //revamp
+
+
 /**
  * Finds a root of a real function of one variable in a given interval 
  * using the bisection method.
@@ -117,8 +120,14 @@ public class RootFinder {
 		f1 = func.evaluate(xMin);
 		f2 = func.evaluate(xMax);
 		for (int j=0; j<NTRY; j++){
-			if ((f1*f2 < 0) || (Math.abs(f2) < xAcc))
-				return;
+			if (Globals.unweighted) {
+				if ((f1*f2 < 0) || (Math.abs(f2) < xAcc)) 
+					return;
+			} else {
+				if (f1*f2 < 0) // revamp: rm "|| (Math.abs(f2) < xAcc))"
+					return;
+			}
+      
 			xMin = xMax;
 			xMax = FACTOR*xMax;
 			f2 = func.evaluate(xMax);

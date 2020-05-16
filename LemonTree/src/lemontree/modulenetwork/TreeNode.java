@@ -11,6 +11,7 @@ package lemontree.modulenetwork;
 
 import java.util.*;
 
+import lemontree.modulenetwork.Globals; //revamp
 import lemontree.utils.*;
 import nu.xom.Element;
 
@@ -478,7 +479,7 @@ public class TreeNode implements Comparable {
      */
     public void copyStatisticsTmp() {
         if (this.nodeStatus.equals(LEAF)) {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 4; i++) //revamp
                 this.leafDistribution.statisticsTmp[i] = this.leafDistribution.statistics[i];
         } else {
             this.leftChild.copyStatisticsTmp();
@@ -493,7 +494,7 @@ public class TreeNode implements Comparable {
      */
     public void copyStatistics() {
         if (this.nodeStatus.equals(LEAF)) {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 4; i++) //revamp
                 this.leafDistribution.statistics[i] = this.leafDistribution.statisticsTmp[i];
         } else {
             this.leftChild.copyStatistics();
@@ -513,7 +514,16 @@ public class TreeNode implements Comparable {
         double score;
         if (this.nodeStatus.equals(LEAF)) {
             this.leafDistribution.bayesianScore();
-            score = this.leafDistribution.score;
+            //revamp debugging
+            //System.err.println("BayesianScore mod num " + this.leafDistribution.score  +
+            //		" * " + this.leafDistribution.condSet.get(0) +
+            //		"/" + this.leafDistribution.condSet.size() +
+            //		" : " + this.module.moduleNetwork.condition_weight[ this.leafDistribution.condSet.get(0) ] +  "   ");
+            if (Globals.unweighted) {
+                score = this.leafDistribution.score;
+            } else {
+                score = this.leafDistribution.score * this.module.moduleNetwork.condition_weight[ this.leafDistribution.condSet.get(0) ]; //revamp
+            }
         } else {
             score = this.leftChild.bayesianScore() + this.rightChild.bayesianScore();
         }
@@ -532,7 +542,11 @@ public class TreeNode implements Comparable {
         double score;
         if (this.nodeStatus.equals(LEAF)) {
             this.leafDistribution.bayesianScoreTmp();
-            score = this.leafDistribution.scoreTmp;
+            if (Globals.unweighted) {
+                score = this.leafDistribution.scoreTmp;
+            } else {
+                score = this.leafDistribution.scoreTmp * this.module.moduleNetwork.condition_weight[ this.leafDistribution.condSet.get(0) ]; //revamp
+            }
         } else {
             score = this.leftChild.bayesianScoreTmp() + this.rightChild.bayesianScoreTmp();
         }
@@ -638,6 +652,7 @@ public class TreeNode implements Comparable {
      */
      public void testScore(double scoregain){
         double diff;
+        //System.out.println("testScore of module " + this.leafDistribution.statistics[3] );
         if (this.nodeStatus.equals("internal")) {
             diff = (-this.leafDistribution.score
                     + this.leftChild.leafDistribution.score + this.rightChild.leafDistribution.score)/this.module.moduleNetwork.geneSet.size();
@@ -1243,7 +1258,7 @@ public class TreeNode implements Comparable {
         ArrayList<TreeNode> leaves = new ArrayList<TreeNode>();
         this.gatherLeafList(leaves);
         for (TreeNode leaf : leaves)
-            for (int m : leaf.leafDistribution.condSet)
+            for (int m : leaf.leafDistribution.condSet) {
                 for (Gene gene : this.module.genes)
                     if (Double.isNaN(data[gene.number][m]) == false) {
                     	leaf.leafDistribution.statistics[0]++;
@@ -1252,9 +1267,12 @@ public class TreeNode implements Comparable {
                     	leaf.leafDistribution.statistics[2] = leaf.leafDistribution.statistics[2]
                             + Math.pow(data[gene.number][m], 2);
                     }
+            //System.err.println("statistics  " + leaf.leafDistribution.statistics[3]);    
+            leaf.leafDistribution.statistics[3] = this.module.moduleNetwork.condition_weight[m];
+        }
     }
+
     
- 
     /**
      * Computes the statistics as if a certain gene is added to the module of this node. 
      * The result is stored in {@link LeafDistribution#statisticsTmp}.
@@ -1268,12 +1286,15 @@ public class TreeNode implements Comparable {
         ArrayList<TreeNode> leaves = new ArrayList<TreeNode>();
         this.gatherLeafList(leaves);
         for (TreeNode leaf : leaves)
-            for (int m : leaf.leafDistribution.condSet)
+            for (int m : leaf.leafDistribution.condSet) {
                 if (Double.isNaN(data[gene.number][m]) == false) {
                 	leaf.leafDistribution.statisticsTmp[0]++;
                 	leaf.leafDistribution.statisticsTmp[1] = leaf.leafDistribution.statisticsTmp[1] + data[gene.number][m];
                 	leaf.leafDistribution.statisticsTmp[2] = leaf.leafDistribution.statisticsTmp[2] + Math.pow(data[gene.number][m], 2);
                 }
+                leaf.leafDistribution.statistics[3] = this.module.moduleNetwork.condition_weight[m]; //revamp
+            }    
+                
     }
     
 
@@ -1290,12 +1311,14 @@ public class TreeNode implements Comparable {
         ArrayList<TreeNode> leaves = new ArrayList<TreeNode>();
         this.gatherLeafList(leaves);
         for (TreeNode leaf : leaves)
-            for (int m : leaf.leafDistribution.condSet)
+            for (int m : leaf.leafDistribution.condSet) {
                 if (Double.isNaN(data[gene.number][m]) == false) {
                 	leaf.leafDistribution.statisticsTmp[0]--;
                 	leaf.leafDistribution.statisticsTmp[1] = leaf.leafDistribution.statisticsTmp[1] - data[gene.number][m];
                 	leaf.leafDistribution.statisticsTmp[2] = leaf.leafDistribution.statisticsTmp[2] - Math.pow(data[gene.number][m], 2);
                 }
+                leaf.leafDistribution.statistics[3] = this.module.moduleNetwork.condition_weight[m]; //revamp
+            }    
     }
     
     
