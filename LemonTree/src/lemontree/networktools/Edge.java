@@ -11,9 +11,13 @@
 
 package lemontree.networktools;
 
-import java.util.*;
+import java.util.ArrayList;
 
-import lemontree.modulenetwork.*;
+import lemontree.modulenetwork.Gene;
+import lemontree.modulenetwork.Module;
+import lemontree.modulenetwork.ModuleNetwork;
+import lemontree.modulenetwork.Split;
+import lemontree.modulenetwork.TreeNode;
 
 /**
  * A class for weighted edges, mainly to sort edges in a network by their weight
