@@ -710,7 +710,7 @@ public class RunCli {
 	
 	public static void printBanner () {
 		System.out.println("");
-		System.out.println("LemonTree - Version 3.1.0");
+		System.out.println("LemonTree - Version 3.1.1");
 		System.out.println("-------------------------");
 		System.out.println("");
 	}
