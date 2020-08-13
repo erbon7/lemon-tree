@@ -557,7 +557,7 @@ public class ModuleNetwork {
 
 		// revamp: added for compatibility with other functions 
 		this.condition_weight = new double[numCond];
-		for (int i = 0; i < numCond; i++)
+		for (int i = 0; i < numCond; i++) {
 			this.condition_weight[i] = 1.0;
 		}
 
