@@ -167,11 +167,17 @@ public class GibbsSampler {
 		}
 		loglike = loglikelihoodsum();
 		// merge clusters
-		for (int m = 0; m < ClusterSet.size(); m++) {
+    int j = 0;
+    int total = ClusterSet.size();
+		for (int m = 0; m < total; m++) {
 			for (int k = 0; k < ClusterSet.size(); k++) {
 				ClusterSet.get(k).number = k;
 			}
-			this.operationCluster(ClusterSet.get(m));
+			if (!this.operationCluster(ClusterSet.get(j))) {
+        // the cluster was not removed
+        // move the pointer forward
+        j++;
+      }
 		}
 		loglike = loglikelihoodsum();
 		return (loglike);
@@ -187,11 +193,17 @@ public class GibbsSampler {
 		do {
 			large = loglike;
 		//	count += 1;
-			for (int m = 0; m < ClusterSet.size(); m++) {
+      int j = 0;
+      int total = ClusterSet.size();
+			for (int m = 0; m < total; m++) {
 				for (int k = 0; k < ClusterSet.size(); k++) {
 					ClusterSet.get(k).number = k;
 				}
-				this.operationCluster(ClusterSet.get(m));
+				if (!this.operationCluster(ClusterSet.get(j))) {
+          // the cluster was not removed
+          // move the pointer forward
+          j++;
+        }
 			}
 			loglike = loglikelihoodsum();
 		} while (Math.abs(large - loglike) > epsConv * row * column);
@@ -459,7 +471,7 @@ public class GibbsSampler {
 	 * 
 	 * @param clust cluster to be moved.
 	 */
-	public void operationCluster(Cluster clust) {
+	public boolean operationCluster(Cluster clust) {
 		DoubleMatrix1D ratio = new DenseDoubleMatrix1D(ClusterSet.size());
 		// create a vector of probability of merging given cluster with evry
 		// other
@@ -481,7 +493,9 @@ public class GibbsSampler {
 				ClusterSet.get(outcome).RowSet.add(row);
 			ClusterSet.remove(clust.number);
 			num_cluster = num_cluster - 1;
+      return true;
 		}
+    return false;
 	}
 
 	/**
