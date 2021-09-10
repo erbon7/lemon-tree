@@ -879,10 +879,16 @@ public class TreeNode implements Comparable {
         	this.testSplitsRandom = new ArrayList<Split>(numRegAssign);
         	ArrayList<Split> regulatorSplits = this.computeRegulatorSplitsBayes(regulators, beta);
         	ArrayList<Double> regulatorSplitProbs = new ArrayList<Double>(regulatorSplits.size());
-        	// fill regulatorSplitProbs with weights, compute normalization along the way
-        	double probnorm = 0.0;
+          double maxRegulatorScore = Double.NEGATIVE_INFINITY;
+          for (Split splt : regulatorSplits){
+            if (maxRegulatorScore < splt.regulatorScore) {
+              maxRegulatorScore = splt.regulatorScore;
+            }
+        	}
+          // fill regulatorSplitProbs with weights, compute normalization along the way
+          double probnorm = 0.0;
         	for (Split splt : regulatorSplits){
-        		double weight = Math.exp(splt.regulatorScore);
+        		double weight = Math.exp(splt.regulatorScore - maxRegulatorScore);
         		probnorm += weight;
         		regulatorSplitProbs.add(weight);
         	}
